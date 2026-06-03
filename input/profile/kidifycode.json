@@ -1,0 +1,14 @@
+{
+  "_profile": "kidifycode",
+  "channel": "PlayOwnAi",
+  "Unit-Classroom": true,
+  "classroom_mode": "kids_code_story",
+  "teacher_style": "friendly_funny",
+  "student_mode": "curious_interruptions",
+  "clip_overlay_mode": "floating_hologram",
+  "concept_transform": true,
+  "concept_level": "kids",
+  "story_mode": true,
+  "quiz_mode": true,
+  "old_video_reuse": true
+}

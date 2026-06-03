@@ -1,0 +1,251 @@
+{
+  "topic": "Python Basic Structures Exercises",
+  "focus": "Python Programming",
+  "_profile": "croom",
+  "channel": "ThirdEyeRise",
+  "channel_lower": "thirdeyerise",
+  "tts_engine": "edge-tts",
+  "llmconf": "input/llm_conf.json",
+  "tts_config_file": "input/tts_conf.json",
+  "workspace_config_file": "input/workspace.json",
+  "classroom_config_file": "input/unit_classroom_config.json",
+  "classroom_clips_config": "input/clips/croom.json",
+  "Unit-Data": false,
+  "Unit-Prodcast": false,
+  "Unit-Scout": false,
+  "Unit-LeadData": false,
+  "Unit-Debate": false,
+  "Unit-Classroom": true,
+  "Unit-Definition": false,
+  "Unit-Animation": false,
+  "Unit-Comparison": false,
+  "Unit-Packaging": false,
+  "Unit-Publisher": false,
+  "Unit-Advertise": false,
+  "classroom_enabled": true,
+  "classroom_video_enabled": true,
+  "description": "Classroom Cast -- 2 Teachers / 8+ Students",
+  "classroom_teacher1_name": "James",
+  "classroom_teacher2_name": "Sarah",
+  "classroom_teacher1_gender": "male",
+  "classroom_teacher2_gender": "female",
+  "classroom_short_intro": "professional coach and Ai Entrepreneur",
+  "guestCompany": "Scale 360-A.I.",
+  "classroom_voice_teacher1": "en-US-GuyNeural",
+  "classroom_voice_teacher2": "en-US-JennyNeural",
+  "classroom_config": {
+    "classroom_enabled": true,
+    "video_formats": [
+      "Shorts",
+      "HD"
+    ],
+    "audio_speed": 1.05,
+    "pause_ms": 350,
+    "video_fps": 30,
+    "watermark_enabled": true,
+    "watermark_text": "@KidsThinkAI",
+    "watermark_opacity": 60,
+    "fallback_agent": "classroom_script_writer",
+    "mini_max_chars": 2400,
+    "mini_outro": "That is a taste of today's lesson. Watch the full video for more!",
+    "data_llm_enabled": true,
+    "hologram": {
+      "enabled": false,
+      "mode": "floating_screen",
+      "position": "bottom_left",
+      "position_shorts": "center_bottom",
+      "scale_pct": 0.55,
+      "zoom": 1.0,
+      "clip_speed": 1.0,
+      "animation": {
+        "entry": "fade_in",
+        "entry_duration": 0.5,
+        "slide_direction": "up",
+        "exit": "none",
+        "exit_duration": 0.0
+      },
+      "sources": [
+        {
+          "id": "old_screen_tutorial",
+          "type": "local",
+          "path": "/media/matin/MHDD500/TUt/Python/Python-Python-Programming-(From-Zero-to-Your-First-Job)/Python-Basic-Structures-Exercises.mp4",
+          "clips": [
+            {
+              "id": "loop_demo",
+              "start": "00:05",
+              "end": "00:22"
+            },
+            {
+              "id": "output_demo",
+              "start": "01:10",
+              "end": "01:30"
+            }
+          ]
+        }
+      ]
+    },
+    "audio": {
+      "volume": 3.0,
+      "normalize": false,
+      "normalize_lufs": -16,
+      "bitrate": "192k",
+      "sample_rate": 44100,
+      "channels": 2
+    },
+    "bubble": {
+      "engine": "pillow",
+      "opacity": 130,
+      "animate": true,
+      "animation_style": "slide_in",
+      "animation_duration": 0.4
+    },
+    "bgm_enabled": false,
+    "bgm_volume": 0.15,
+    "speaker_label_overlay": true,
+    "generate_subtitles": true,
+    "generate_cc": true,
+    "skip_if_cached": true,
+    "output_naming": "{channel}_{slug}_Classroom_{format}_{lang}.mp4",
+    "target_duration": {
+      "Shorts": {
+        "min_sec": 60,
+        "max_sec": 180
+      },
+      "HD": {
+        "min_sec": 180,
+        "max_sec": 650
+      }
+    },
+    "clip_mapping": {
+      "hook": "p0",
+      "explain": "c0",
+      "interaction": "p1",
+      "example": "p2",
+      "reinforcement": "p3",
+      "fun_fact": "c3",
+      "recap_quiz": "sum",
+      "end": "win"
+    },
+    "roles": {
+      "teachers": {
+        "T1": {
+          "name": "James",
+          "role": "lead_teacher",
+          "gender": "M",
+          "voice": "en-US-GuyNeural",
+          "speech": "Clear structured question-driven",
+          "label_color": "#4FC3F7",
+          "personality": "Lead Teacher"
+        },
+        "T2": {
+          "name": "Sarah",
+          "role": "helper_teacher",
+          "gender": "F",
+          "voice": "en-US-JennyNeural",
+          "speech": "Warm relatable real-life analogies",
+          "label_color": "#F48FB1",
+          "personality": "Helper Teacher"
+        }
+      },
+      "students": {
+        "S1": {
+          "personality": "curious",
+          "speech": "Asks what/how/why -- eager short questions",
+          "gender": "F",
+          "voice": "en-US-AnaNeural",
+          "label_color": "#FFD54F"
+        },
+        "S2": {
+          "personality": "smart",
+          "speech": "Confident concise correct answers",
+          "gender": "M",
+          "voice": "en-US-BrianNeural",
+          "label_color": "#81C784"
+        },
+        "S3": {
+          "personality": "confused",
+          "speech": "I don't understand -- gentle clarification",
+          "gender": "F",
+          "voice": "en-US-EmmaNeural",
+          "label_color": "#FF8A65"
+        },
+        "S4": {
+          "personality": "creative",
+          "speech": "Imaginative real-life connections",
+          "gender": "M",
+          "voice": "en-US-ChristopherNeural",
+          "label_color": "#64B5F6"
+        },
+        "S5": {
+          "personality": "funny",
+          "speech": "Playful brief humor",
+          "gender": "F",
+          "voice": "en-US-MichelleNeural",
+          "label_color": "#F06292"
+        },
+        "S6": {
+          "personality": "doubter",
+          "speech": "But I thought -- mild non-aggressive",
+          "gender": "M",
+          "voice": "en-US-GuyNeural",
+          "label_color": "#A1887F"
+        },
+        "S7": {
+          "personality": "quiet",
+          "speech": "One to two word impactful insights",
+          "gender": "F",
+          "voice": "en-US-AriaNeural",
+          "label_color": "#90A4AE"
+        },
+        "S8": {
+          "personality": "beginner",
+          "speech": "Very simple vocabulary",
+          "gender": "M",
+          "voice": "en-US-EricNeural",
+          "label_color": "#CE93D8"
+        }
+      }
+    },
+    "voice_mapping": {
+      "teacher_1": "en-US-AvaNeural",
+      "teacher_2": "en-GB-RyanNeural",
+      "students": {
+        "pool_c": [
+          "S1",
+          "S2",
+          "S7"
+        ],
+        "pool_d": [
+          "S3",
+          "S6",
+          "S8"
+        ],
+        "pool_e": [
+          "S4",
+          "S5"
+        ]
+      },
+      "pool_voices": {
+        "pool_c": "en-US-JennyNeural",
+        "pool_d": "en-US-GuyNeural",
+        "pool_e": "en-US-AriaNeural"
+      }
+    },
+    "gender_distribution": {
+      "method": "fixed_balanced",
+      "male": [
+        "S2",
+        "S4",
+        "S6",
+        "S8"
+      ],
+      "female": [
+        "S1",
+        "S3",
+        "S5",
+        "S7"
+      ]
+    },
+    "script_prompt": "Write a full classroom dialogue for topic: {topic}.\n\nRoles: [T1] James (male lead teacher), [T2] Sarah (female simplifier),\n[S1-F] Curious, [S2-M] Smart, [S3-F] Confused, [S4-M] Creative,\n[S5-F] Funny, [S6-M] Doubter, [S7-F] Quiet, [S8-M] Beginner.\n\nREQUIRED STRUCTURE in this exact order:\n\n[T1] James: Lesson Goal --\nOne sentence stating what kids will learn.\n\n[T2] Sarah: Today you will learn --\n3-4 bullet points in kid-friendly language listing specific skills or knowledge.\n\n[T1] James: Before we start, think --\n2-3 short questions to spark curiosity before the lesson begins.\n\n[PHASE:hook]\n2-3 lines. Grab attention with a surprising fact or question.\n\n[PHASE:explain]\n4-5 lines. James explains the core idea. Sarah simplifies with an analogy.\nInsert [HOLO:loop_demo] here to show the demonstration on the hologram screen.\n\n[PHASE:interaction]\n4-5 lines. Students react, ask questions, give examples.\n\n[PHASE:example]\n3-4 lines. Real-world example or scenario.\nInsert [HOLO:output_demo] here to show the result on the hologram screen.\n\n[PHASE:reinforcement]\n3-4 lines. Summarize key idea. Students show understanding.\n\n[PHASE:fun_fact]\n2-3 lines. A fun related fact with humor.\n\n[PHASE:recap_quiz]\n3-4 lines. Quick quiz questions from students.\n\n[QUIZ]\n1. Question? (Answer)\n2. Question? (Answer)\n3. Question? (Answer)\n\n[KEY POINTS]\n- Point 1\n- Point 2\n- Point 3\n- Point 4\n\n[T2] Sarah:\nOne warm closing sentence to leave kids feeling good.\n\nRules:\n- Every dialogue line MUST start with [TAG] Name: -- no markdown bold, no stars\n- Use tags T1, T2, S1-F, S2-M, S3-F, S4-M, S5-F, S6-M, S7-F, S8-M exactly\n- Max 12 words per line\n- Grade 3-5 vocabulary\n- Every student speaks at least once across the script\n- 3-5 students active per phase\n- Sarah always simplifies or gives examples after James explains\n- Use [HOLO:clip_id] to trigger hologram screen overlay during a phase\n- Use simple punctuation only: periods, commas, question marks\n- No em-dashes, no smart quotes, no special symbols, no emoji\n- Spell out numbers: three not 3 (better for text-to-speech)\n\nOUTPUT ONLY THE SCRIPT. No explanations. No markdown code fences."
+  }
+}

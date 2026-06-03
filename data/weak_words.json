@@ -1,0 +1,43 @@
+{
+  "description": "Filler/weak words filtered out of slugs, hashtags, and keyword extraction",
+  "version": 1,
+  "updated": "2026-04-17",
+
+  "stop_words": [
+    "a", "about", "above", "after", "again", "against", "all", "am", "an", "and",
+    "any", "are", "as", "at", "be", "because", "been", "before", "being", "below",
+    "between", "both", "but", "by", "can", "could", "did", "do", "does", "doing",
+    "down", "during", "each", "few", "for", "from", "further", "had", "has",
+    "have", "having", "he", "her", "here", "hers", "herself", "him", "himself",
+    "his", "how", "i", "if", "in", "into", "is", "it", "its", "itself", "just",
+    "me", "more", "most", "my", "myself", "no", "nor", "not", "now", "of", "off",
+    "on", "once", "only", "or", "other", "our", "ours", "ourselves", "out", "over",
+    "own", "s", "same", "she", "should", "so", "some", "such", "t", "than", "that",
+    "the", "their", "theirs", "them", "themselves", "then", "there", "these",
+    "they", "this", "those", "through", "to", "too", "under", "until", "up",
+    "very", "was", "we", "were", "what", "when", "where", "which", "while",
+    "who", "whom", "why", "will", "with", "you", "your", "yours", "yourself",
+    "yourselves"
+  ],
+
+  "contractions": [
+    "'s", "can't", "won't", "don't", "shouldn't", "couldn't",
+    "isn't", "wasn't", "weren't", "haven't", "hasn't", "hadn't",
+    "doesn't", "didn't", "wouldn't", "mustn't", "let's", "that's",
+    "there's", "here's", "what's", "who's", "where's", "how's"
+  ],
+
+  "hashtag_skip": [
+    "better", "worse", "best", "worst", "good", "bad",
+    "new", "old", "big", "small", "many", "few",
+    "get", "got", "make", "made", "take", "took",
+    "go", "goes", "went", "come", "came", "see", "saw"
+  ],
+
+  "weak_verbs": [
+    "is", "are", "was", "were", "be", "been", "being",
+    "do", "does", "did", "has", "have", "had",
+    "can", "could", "will", "would", "should", "may", "might",
+    "must", "shall", "ought"
+  ]
+}

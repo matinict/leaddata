@@ -1,0 +1,605 @@
+{
+  "_comment": "US audience sources aligned to audience_profiles.json US niches. Group keys auto-map to niches via _GROUP_NICHE_MAP. Sources cover: cost of living, housing, wages, healthcare, politics, education, immigration, work.",
+
+  "politics_news_sources": [
+    {
+      "name": "Politico",
+      "base_url": "https://www.politico.com/",
+      "category_url": "https://www.politico.com/news/",
+      "type": "news"
+    },
+    {
+      "name": "The Hill",
+      "base_url": "https://thehill.com/",
+      "category_url": "https://thehill.com/news/",
+      "type": "news"
+    },
+    {
+      "name": "NPR Politics",
+      "base_url": "https://www.npr.org/",
+      "category_url": "https://www.npr.org/sections/politics/",
+      "type": "news"
+    },
+    {
+      "name": "Axios",
+      "base_url": "https://www.axios.com/",
+      "category_url": "https://www.axios.com/politics",
+      "type": "news"
+    },
+    {
+      "name": "The Atlantic Politics",
+      "base_url": "https://www.theatlantic.com/",
+      "category_url": "https://www.theatlantic.com/politics/",
+      "type": "analysis"
+    },
+    {
+      "name": "Fox News",
+      "base_url": "https://www.foxnews.com/",
+       "category_url": "https://www.foxnews.com/politics",
+       "type": "news"
+       },
+    {
+      "name": "Breitbart",
+      "base_url": "https://www.breitbart.com/",
+      "category_url": "https://www.breitbart.com/politics",
+      "type": "news"
+    },
+    {
+      "name": "Newsmax",
+      "base_url": "https://www.newsmax.com/",
+      "category_url": "https://www.newsmax.com/politics",
+      "type": "news"
+      },
+      {
+        "name": "New York Post",
+        "base_url": "https://nypost.com/",
+        "category_url": "https://nypost.com/politics",
+        "type": "news"
+        },
+    {
+      "name": "Washington Examiner",
+      "base_url": "https://www.washingtonexaminer.com/",
+      "category_url": "https://www.washingtonexaminer.com/section/politics",
+      "type": "news"
+       },
+    {
+      "name": "Daily Wire", "
+      base_url": "https://www.dailywire.com/",
+       "category_url": "https://www.dailywire.com/topic/politics",
+       "type": "news"
+       },
+    {
+      "name": "National Review",
+      "base_url": "https://www.nationalreview.com/",
+      "category_url": "https://www.nationalreview.com/politics-policy",
+      "type": "news"
+    }
+  ],
+  "conflict_crime_beat_sources": [
+   {
+     "name": "New York Post",
+     "base_url": "https://nypost.com/",
+     "category_url": "https://nypost.com/crime/",
+     "type": "news"
+   },
+   {
+     "name": "The Daily Beast",
+     "base_url": "https://www.thedailybeast.com/",
+     "category_url": "https://www.thedailybeast.com/us-news",
+     "type": "news"
+   },
+   {
+     "name": "Law&Crime",
+     "base_url": "https://lawandcrime.com/",
+     "category_url": "https://lawandcrime.com/crime/",
+     "type": "news"
+   },
+   {
+     "name": "The Intercept",
+     "base_url": "https://theintercept.com/",
+     "category_url": "https://theintercept.com/justice/",
+     "type": "news"
+   },
+   {
+     "name": "Raw Story",
+     "base_url": "https://www.rawstory.com/",
+     "category_url": "https://www.rawstory.com/investigations/",
+     "type": "news"
+   },
+   {
+      "name": "New York Post - Crime",
+      "base_url": "https://nypost.com/",
+      "category_url": "https://nypost.com/crime/",
+      "type": "news"
+    },
+    {
+      "name": "The Daily Beast - US News",
+      "base_url": "https://www.thedailybeast.com/",
+      "category_url": "https://www.thedailybeast.com/us-news",
+      "type": "news"
+    },
+    {
+      "name": "Law & Crime",
+      "base_url": "https://lawandcrime.com/",
+      "category_url": "https://lawandcrime.com/crime/",
+      "type": "news"
+    },
+    {
+      "name": "The Intercept - Justice",
+      "base_url": "https://theintercept.com/",
+      "category_url": "https://theintercept.com/justice/",
+      "type": "news"
+    },
+    {
+      "name": "Raw Story - Investigations",
+      "base_url": "https://www.rawstory.com/",
+      "category_url": "https://www.rawstory.com/investigations/",
+      "type": "news"
+    },
+    {
+      "name": "Vice News",
+      "base_url": "https://www.vice.com/",
+      "category_url": "https://www.vice.com/en/section/news",
+      "type": "news"
+    },
+
+    {
+      "name": "NBC News - Crime & Courts",
+      "base_url": "https://www.nbcnews.com/",
+      "category_url": "https://www.nbcnews.com/crime-courts",
+      "type": "news"
+    },
+    {
+      "name": "CBS News - Crime",
+      "base_url": "https://www.cbsnews.com/",
+      "category_url": "https://www.cbsnews.com/crime/",
+      "type": "news"
+    },
+    {
+      "name": "ABC News - US",
+      "base_url": "https://abcnews.go.com/",
+      "category_url": "https://abcnews.go.com/US",
+      "type": "news"
+    },
+    {
+      "name": "CNN - Crime & Justice",
+      "base_url": "https://www.cnn.com/",
+      "category_url": "https://www.cnn.com/us/crime-and-justice",
+      "type": "news"
+    },
+    {
+      "name": "Fox News - Crime",
+      "base_url": "https://www.foxnews.com/",
+      "category_url": "https://www.foxnews.com/category/us/crime",
+      "type": "news"
+    },
+    {
+      "name": "MSNBC - Politics & Conflict",
+      "base_url": "https://www.msnbc.com/",
+      "category_url": "https://www.msnbc.com/politics",
+      "type": "news"
+    },
+
+    {
+      "name": "ProPublica - Investigations",
+      "base_url": "https://www.propublica.org/",
+      "category_url": "https://www.propublica.org/investigations",
+      "type": "investigative"
+    },
+    {
+      "name": "The Marshall Project - Criminal Justice",
+      "base_url": "https://www.themarshallproject.org/",
+      "category_url": "https://www.themarshallproject.org/topics/criminal-justice",
+      "type": "investigative"
+    },
+    {
+      "name": "Mother Jones - Politics & Conflict",
+      "base_url": "https://www.motherjones.com/",
+      "category_url": "https://www.motherjones.com/politics/",
+      "type": "investigative"
+    },
+    {
+      "name": "The Guardian US - Crime",
+      "base_url": "https://www.theguardian.com/",
+      "category_url": "https://www.theguardian.com/us/crime",
+      "type": "investigative"
+    },
+    {
+      "name": "Reveal News - Investigations",
+      "base_url": "https://revealnews.org/",
+      "category_url": "https://revealnews.org/articles/",
+      "type": "investigative"
+    },
+
+    {
+      "name": "Courthouse News Service",
+      "base_url": "https://www.courthousenews.com/",
+      "category_url": "https://www.courthousenews.com/national/",
+      "type": "legal_beat"
+    },
+    {
+      "name": "Crime Online",
+      "base_url": "https://www.crimeonline.com/",
+      "category_url": "https://www.crimeonline.com/category/crime/",
+      "type": "crime_beat"
+    },
+    {
+      "name": "The Crime Report",
+      "base_url": "https://thecrimereport.org/",
+      "category_url": "https://thecrimereport.org/category/news/",
+      "type": "crime_beat"
+    },
+    {
+      "name": "CrimeReads - True Crime",
+      "base_url": "https://crimereads.com/",
+      "category_url": "https://crimereads.com/category/true-crime/",
+      "type": "crime_beat"
+    },
+
+    {
+      "name": "HuffPost - Politics Conflict",
+      "base_url": "https://www.huffpost.com/",
+      "category_url": "https://www.huffpost.com/news/politics",
+      "type": "news"
+    },
+    {
+      "name": "Salon - Politics & Conflict",
+      "base_url": "https://www.salon.com/",
+      "category_url": "https://www.salon.com/category/politics/",
+      "type": "news"
+    },
+    {
+      "name": "The Hill - Conflict & Debate",
+      "base_url": "https://thehill.com/",
+      "category_url": "https://thehill.com/homenews/",
+      "type": "news"
+    },
+    {
+      "name": "Axios - Hard News",
+      "base_url": "https://www.axios.com/",
+      "category_url": "https://www.axios.com/hard-news",
+      "type": "news"
+    },
+    {
+      "name": "Newsweek - US Conflict",
+      "base_url": "https://www.newsweek.com/",
+      "category_url": "https://www.newsweek.com/us-news",
+      "type": "news"
+    },
+
+    {
+      "name": "Gothamist - NYC Street News",
+      "base_url": "https://www.gothamist.com/",
+      "category_url": "https://www.gothamist.com/news",
+      "type": "local_beat"
+    },
+    {
+      "name": "Chicago Tribune - Crime",
+      "base_url": "https://www.chicagotribune.com/",
+      "category_url": "https://www.chicagotribune.com/crime/",
+      "type": "local_beat"
+    },
+    {
+      "name": "LA Times - Crime & Justice",
+      "base_url": "https://www.latimes.com/",
+      "category_url": "https://www.latimes.com/california/story/crime-justice",
+      "type": "local_beat"
+    },
+    {
+      "name": "Houston Chronicle - Crime",
+      "base_url": "https://www.houstonchronicle.com/",
+      "category_url": "https://www.houstonchronicle.com/crime/",
+      "type": "local_beat"
+    },
+    {
+      "name": "Miami Herald - Crime",
+      "base_url": "https://www.miamiherald.com/",
+      "category_url": "https://www.miamiherald.com/news/local/crime/",
+      "type": "local_beat"
+    },
+    {
+      "name": "Detroit Free Press - Crime",
+      "base_url": "https://www.freep.com/",
+      "category_url": "https://www.freep.com/news/local/crime/",
+      "type": "local_beat"
+    },
+
+    {
+      "name": "Democracy Now! - Social Struggles",
+      "base_url": "https://www.democracynow.org/",
+      "category_url": "https://www.democracynow.org/topics/criminal_justice",
+      "type": "protest_conflict"
+    },
+    {
+      "name": "Truthout - Social Justice",
+      "base_url": "https://truthout.org/",
+      "category_url": "https://truthout.org/topics/social-movements/",
+      "type": "protest_conflict"
+    },
+    {
+      "name": "Common Dreams - Protest & Struggles",
+      "base_url": "https://www.commondreams.org/",
+      "category_url": "https://www.commondreams.org/news",
+      "type": "protest_conflict"
+    }
+ ],
+
+  "finance_news_sources": [
+    {
+      "name": "CNBC Economy",
+      "base_url": "https://www.cnbc.com/",
+      "category_url": "https://www.cnbc.com/economy/",
+      "type": "news"
+    },
+    {
+      "name": "MarketWatch",
+      "base_url": "https://www.marketwatch.com/",
+      "category_url": "https://www.marketwatch.com/economy-politics/",
+      "type": "news"
+    },
+    {
+      "name": "Business Insider Economy",
+      "base_url": "https://www.businessinsider.com/",
+      "category_url": "https://www.businessinsider.com/economy",
+      "type": "news"
+    },
+    {
+      "name": "Forbes Economy",
+      "base_url": "https://www.forbes.com/",
+      "category_url": "https://www.forbes.com/economy/",
+      "type": "analysis"
+    },
+    {
+      "name": "The Guardian US Economy",
+      "base_url": "https://www.theguardian.com/",
+      "category_url": "https://www.theguardian.com/us-news/economy",
+      "type": "news"
+    }
+  ],
+
+  "health_news_sources": [
+    {
+      "name": "Vox Health",
+      "base_url": "https://www.vox.com/",
+      "category_url": "https://www.vox.com/health-care",
+      "type": "analysis"
+    },
+    {
+      "name": "NPR Health",
+      "base_url": "https://www.npr.org/",
+      "category_url": "https://www.npr.org/sections/health/",
+      "type": "news"
+    },
+    {
+      "name": "STAT News",
+      "base_url": "https://www.statnews.com/",
+      "category_url": "https://www.statnews.com/",
+      "type": "news"
+    },
+    {
+      "name": "Kaiser Health News",
+      "base_url": "https://kffhealthnews.org/",
+      "category_url": "https://kffhealthnews.org/news/",
+      "type": "investigative"
+    }
+  ],
+
+  "business_news_sources": [
+    {
+      "name": "Bloomberg US",
+      "base_url": "https://www.bloomberg.com/",
+      "category_url": "https://www.bloomberg.com/economics",
+      "type": "analysis"
+    },
+    {
+      "name": "Reuters US",
+      "base_url": "https://www.reuters.com/",
+      "category_url": "https://www.reuters.com/business/",
+      "type": "news"
+    },
+    {
+      "name": "AP Business",
+      "base_url": "https://apnews.com/",
+      "category_url": "https://apnews.com/business",
+      "type": "news"
+    },
+    {
+      "name": "Fortune",
+      "base_url": "https://fortune.com/",
+      "category_url": "https://fortune.com/section/economy/",
+      "type": "analysis"
+    }
+  ],
+
+  "education_news_sources": [
+    {
+      "name": "Inside Higher Ed",
+      "base_url": "https://www.insidehighered.com/",
+      "category_url": "https://www.insidehighered.com/news",
+      "type": "news"
+    },
+    {
+      "name": "The Chronicle of Higher Education",
+      "base_url": "https://www.chronicle.com/",
+      "category_url": "https://www.chronicle.com/",
+      "type": "analysis"
+    },
+    {
+      "name": "Education Week",
+      "base_url": "https://www.edweek.org/",
+      "category_url": "https://www.edweek.org/policy-politics/",
+      "type": "news"
+    }
+  ],
+
+  "world_news_sources": [
+    {
+      "name": "AP News",
+      "base_url": "https://apnews.com/",
+      "category_url": "https://apnews.com/us-news",
+      "type": "news"
+    },
+    {
+      "name": "NBC News",
+      "base_url": "https://www.nbcnews.com/",
+      "category_url": "https://www.nbcnews.com/us-news",
+      "type": "news"
+    },
+    {
+      "name": "USA Today",
+      "base_url": "https://www.usatoday.com/",
+      "category_url": "https://www.usatoday.com/news/nation/",
+      "type": "news"
+    },
+    {
+      "name": "Vox",
+      "base_url": "https://www.vox.com/",
+      "category_url": "https://www.vox.com/policy",
+      "type": "analysis"
+    },
+    {
+      "name": "The Atlantic",
+      "base_url": "https://www.theatlantic.com/",
+      "category_url": "https://www.theatlantic.com/us/",
+      "type": "analysis"
+    }
+  ],
+  "conflict_social_news_sources": [
+    {
+      "name": "The Marshall Project",
+      "base_url": "https://www.themarshallproject.org/",
+      "category_url": "https://www.themarshallproject.org/",
+      "type": "investigative"
+    },
+    {
+      "name": "Reuters Social Issues",
+      "base_url": "https://www.reuters.com/",
+      "category_url": "https://www.reuters.com/world/us/social-issues/",
+      "type": "news"
+    },
+    {
+      "name": "AP Crime and Justice",
+      "base_url": "https://apnews.com/",
+      "category_url": "https://apnews.com/hub/crime",
+      "type": "news"
+    },
+    {
+      "name": "Fox News US Crime",
+      "base_url": "https://www.foxnews.com/",
+      "category_url": "https://www.foxnews.com/category/us/crime",
+      "type": "news"
+    },
+    {
+      "name": "MSNBC Social Justice",
+      "base_url": "https://www.msnbc.com/",
+      "category_url": "https://www.msnbc.com/social-justice",
+      "type": "analysis"
+    },
+    {
+      "name": "ProPublica Justice",
+      "base_url": "https://www.propublica.org/",
+      "category_url": "https://www.propublica.org/topics/justice-debt",
+      "type": "investigative"
+    },
+    {
+      "name": "NPR Justice",
+      "base_url": "https://www.npr.org/",
+      "category_url": "https://www.npr.org/sections/justice/",
+      "type": "news"
+    }
+  ],
+  "conflict_crime_beat_sources_extended": [
+   {
+     "name": "TMZ",
+     "base_url": "https://www.tmz.com/",
+     "category_url": "https://www.tmz.com/news/",
+     "type": "news"
+   },
+   {
+     "name": "Mediaite",
+     "base_url": "https://www.mediaite.com/",
+     "category_url": "https://www.mediaite.com/politics/",
+     "type": "news"
+   },
+   {
+     "name": "ProPublica",
+     "base_url": "https://www.propublica.org/",
+     "category_url": "https://www.propublica.org/topics/criminal-justice",
+     "type": "news"
+   },
+   {
+     "name": "The Smoking Gun",
+     "base_url": "https://www.thesmokinggun.com/",
+     "category_url": "https://www.thesmokinggun.com/buster",
+     "type": "news"
+   },
+   {
+     "name": "Breitbart News",
+     "base_url": "https://www.breitbart.com/",
+     "category_url": "https://www.breitbart.com/crime/",
+     "type": "news"
+   },
+   {
+     "name": "The Blaze",
+     "base_url": "https://www.theblaze.com/",
+     "category_url": "https://www.theblaze.com/news",
+     "type": "news"
+   },
+   {
+     "name": "Daily Mail US",
+     "base_url": "https://www.dailymail.co.uk/",
+     "category_url": "https://www.dailymail.co.uk/ushome/index.html",
+     "type": "news"
+   },
+   {
+     "name": "Heavy.com",
+     "base_url": "https://heavy.com/",
+     "category_url": "https://heavy.com/news/",
+     "type": "news"
+   },
+   {
+     "name": "Courthouse News Service",
+     "base_url": "https://www.courthousenews.com/",
+     "category_url": "https://www.courthousenews.com/region/national/",
+     "type": "news"
+   },
+   {
+     "name": "Mother Jones",
+     "base_url": "https://www.motherjones.com/",
+     "category_url": "https://www.motherjones.com/crime-justice/",
+     "type": "news"
+   },
+   {
+     "name": "Salon",
+     "base_url": "https://www.salon.com/",
+     "category_url": "https://www.salon.com/category/politics/",
+     "type": "news"
+   },
+   {
+     "name": "The Gateway Pundit",
+     "base_url": "https://www.thegatewaypundit.com/",
+     "category_url": "https://www.thegatewaypundit.com/",
+     "type": "news"
+   },
+   {
+     "name": "InfoWars",
+     "base_url": "https://www.infowars.com/",
+     "category_url": "https://www.infowars.com/news/",
+     "type": "news"
+   },
+   {
+     "name": "Common Dreams",
+     "base_url": "https://www.commondreams.org/",
+     "category_url": "https://www.commondreams.org/news",
+     "type": "news"
+   },
+   {
+     "name": "Truthout",
+     "base_url": "https://truthout.org/",
+     "category_url": "https://truthout.org/latest/",
+     "type": "news"
+   }
+ ]
+
+
+}

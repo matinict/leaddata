@@ -1,0 +1,55 @@
+{
+  "llm_config": {
+    "default": "ollama/gemma4:31b-cloud",
+    "tiers": {
+      "research": { "models": ["ollama/gpt-oss:120b-cloud", "ollama/gemma4:31b-cloud", "ollama/qwen2.5:latest", "ollama/llama3.1:8b", "openai/gpt-4o", "anthropic/claude-3-5-sonnet-20241022", "gemini/gemini-1.5-pro-latest", "deepseek/deepseek-chat", "dashscope/qwen-plus"], "temperature": 0.3, "max_tokens": 4096 },
+      "reasoning": { "models": ["ollama/gemma4:31b-cloud", "ollama/gpt-oss:120b-cloud", "anthropic/claude-3-5-sonnet-20241022", "openai/gpt-4o", "gemini/gemini-1.5-pro-latest", "dashscope/qwen-plus", "deepseek/deepseek-chat"], "temperature": 0.7, "max_tokens": 8192 },
+      "scoring": { "models": ["ollama/qwen2.5:latest", "ollama/llama3.1:8b", "deepseek/deepseek-chat", "dashscope/qwen-plus"], "temperature": 0.2, "max_tokens": 2048 },
+      "creative": { "models": ["ollama/gemma4:31b-cloud", "openai/gpt-4o", "anthropic/claude-3-5-sonnet-20241022", "gemini/gemini-1.5-flash-latest"], "temperature": 0.8, "max_tokens": 4096 },
+      "local_fast": { "models": ["ollama/llama3.1:8b", "ollama/qwen2.5-coder:3b", "openai/gpt-4o-mini"], "temperature": 0.5, "max_tokens": 2048 },
+      "local_tiny": { "models": ["ollama/deepseek-r1:1.5b"], "temperature": 0.5, "max_tokens": 1024 },
+      "cloud": { "models": ["ollama/gpt-oss:120b-cloud", "ollama/gemma4:31b-cloud"], "temperature": 0.5, "max_tokens": 8192 },
+      "openai": { "models": ["openai/gpt-4o", "openai/gpt-4o-mini", "openai/gpt-3.5-turbo"], "temperature": 0.5, "max_tokens": 8192 },
+      "anthropic": { "models": ["anthropic/claude-3-5-sonnet-20241022", "anthropic/claude-3-haiku-20240307"], "temperature": 0.5, "max_tokens": 8192 },
+      "google": { "models": ["gemini/gemini-1.5-pro-latest", "gemini/gemini-1.5-flash-latest"], "temperature": 0.5, "max_tokens": 8192 },
+      "emergency": { "models": ["openai/gpt-4o", "anthropic/claude-3-5-sonnet-20241022", "gemini/gemini-1.5-pro-latest", "deepseek/deepseek-chat"], "temperature": 0.3, "max_tokens": 8192 }
+    },
+    "agents": {
+      "data_researcher": { "tier": "research" },
+      "csv_generator": { "tier": "local_tiny" },
+      "definition_specialist": { "tier": "research" },
+      "scout": { "tier": "research" },
+      "prodcast_scriptwriter": { "tier": "cloud" },
+      "classroom_script_writer": { "tier": "cloud" },
+      "debater": { "tier": "research" },
+      "judge": { "tier": "research" },
+      "debater_m": { "tier": "research" },
+      "judge_m": { "tier": "research" },
+      "score_analyst": { "tier": "scoring" },
+      "video_producer": { "tier": "local_fast" },
+      "audio_engineer": { "tier": "local_tiny" },
+      "debug_tester": { "tier": "cloud" }
+    },
+    "circuit_breaker": { "failure_threshold": 3, "cooldown_seconds": 300 },
+    "access_control": {
+      "unit_data_only": true,
+      "allowed_agents": [
+        "data_researcher",
+        "csv_generator",
+        "definition_specialist",
+        "debater",
+        "judge",
+        "data_comparison_specialist",
+        "classroom_script_writer",
+        "score_analyst",
+        "scout",
+        "prodcast_scriptwriter"
+      ],
+      "force_local_when_disabled": false,
+      "local_fallback": "ollama/deepseek-r1:1.5b",
+      "enforce_ollama_only": false,
+      "emergency_tier": "emergency",
+      "emergency_bypass_ollama_only": true
+    }
+  }
+}

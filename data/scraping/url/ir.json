@@ -1,0 +1,114 @@
+{
+  "_comment": "IR audience sources for 2026. Covers state-official, semi-official, and moderate reformist outlets for a balanced perspective on Iranian domestic and international affairs.",
+
+  "politics_news_sources": [
+    {
+      "name": "IRNA (Islamic Republic News Agency)",
+      "base_url": "https://www.irna.ir/",
+      "category_url": "https://www.irna.ir/service/politic",
+      "type": "official news"
+    },
+    {
+      "name": "ISNA (Iranian Students News Agency)",
+      "base_url": "https://www.isna.ir/",
+      "category_url": "https://www.isna.ir/service/Politics",
+      "type": "moderate news"
+    },
+    {
+      "name": "Tasnim News Agency",
+      "base_url": "https://www.tasnimnews.com/",
+      "category_url": "https://www.tasnimnews.com/fa/service/1",
+      "type": "semi-official"
+    },
+    {
+      "name": "Shargh Daily",
+      "base_url": "https://www.sharghdaily.com/",
+      "category_url": "https://www.sharghdaily.com/fa/service/1",
+      "type": "reformist analysis"
+    }
+  ],
+
+  "finance_news_sources": [
+    {
+      "name": "Financial Tribune",
+      "base_url": "https://financialtribune.com/",
+      "category_url": "https://financialtribune.com/economy-business-markets",
+      "type": "economic news"
+    },
+    {
+      "name": "Etemad Online",
+      "base_url": "https://www.etemadonline.com/",
+      "category_url": "https://www.etemadonline.com/fa/service/7",
+      "type": "news/analysis"
+    },
+    {
+      "name": "ILNA (Iranian Labour News Agency)",
+      "base_url": "https://www.ilna.ir/",
+      "category_url": "https://www.ilna.ir/service/economy",
+      "type": "labour/economic news"
+    },
+    {
+      "name": "Khabar Online",
+      "base_url": "https://www.khabaronline.ir/",
+      "category_url": "https://www.khabaronline.ir/service/economy",
+      "type": "news"
+    }
+  ],
+
+  "health_and_education_sources": [
+    {
+      "name": "EducationIRAN",
+      "base_url": "https://educationiran.ir/",
+      "category_url": "https://educationiran.ir/home",
+      "type": "education platform"
+    },
+    {
+      "name": "Mehr News - Health",
+      "base_url": "https://www.mehrnews.com/",
+      "category_url": "https://www.mehrnews.com/service/Health",
+      "type": "news"
+    },
+    {
+      "name": "IRCMJ (Red Crescent Medical Journal)",
+      "base_url": "https://www.ircmj.com/",
+      "category_url": "https://www.ircmj.com/current",
+      "type": "medical research"
+    }
+  ],
+
+  "society_and_culture_sources": [
+    {
+      "name": "Hamshahri Online",
+      "base_url": "https://www.hamshahrionline.ir/",
+      "category_url": "https://www.hamshahrionline.ir/service/City",
+      "type": "social news"
+    },
+    {
+      "name": "Tabnak",
+      "base_url": "https://www.tabnak.ir/",
+      "category_url": "https://www.tabnak.ir/fa/social",
+      "type": "news/analysis"
+    },
+    {
+      "name": "Fararu",
+      "base_url": "https://fararu.com/",
+      "category_url": "https://fararu.com/fa/culture",
+      "type": "culture/society"
+    }
+  ],
+
+  "tech_and_world_sources": [
+    {
+      "name": "Digiato",
+      "base_url": "https://digiato.com/",
+      "category_url": "https://digiato.com/tech",
+      "type": "technology"
+    },
+    {
+      "name": "Press TV",
+      "base_url": "https://www.presstv.ir/",
+      "category_url": "https://www.presstv.ir/Default/MiddleEast",
+      "type": "international news"
+    }
+  ]
+}

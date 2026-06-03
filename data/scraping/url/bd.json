@@ -1,0 +1,249 @@
+{
+  "_comment": "BD audience sources for 2026. Focuses on high-traffic national dailies and tech-centric platforms. Legacy sources like Prothom Alo have been replaced with Amar Desh and mainstream alternatives per user preference.",
+
+  "politics_and_national_news": [
+   {
+     "name": "Amar Desh",
+     "base_url": "https://dailyamardesh.com/",
+     "category_url": "https://dailyamardesh.com/bangladesh",
+     "type": "national daily / alternative voice"
+   },
+   {
+     "name": "Prothom Alo",
+     "base_url": "https://www.prothomalo.com/",
+     "category_url": "https://www.prothomalo.com/politics",
+     "type": "leading daily"
+   },
+   {
+     "name": "The Daily Star",
+     "base_url": "https://www.thedailystar.net/",
+     "category_url": "https://www.thedailystar.net/politics",
+     "type": "leading English daily"
+   },
+   {
+     "name": "Bdnews24",
+     "base_url": "https://bdnews24.com/",
+     "category_url": "https://bdnews24.com/politics",
+     "type": "digital news platform"
+   },
+   {
+     "name": "Dhaka Tribune",
+     "base_url": "https://www.dhakatribune.com/",
+     "category_url": "https://www.dhakatribune.com/politics",
+     "type": "English daily"
+   },
+   {
+     "name": "New Age Bangladesh",
+     "base_url": "https://www.newagebd.net/",
+     "category_url": "https://www.newagebd.net/politics",
+     "type": "independent daily"
+   },
+   {
+     "name": "Manab Zamin",
+     "base_url": "https://mzamin.com/",
+     "category_url": "https://mzamin.com/category/politics",
+     "type": "Bangla daily"
+   },
+   {
+     "name": "Kaler Kantho",
+     "base_url": "https://www.kalerkantho.com/",
+     "category_url": "https://www.kalerkantho.com/politics",
+     "type": "popular Bangla daily"
+   },
+   {
+     "name": "Jugantor",
+     "base_url": "https://www.jugantor.com/",
+     "category_url": "https://www.jugantor.com/politics",
+     "type": "Bangla daily"
+   },
+   {
+     "name": "Samakal",
+     "base_url": "https://samakal.com/",
+     "category_url": "https://samakal.com/politics",
+     "type": "Bangla daily"
+   }
+ ],
+
+ "finance_and_business_sources": [
+   {
+     "name": "The Business Standard (TBS)",
+     "base_url": "https://www.tbsnews.net/",
+     "category_url": "https://www.tbsnews.net/economy",
+     "type": "financial leader"
+   },
+   {
+     "name": "Financial Express",
+     "base_url": "https://thefinancialexpress.com.bd/",
+     "category_url": "https://thefinancialexpress.com.bd/economy",
+     "type": "economic authority"
+   },
+   {
+     "name": "The Business Standard - Stock Market",
+     "base_url": "https://www.tbsnews.net/",
+     "category_url": "https://www.tbsnews.net/stock-market",
+     "type": "market coverage"
+   },
+   {
+     "name": "Dhaka Stock Exchange News",
+     "base_url": "https://www.dsebd.org/",
+     "category_url": "https://www.dsebd.org/news.php",
+     "type": "official exchange"
+   },
+   {
+     "name": "Bangladesh Bank News",
+     "base_url": "https://www.bb.org.bd/",
+     "category_url": "https://www.bb.org.bd/en/index.php/mediaroom/news",
+     "type": "central bank official"
+   },
+   {
+     "name": "The Daily Star - Business",
+     "base_url": "https://www.thedailystar.net/",
+     "category_url": "https://www.thedailystar.net/business",
+     "type": "business section"
+   },
+   {
+     "name": "Dhaka Tribune - Business",
+     "base_url": "https://www.dhakatribune.com/",
+     "category_url": "https://www.dhakatribune.com/business",
+     "type": "business coverage"
+   },
+   {
+     "name": "New Age - Business",
+     "base_url": "https://www.newagebd.net/",
+     "category_url": "https://www.newagebd.net/business",
+     "type": "business section"
+   }
+ ],
+
+ "technology_and_startup": [
+   {
+     "name": "The Daily Star - Tech",
+     "base_url": "https://www.thedailystar.net/",
+     "category_url": "https://www.thedailystar.net/tech-startup",
+     "type": "tech coverage"
+   },
+   {
+     "name": "TBS - Sci-Tech",
+     "base_url": "https://www.tbsnews.net/",
+     "category_url": "https://www.tbsnews.net/sci-tech",
+     "type": "science & technology"
+   },
+   {
+     "name": "Dhaka Tribune - Tech",
+     "base_url": "https://www.dhakatribune.com/",
+     "category_url": "https://www.dhakatribune.com/science-technology",
+     "type": "tech section"
+   }
+ ],
+
+ "sports": [
+   {
+     "name": "The Daily Star - Sports",
+     "base_url": "https://www.thedailystar.net/",
+     "category_url": "https://www.thedailystar.net/sports",
+     "type": "comprehensive sports"
+   },
+   {
+     "name": "Prothom Alo - Sports",
+     "base_url": "https://www.prothomalo.com/",
+     "category_url": "https://www.prothomalo.com/sports",
+     "type": "Bangla sports coverage"
+   },
+   {
+     "name": "Cricbuzz Bangladesh",
+     "base_url": "https://www.cricbuzz.com/",
+     "category_url": "https://www.cricbuzz.com/cricket-news/geo/bangladesh",
+     "type": "cricket focus"
+   },
+   {
+     "name": "Dhaka Tribune - Sports",
+     "base_url": "https://www.dhakatribune.com/",
+     "category_url": "https://www.dhakatribune.com/sports",
+     "type": "sports section"
+   }
+ ],
+
+ "entertainment_and_lifestyle": [
+   {
+     "name": "The Daily Star - Entertainment",
+     "base_url": "https://www.thedailystar.net/",
+     "category_url": "https://www.thedailystar.net/entertainment",
+     "type": "showbiz & culture"
+   },
+   {
+     "name": "Prothom Alo - Entertainment",
+     "base_url": "https://www.prothomalo.com/",
+     "category_url": "https://www.prothomalo.com/entertainment",
+     "type": "Bangla entertainment"
+   },
+   {
+     "name": "Dhaka Tribune - Lifestyle",
+     "base_url": "https://www.dhakatribune.com/",
+     "category_url": "https://www.dhakatribune.com/lifestyle",
+     "type": "lifestyle coverage"
+   }
+ ],
+
+ "international_news": [
+   {
+     "name": "The Daily Star - World",
+     "base_url": "https://www.thedailystar.net/",
+     "category_url": "https://www.thedailystar.net/world",
+     "type": "world news"
+   },
+   {
+     "name": "Prothom Alo - International",
+     "base_url": "https://www.prothomalo.com/",
+     "category_url": "https://www.prothomalo.com/world",
+     "type": "global coverage"
+   },
+   {
+     "name": "Dhaka Tribune - World",
+     "base_url": "https://www.dhakatribune.com/",
+     "category_url": "https://www.dhakatribune.com/world",
+     "type": "international section"
+   }
+ ],
+
+ "regional_and_district_news": [
+   {
+     "name": "Chattogram News",
+     "base_url": "https://www.prothomalo.com/",
+     "category_url": "https://www.prothomalo.com/chattogram",
+     "type": "regional coverage"
+   },
+   {
+     "name": "Sylhet News",
+     "base_url": "https://www.prothomalo.com/",
+     "category_url": "https://www.prothomalo.com/sylhet",
+     "type": "regional coverage"
+   },
+   {
+     "name": "Khulna News",
+     "base_url": "https://www.prothomalo.com/",
+     "category_url": "https://www.prothomalo.com/khulna",
+     "type": "regional coverage"
+   }
+ ],
+
+ "opinion_and_editorial": [
+   {
+     "name": "The Daily Star - Opinion",
+     "base_url": "https://www.thedailystar.net/",
+     "category_url": "https://www.thedailystar.net/opinion",
+     "type": "editorial & analysis"
+   },
+   {
+     "name": "Prothom Alo - Opinion",
+     "base_url": "https://www.prothomalo.com/",
+     "category_url": "https://www.prothomalo.com/opinion",
+     "type": "Bangla opinion pieces"
+   },
+   {
+     "name": "Dhaka Tribune - Opinion",
+     "base_url": "https://www.dhakatribune.com/",
+     "category_url": "https://www.dhakatribune.com/opinion",
+     "type": "editorial content"
+   }
+ ]
+}

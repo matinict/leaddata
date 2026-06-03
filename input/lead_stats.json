@@ -1,0 +1,11 @@
+{
+  "total": 118,
+  "with_phone": 67,
+  "with_email": 35,
+  "with_website": 118,
+  "avg_quality_score": 55.9,
+  "segments": {
+    "hot": 67,
+    "cold": 51
+  }
+}

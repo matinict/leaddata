@@ -1,0 +1,126 @@
+{
+  "_comment": "CA audience sources for 2026. Includes the primary bilingual broadcasters, national financial leaders, and tech hubs. Note: Quebec-specific sources (Radio-Canada/La Presse) are essential for reaching the 23%+ Francophone digital market.",
+
+  "politics_news_sources": [
+    {
+      "name": "CBC News",
+      "base_url": "https://www.cbc.ca/",
+      "category_url": "https://www.cbc.ca/news/politics",
+      "type": "national public broadcaster"
+    },
+    {
+      "name": "CTV News",
+      "base_url": "https://www.ctvnews.ca/",
+      "category_url": "https://www.ctvnews.ca/politics",
+      "type": "major private network"
+    },
+    {
+      "name": "The Globe and Mail",
+      "base_url": "https://www.theglobeandmail.com/",
+      "category_url": "https://www.theglobeandmail.com/politics/",
+      "type": "national newspaper of record"
+    },
+    {
+      "name": "Global News Canada",
+      "base_url": "https://globalnews.ca/",
+      "category_url": "https://globalnews.ca/national/program/politics/",
+      "type": "mass audience news"
+    },
+    {
+      "name": "National Post",
+      "base_url": "https://nationalpost.com/",
+      "category_url": "https://nationalpost.com/category/news/politics/",
+      "type": "conservative analysis"
+    }
+  ],
+
+  "quebec_french_leaders": [
+    {
+      "name": "Radio-Canada",
+      "base_url": "https://ici.radio-canada.ca/",
+      "category_url": "https://ici.radio-canada.ca/politique",
+      "type": "official French broadcaster"
+    },
+    {
+      "name": "La Presse",
+      "base_url": "https://www.lapresse.ca/",
+      "category_url": "https://www.lapresse.ca/actualites/politique/",
+      "type": "dominant French digital"
+    },
+    {
+      "name": "Le Journal de Montréal",
+      "base_url": "https://www.journaldemontreal.com/",
+      "category_url": "https://www.journaldemontreal.com/actualite/politique",
+      "type": "high-traffic Quebec mass media"
+    }
+  ],
+
+  "finance_news_sources": [
+    {
+      "name": "BNN Bloomberg Canada",
+      "base_url": "https://www.bnnbloomberg.ca/",
+      "category_url": "https://www.bnnbloomberg.ca/economics",
+      "type": "financial broadcast leader"
+    },
+    {
+      "name": "Financial Post",
+      "base_url": "https://financialpost.com/",
+      "category_url": "https://financialpost.com/category/news/economy/",
+      "type": "business authority"
+    },
+    {
+      "name": "Wealthsimple Magazine",
+      "base_url": "https://www.wealthsimple.com/en-ca/magazine",
+      "category_url": "https://www.wealthsimple.com/en-ca/magazine/category/market-news",
+      "type": "fintech/modern investor"
+    },
+    {
+      "name": "MoneySense",
+      "base_url": "https://www.moneysense.ca/",
+      "category_url": "https://www.moneysense.ca/category/news/",
+      "type": "personal finance"
+    }
+  ],
+
+  "tech_and_innovation_sources": [
+    {
+      "name": "BetaKit",
+      "base_url": "https://betakit.com/",
+      "category_url": "https://betakit.com/category/news/",
+      "type": "startup/tech leader"
+    },
+    {
+      "name": "The Logic",
+      "base_url": "https://thelogic.co/",
+      "category_url": "https://thelogic.co/category/news/innovation/",
+      "type": "innovation/policy analysis"
+    },
+    {
+      "name": "IT World Canada",
+      "base_url": "https://www.itworldcanada.com/",
+      "category_url": "https://www.itworldcanada.com/category/ai",
+      "type": "enterprise tech"
+    },
+    {
+      "name": "Communitech News",
+      "base_url": "https://www.communitech.ca/",
+      "category_url": "https://www.communitech.ca/news/",
+      "type": "tech ecosystem"
+    }
+  ],
+
+  "official_public_data": [
+    {
+      "name": "Statistics Canada (The Daily)",
+      "base_url": "https://www.statcan.gc.ca/",
+      "category_url": "https://www.statcan.gc.ca/en/dai-quo",
+      "type": "national statistical wire"
+    },
+    {
+      "name": "Canada.ca News",
+      "base_url": "https://www.canada.ca/",
+      "category_url": "https://www.canada.ca/en/news.html",
+      "type": "government press releases"
+    }
+  ]
+}

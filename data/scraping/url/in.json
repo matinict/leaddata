@@ -1,0 +1,588 @@
+{
+  "_comment": "IN audience sources for 2026. Prioritizes the 'Digital-First' evolution of legacy brands and the dominant vernacular (Hindi) leaders which now command the highest engagement in Bharat (non-metro India).",
+
+  "politics_news_sources": [
+    {
+      "name": "The Times of India",
+      "base_url": "https://timesofindia.indiatimes.com/",
+      "category_url": "https://timesofindia.indiatimes.com/india",
+      "type": "legacy leader"
+    },
+    {
+      "name": "NDTV",
+      "base_url": "https://www.ndtv.com/",
+      "category_url": "https://www.ndtv.com/india-news",
+      "type": "digital-first news"
+    },
+    {
+      "name": "The Indian Express",
+      "base_url": "https://indianexpress.com/",
+      "category_url": "https://indianexpress.com/section/india/",
+      "type": "analysis/investigative"
+    },
+    {
+      "name": "The Hindu",
+      "base_url": "https://www.thehindu.com/",
+      "category_url": "https://www.thehindu.com/news/national/",
+      "type": "institutional news"
+    }
+  ],
+
+  "vernacular_leaders_hindi": [
+    {
+      "name": "Aaj Tak",
+      "base_url": "https://www.aajtak.in/",
+      "category_url": "https://www.aajtak.in/national",
+      "type": "hindi traffic leader"
+    },
+    {
+      "name": "Dainik Bhaskar",
+      "base_url": "https://www.bhaskar.com/",
+      "category_url": "https://www.bhaskar.com/national/",
+      "type": "mass vernacular"
+    },
+    {
+      "name": "News18 India",
+      "base_url": "https://hindi.news18.com/",
+      "category_url": "https://hindi.news18.com/news/nation/",
+      "type": "multi-language network"
+    }
+  ],
+
+  "finance_news_sources": [
+    {
+      "name": "The Economic Times",
+      "base_url": "https://economictimes.indiatimes.com/",
+      "category_url": "https://economictimes.indiatimes.com/news/economy",
+      "type": "finance leader"
+    },
+    {
+      "name": "Mint (Livemint)",
+      "base_url": "https://www.livemint.com/",
+      "category_url": "https://www.livemint.com/economy",
+      "type": "business news"
+    },
+    {
+      "name": "Moneycontrol",
+      "base_url": "https://www.moneycontrol.com/",
+      "category_url": "https://www.moneycontrol.com/news/business/economy/",
+      "type": "market analytics"
+    },
+    {
+      "name": "Business Standard",
+      "base_url": "https://www.business-standard.com/",
+      "category_url": "https://www.business-standard.com/economy-policy",
+      "type": "financial daily"
+    }
+  ],
+
+  "tech_and_startup_sources": [
+    {
+      "name": "YourStory",
+      "base_url": "https://yourstory.com/",
+      "category_url": "https://yourstory.com/category/startups",
+      "type": "startup ecosystem"
+    },
+    {
+      "name": "Inc42",
+      "base_url": "https://inc42.com/",
+      "category_url": "https://inc42.com/features/",
+      "type": "tech/venture news"
+    },
+    {
+      "name": "Digit.in",
+      "base_url": "https://www.digit.in/",
+      "category_url": "https://www.digit.in/news/",
+      "type": "consumer tech"
+    },
+    {
+      "name": "Gadgets 360",
+      "base_url": "https://www.gadgets360.com/",
+      "category_url": "https://www.gadgets360.com/news",
+      "type": "tech/reviews"
+    }
+  ],
+
+  "policy_and_public_data": [
+    {
+      "name": "NITI Aayog",
+      "base_url": "https://niti.gov.in/",
+      "category_url": "https://niti.gov.in/documents/reports",
+      "type": "government policy"
+    },
+    {
+      "name": "PRS Legislative Research",
+      "base_url": "https://prsindia.org/",
+      "category_url": "https://prsindia.org/the-proceedings",
+      "type": "parliamentary data"
+    }
+  ],
+
+
+  "conflict_beat_news_sources": [
+
+    {
+      "beat": "India–Pakistan Post-War Tensions & Diplomacy",
+      "summary_context": "Aftermath of Operation Sindoor (May 2025 four-day air war). India put Indus Waters Treaty in abeyance. Pakistan brokered US-Iran ceasefire, upstaging India diplomatically.",
+      "sources": [
+        {
+          "name": "The Times of India",
+          "base_url": "https://timesofindia.indiatimes.com/",
+          "category_url": "https://timesofindia.indiatimes.com/india/pakistan",
+          "type": "legacy leader"
+        },
+        {
+          "name": "NDTV",
+          "base_url": "https://www.ndtv.com/",
+          "category_url": "https://www.ndtv.com/india-pakistan-news",
+          "type": "digital-first news"
+        }
+      ]
+    },
+
+    {
+      "beat": "Manipur Ethnic Conflict — Fresh 2026 Violence",
+      "summary_context": "Fresh violence erupted in April 2026 after a 5-year-old and 6-month-old were killed in a suspected rocket strike in Bishnupur. Curfew imposed across 5 districts. Ongoing Meitei-Kuki clash since 2023.",
+      "sources": [
+        {
+          "name": "The Times of India",
+          "base_url": "https://timesofindia.indiatimes.com/",
+          "category_url": "https://timesofindia.indiatimes.com/india/manipur",
+          "type": "legacy leader"
+        },
+        {
+          "name": "NDTV",
+          "base_url": "https://www.ndtv.com/",
+          "category_url": "https://www.ndtv.com/india-news/manipur",
+          "type": "digital-first news"
+        }
+      ]
+    },
+
+    {
+      "beat": "Iran War Energy Crisis — India Fuel & LPG Struggle",
+      "summary_context": "Iran closed Strait of Hormuz, firing on Indian ships. 90% of India's LPG imports pass through the strait. Brent crude surged from $80 to $120/barrel. Steel sector in distress. India caught between US pressure and energy needs.",
+      "sources": [
+        {
+          "name": "The Times of India",
+          "base_url": "https://timesofindia.indiatimes.com/",
+          "category_url": "https://timesofindia.indiatimes.com/business/india-business",
+          "type": "legacy leader"
+        },
+        {
+          "name": "NDTV",
+          "base_url": "https://www.ndtv.com/",
+          "category_url": "https://www.ndtv.com/business/energy",
+          "type": "digital-first news"
+        }
+      ]
+    },
+
+    {
+      "beat": "Noida Factory Workers' Violent Labour Protest",
+      "summary_context": "Thousands of workers from Hosiery Complex and NSEZ protested wage exploitation. Arson, stone-pelting, vehicles set ablaze. UP border sealed. CM Yogi Adityanath reviewed situation. Four consecutive days of unrest in April 2026.",
+      "sources": [
+        {
+          "name": "The Times of India",
+          "base_url": "https://timesofindia.indiatimes.com/",
+          "category_url": "https://timesofindia.indiatimes.com/city/noida",
+          "type": "legacy leader"
+        },
+        {
+          "name": "NDTV",
+          "base_url": "https://www.ndtv.com/",
+          "category_url": "https://www.ndtv.com/cities/noida-news",
+          "type": "digital-first news"
+        }
+      ]
+    },
+
+    {
+      "beat": "India–China Strategic Rivalry & Two-Front Threat",
+      "summary_context": "China used drones to probe India-China border during the May 2025 India-Pakistan war. Pakistan deployed Chinese J-10 jets, PL-15 missiles. Indian analysts warn of a 'fused two-front threat'. India awaiting S-400 delivery from Russia.",
+      "sources": [
+        {
+          "name": "The Times of India",
+          "base_url": "https://timesofindia.indiatimes.com/",
+          "category_url": "https://timesofindia.indiatimes.com/india/china",
+          "type": "legacy leader"
+        },
+        {
+          "name": "NDTV",
+          "base_url": "https://www.ndtv.com/",
+          "category_url": "https://www.ndtv.com/india-china-news",
+          "type": "digital-first news"
+        }
+      ]
+    },
+
+    {
+      "beat": "Assam–Bhutan Border — Eviction Drive Clashes",
+      "summary_context": "Violence erupted at Indo-Bhutan border following an Assam eviction drive. Protesters damaged forest department vehicles, attempted to torch the range office. Police personnel injured in stone-pelting.",
+      "sources": [
+        {
+          "name": "The Times of India",
+          "base_url": "https://timesofindia.indiatimes.com/",
+          "category_url": "https://timesofindia.indiatimes.com/india/assam",
+          "type": "legacy leader"
+        },
+        {
+          "name": "NDTV",
+          "base_url": "https://www.ndtv.com/",
+          "category_url": "https://www.ndtv.com/india-news/assam",
+          "type": "digital-first news"
+        }
+      ]
+    }
+
+  ],
+
+  "conflict_news_sources": [
+    {
+      "name": "Aaj Tak",
+      "base_url": "https://www.aajtak.in/",
+      "category_url": "https://www.aajtak.in/crime",
+      "type": "Hindi legacy → digital-first (crime / law & order)"
+    },
+    {
+      "name": "ABP Live",
+      "base_url": "https://www.abplive.com/",
+      "category_url": "https://news.abplive.com/crime/page-1",
+      "type": "Hindi digital-first (crime / law & order)"
+    },
+    {
+      "name": "TV9 Bharatvarsh",
+      "base_url": "https://www.tv9hindi.com/",
+      "category_url": "https://www.tv9hindi.com/crime",
+      "type": "Hindi digital-first (crime / law & order)"
+    },
+    {
+      "name": "Republic Bharat",
+      "base_url": "https://www.republicbharat.com/",
+      "category_url": "https://www.republicbharat.com/india/crime-news",
+      "type": "Hindi digital-first (crime / law & order)"
+    },
+    {
+      "name": "India TV Hindi",
+      "base_url": "https://www.indiatv.in/",
+      "category_url": "https://www.indiatv.in/crime",
+      "type": "Hindi legacy → digital-first (crime / law & order)"
+    },
+    {
+      "name": "Amar Ujala",
+      "base_url": "https://www.amarujala.com/",
+      "category_url": "https://www.amarujala.com/crime",
+      "type": "Hindi legacy leader (crime / law & order)"
+    },
+    {
+      "name": "Live Hindustan",
+      "base_url": "https://www.livehindustan.com/",
+      "category_url": "https://www.livehindustan.com/crime/news-2",
+      "type": "Hindi legacy → digital-first (crime / law & order)"
+    },
+    {
+      "name": "Navbharat Times (NBT)",
+      "base_url": "https://navbharattimes.indiatimes.com/",
+      "category_url": "https://navbharattimes.indiatimes.com/metro/lucknow/crime/articlelist/21302330.cms",
+      "type": "Hindi legacy → digital-first (regional crime / law & order)"
+    },
+    {
+      "name": "Times Now Navbharat",
+      "base_url": "https://www.timesnowhindi.com/",
+      "category_url": "https://www.timesnowhindi.com/topic/latest-crime-news",
+      "type": "Hindi TV-led digital (crime / law & order topic hub)"
+    },
+    {
+      "name": "Dainik Jagran",
+      "base_url": "https://www.jagran.com/",
+      "category_url": "https://www.jagran.com/Search/crime",
+      "type": "Hindi legacy leader (crime via search hub)"
+    },
+    {
+      "name": "CrimeTak",
+      "base_url": "https://www.crimetak.in/",
+      "category_url": "https://www.crimetak.in/",
+      "type": "Hindi digital-first vertical (crime)"
+    },
+    {
+      "name": "NDTV",
+      "base_url": "https://www.ndtv.com/",
+      "category_url": "https://www.ndtv.com/topic/crime",
+      "type": "legacy leader → digital-first (crime / law & order topic hub)"
+    },
+    {
+      "name": "India Today",
+      "base_url": "https://www.indiatoday.in/",
+      "category_url": "https://www.indiatoday.in/crime",
+      "type": "legacy leader → digital-first (crime / law & order)"
+    },
+    {
+      "name": "Hindustan Times",
+      "base_url": "https://www.hindustantimes.com/",
+      "category_url": "https://www.hindustantimes.com/topic/crime/",
+      "type": "legacy leader → digital-first (crime topic hub)"
+    },
+    {
+      "name": "Scroll.in",
+      "base_url": "https://scroll.in/",
+      "category_url": "https://scroll.in/tag/crime",
+      "type": "digital-first (crime tag hub)"
+    },
+    {
+      "name": "The New Indian Express",
+      "base_url": "https://www.newindianexpress.com/",
+      "category_url": "https://www.newindianexpress.com/topic/crime",
+      "type": "legacy → digital-first (crime topic hub)"
+    },
+    {
+      "name": "Deccan Chronicle",
+      "base_url": "https://www.deccanchronicle.com/",
+      "category_url": "https://www.deccanchronicle.com/nation/crime",
+      "type": "legacy → digital-first (crime)"
+    },
+    {
+      "name": "Deccan Herald",
+      "base_url": "https://www.deccanherald.com/",
+      "category_url": "https://www.deccanherald.com/bengaluru-crime",
+      "type": "legacy → digital-first (crime)"
+    },
+    {
+      "name": "The Times of India",
+      "base_url": "https://timesofindia.indiatimes.com/",
+      "category_url": "https://timesofindia.indiatimes.com/city/crime-news",
+      "type": "legacy leader (crime / law & order)"
+    },
+    {
+      "name": "ThePrint (English)",
+      "base_url": "https://theprint.in/",
+      "category_url": "https://theprint.in/defence/",
+      "type": "digital-first (defence / national security)"
+    },
+    {
+      "name": "ThePrint Hindi",
+      "base_url": "https://hindi.theprint.in/",
+      "category_url": "https://hindi.theprint.in/category/india/crime/",
+      "type": "digital-first (Hindi crime / law & order)"
+    },
+    {
+      "name": "ThePrint Hindi",
+      "base_url": "https://hindi.theprint.in/",
+      "category_url": "https://hindi.theprint.in/category/defence/",
+      "type": "digital-first (Hindi defence / national security)"
+    },
+    {
+      "name": "India Today (Defence)",
+      "base_url": "https://www.indiatoday.in/",
+      "category_url": "https://www.indiatoday.in/defence",
+      "type": "legacy leader → digital-first (defence / national security)"
+    },
+    {
+      "name": "Hindustan Times (Defence)",
+      "base_url": "https://www.hindustantimes.com/",
+      "category_url": "https://www.hindustantimes.com/topic/defence",
+      "type": "legacy leader → digital-first (defence topic hub)"
+    },
+    {
+      "name": "The Times of India (Defence)",
+      "base_url": "https://timesofindia.indiatimes.com/",
+      "category_url": "https://timesofindia.indiatimes.com/defence",
+      "type": "legacy leader (defence / national security)"
+    }
+  ],
+  "rumours_conflict_news_sources": [
+    {
+      "name": "The Times of India — Times Fact Check",
+      "base_url": "https://timesofindia.indiatimes.com/",
+      "category_url": "https://timesofindia.indiatimes.com/times-fact-check",
+      "type": "legacy leader (fact-check vertical)"
+    },
+    {
+      "name": "Navbharat Times — Fact Check (Hindi)",
+      "base_url": "https://navbharattimes.indiatimes.com/",
+      "category_url": "https://navbharattimes.indiatimes.com/fact-check",
+      "type": "legacy leader (Hindi, fact-check vertical)"
+    },
+    {
+      "name": "NDTV — Fact Check",
+      "base_url": "https://www.ndtv.com/",
+      "category_url": "https://www.ndtv.com/fact-check",
+      "type": "digital-first news (fact-check vertical)"
+    },
+    {
+      "name": "Aaj Tak — Fact Check (Hindi)",
+      "base_url": "https://www.aajtak.in/",
+      "category_url": "https://www.aajtak.in/fact-check",
+      "type": "Hindi mass digital leader (fact-check vertical)"
+    },
+    {
+      "name": "ABP Live — Fact Check",
+      "base_url": "https://news.abplive.com/",
+      "category_url": "https://news.abplive.com/fact-check",
+      "type": "digital-first news (fact-check vertical)"
+    },
+    {
+      "name": "ABP Live (Hindi) — Fact Check",
+      "base_url": "https://www.abplive.com/",
+      "category_url": "https://www.abplive.com/fact-check",
+      "type": "Hindi digital leader (fact-check vertical)"
+    },
+    {
+      "name": "Amar Ujala — Fact Check (Hindi)",
+      "base_url": "https://www.amarujala.com/",
+      "category_url": "https://www.amarujala.com/fact-check",
+      "type": "Hindi legacy leader (fact-check vertical)"
+    },
+    {
+      "name": "India TV — Fact Check (Hindi)",
+      "base_url": "https://www.indiatvnews.com/",
+      "category_url": "https://www.indiatvnews.com/fact-check",
+      "type": "Hindi TV+digi leader (fact-check vertical)"
+    },
+    {
+      "name": "BOOM — Fact Check",
+      "base_url": "https://www.boomlive.in/",
+      "category_url": "https://www.boomlive.in/fact-check",
+      "type": "digital-first fact-check specialist"
+    },
+    {
+      "name": "The Quint — WebQoof",
+      "base_url": "https://www.thequint.com/",
+      "category_url": "https://www.thequint.com/webqoof",
+      "type": "digital-first news (fact-check vertical)"
+    },
+    {
+      "name": "Alt News",
+      "base_url": "https://www.altnews.in/",
+      "category_url": "https://www.altnews.in/",
+      "type": "digital-first fact-check specialist"
+    },
+    {
+      "name": "Factly — Fact Check",
+      "base_url": "https://factly.in/",
+      "category_url": "https://factly.in/category/fact-check/",
+      "type": "digital-first fact-check specialist"
+    },
+    {
+      "name": "PIB Fact Check (Govt of India)",
+      "base_url": "https://factcheck.pib.gov.in/",
+      "category_url": "https://factcheck.pib.gov.in/",
+      "type": "government verification (official)"
+    },
+    {
+      "name": "NewsMobile — Fact Check Portal",
+      "base_url": "https://factcheck.newsmobile.in/",
+      "category_url": "https://factcheck.newsmobile.in/",
+      "type": "digital-first fact-check portal"
+    },
+    {
+      "name": "Newschecker",
+      "base_url": "https://newschecker.in/",
+      "category_url": "https://www.newschecker.in/fact-check/1",
+      "type": "digital-first fact-check specialist"
+    },
+    {
+      "name": "Fact Crescendo",
+      "base_url": "https://factcrescendo.com/",
+      "category_url": "https://factcrescendo.com/",
+      "type": "multilingual fact-check specialist"
+    },
+    {
+      "name": "Vishvas.News (Jagran New Media)",
+      "base_url": "https://www.vishvas.news/",
+      "category_url": "https://www.vishvas.news/",
+      "type": "Hindi-first fact-check specialist (multilingual)"
+    }
+  ],
+  "rummers_conflict_news_sources": [
+    {
+      "name": "Aaj Tak",
+      "base_url": "https://www.aajtak.in/",
+      "category_url": "https://www.aajtak.in/crime",
+      "type": "Hindi digital-first (sensational crime, big crime, high-temper breaking)"
+    },
+    {
+      "name": "Aaj Tak",
+      "base_url": "https://www.aajtak.in/",
+      "category_url": "https://www.aajtak.in/crime/big-crime",
+      "type": "Hindi digital-first (major sensational crime & scandal stories)"
+    },
+    {
+      "name": "Republic Bharat",
+      "base_url": "https://www.republicbharat.com/",
+      "category_url": "https://www.republicbharat.com/india",
+      "type": "Hindi digital-first (high-temper debates, political fights, viral conflicts)"
+    },
+    {
+      "name": "Zee News Hindi",
+      "base_url": "https://zeenews.india.com/hindi",
+      "category_url": "https://zeenews.india.com/hindi/crime",
+      "type": "Hindi legacy → digital-first (crime, scandals, high-drama controversies)"
+    },
+    {
+      "name": "ABP Live",
+      "base_url": "https://www.abplive.com/",
+      "category_url": "https://news.abplive.com/crime",
+      "type": "Hindi digital-first (crime, law & order, sensational stories)"
+    },
+    {
+      "name": "TV9 Bharatvarsh",
+      "base_url": "https://www.tv9hindi.com/",
+      "category_url": "https://www.tv9hindi.com/crime",
+      "type": "Hindi digital-first (high-temper crime & conflict reporting)"
+    },
+    {
+      "name": "India TV Hindi",
+      "base_url": "https://www.indiatv.in/",
+      "category_url": "https://www.indiatv.in/crime",
+      "type": "Hindi legacy → digital-first (sensational crime, breaking controversies)"
+    },
+    {
+      "name": "CrimeTak",
+      "base_url": "https://www.crimetak.in/",
+      "category_url": "https://www.crimetak.in/",
+      "type": "Hindi digital-first vertical (dedicated crime & high-drama stories)"
+    },
+    {
+      "name": "Times Now Navbharat",
+      "base_url": "https://www.timesnowhindi.com/",
+      "category_url": "https://www.timesnowhindi.com/topic/latest-crime-news",
+      "type": "Hindi TV-led digital (high-temper crime & conflict hub)"
+    },
+    {
+      "name": "Amar Ujala",
+      "base_url": "https://www.amarujala.com/",
+      "category_url": "https://www.amarujala.com/crime",
+      "type": "Hindi legacy leader (crime, local conflicts, high engagement in North India)"
+    },
+    {
+      "name": "Dainik Jagran",
+      "base_url": "https://www.jagran.com/",
+      "category_url": "https://www.jagran.com/Search/crime",
+      "type": "Hindi legacy leader (crime & sensational search hub)"
+    },
+    {
+      "name": "News18 Hindi",
+      "base_url": "https://hindi.news18.com/",
+      "category_url": "https://hindi.news18.com/crime",
+      "type": "Hindi digital-first (crime, political struggles, viral news)"
+    },
+    {
+      "name": "Live Hindustan",
+      "base_url": "https://www.livehindustan.com/",
+      "category_url": "https://www.livehindustan.com/crime",
+      "type": "Hindi legacy → digital-first (crime & high-temper local conflicts)"
+    },
+    {
+      "name": "NDTV India",
+      "base_url": "https://www.ndtv.com/",
+      "category_url": "https://www.ndtv.com/topic/crime",
+      "type": "Legacy → digital-first (crime & major conflict stories)"
+    },
+    {
+      "name": "India Today",
+      "base_url": "https://www.indiatoday.in/",
+      "category_url": "https://www.indiatoday.in/crime",
+      "type": "Legacy leader → digital-first (sensational crime & controversies)"
+    }
+  ]
+}

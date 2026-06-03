@@ -1,0 +1,415 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Unit-Dubbing Profile Schema",
+  "description": "Validation schema for dub.json profile — Unit-Dubbing pipeline config",
+  "type": "object",
+  "properties": {
+
+    "topic": {
+      "type": "string",
+      "description": "Video topic — used for workspace slug and metadata.",
+      "example": "Classes in Python"
+    },
+
+    "focus": {
+      "type": "string",
+      "description": "Short focus hint passed to LLM fallback if used.",
+      "example": "Beginner-friendly OOP explanation"
+    },
+
+    "_profile": {
+      "type": "string",
+      "description": "Profile key — must match filename in input/profile/.",
+      "example": "dub"
+    },
+
+    "channel": {
+      "type": "string",
+      "description": "Channel name used in output filenames and metadata.",
+      "example": "PlayOwnAi"
+    },
+
+    "channel_lower": {
+      "type": "string",
+      "description": "Lowercase channel name for URL/slug use.",
+      "example": "playownai"
+    },
+
+    "Unit-Dubbing": {
+      "type": "boolean",
+      "description": "Master switch for Unit-Dubbing pipeline.",
+      "default": false
+    },
+
+    "dubbing_config": {
+      "type": "object",
+      "description": "Full configuration block for Unit-Dubbing pipeline.",
+      "properties": {
+
+        "source_video": {
+          "type": "string",
+          "description": "Absolute path to the source video file to dub.",
+          "example": "/home/matin/Desktop/2_class.mkv"
+        },
+
+        "script_path": {
+          "type": "string",
+          "description": "Optional path to pre-existing transcript. If empty, Whisper auto-transcribes (if auto_transcribe_if_script_missing is true).",
+          "default": "",
+          "example": "/home/matin/Desktop/script.txt"
+        },
+
+        "auto_transcribe_if_script_missing": {
+          "type": "boolean",
+          "description": "If true and script_path is empty, automatically run Whisper on source_video to generate transcript.",
+          "default": true
+        },
+
+        "tts_engine": {
+          "type": "string",
+          "description": "TTS engine to use for synthesis.",
+          "enum": ["xtts", "edge", "piper"],
+          "default": "edge"
+        },
+
+        "tts_voice": {
+          "type": "string",
+          "description": "Voice name for non-cloned TTS engines (e.g. Edge TTS neural voices).",
+          "default": "en-US-JennyNeural",
+          "examples": ["en-US-JennyNeural", "en-US-GuyNeural", "en-US-AriaNeural"]
+        },
+
+        "voice_clone_enabled": {
+          "type": "boolean",
+          "description": "Toggle voice cloning on/off. If true, uses xtts and voice_clone_config. If false, uses tts_engine + tts_voice.",
+          "default": false
+        },
+
+        "whisper_model": {
+          "type": "string",
+          "description": "Whisper model size for transcription. Larger = slower but more accurate.",
+          "enum": ["tiny", "base", "small", "medium", "large"],
+          "default": "base"
+        },
+
+        "sync_mode": {
+          "type": "string",
+          "description": "Audio sync strategy. 'atempo' stretches dubbed audio to match video duration. 'none' uses as-is.",
+          "enum": ["atempo", "none"],
+          "default": "atempo"
+        },
+
+        "keep_bgm": {
+          "type": "boolean",
+          "description": "Mix background music under dubbed audio.",
+          "default": false
+        },
+
+        "bgm_volume": {
+          "type": "number",
+          "description": "BGM volume level (0.0–1.0). Only used when keep_bgm=true.",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "default": 0.15
+        },
+
+        "bgm_path": {
+          "type": "string",
+          "description": "Path to BGM audio file. Only used when keep_bgm=true.",
+          "default": "assets/mp3/bgm.mp3"
+        },
+
+        "chunk_max_chars": {
+          "type": "integer",
+          "description": "Max characters per XTTS synthesis chunk. Shorter = faster but more joins.",
+          "minimum": 50,
+          "maximum": 400,
+          "default": 140
+        },
+
+        "xtts_temperature": {
+          "type": "number",
+          "description": "XTTS inference temperature. Lower = more stable, higher = more expressive.",
+          "minimum": 0.1,
+          "maximum": 1.0,
+          "default": 0.25
+        },
+
+        "xtts_speed": {
+          "type": "number",
+          "description": "XTTS speech speed multiplier. <1.0 = slower, >1.0 = faster.",
+          "minimum": 0.5,
+          "maximum": 2.0,
+          "default": 0.78
+        },
+
+        "xtts_model_dir": {
+          "type": "string",
+          "description": "Path to XTTS v2 model directory containing config.json and checkpoint files.",
+          "default": "models/xtts"
+        },
+
+        "voice_clone_config": {
+          "type": "object",
+          "description": "Voice cloning configuration for XTTS.",
+          "properties": {
+            "speaker_wav": {
+              "type": "string",
+              "description": "Path to reference WAV file for voice cloning.",
+              "example": "assets/voices/matin3.wav"
+            },
+            "language": {
+              "type": "string",
+              "description": "Target language code for XTTS synthesis.",
+              "enum": ["en", "bn", "fr", "de", "es", "it", "pt", "pl", "tr", "ru", "nl", "cs", "ar", "zh", "ja", "ko", "hu"],
+              "default": "en"
+            },
+            "device": {
+              "type": "string",
+              "description": "Compute device for XTTS model.",
+              "enum": ["cpu", "cuda", "mps"],
+              "default": "cpu"
+            },
+            "use_cache": {
+              "type": "boolean",
+              "description": "Cache synthesized audio to skip re-generation on re-run.",
+              "default": true
+            }
+          },
+          "required": ["speaker_wav"]
+        },
+
+        "screen_ocr": {
+          "type": "object",
+          "description": "Screen OCR extraction configuration for code-aware context merging.",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Enable OCR extraction from video frames.",
+              "default": true
+            },
+            "fps": {
+              "type": "number",
+              "description": "Frames per second to sample for OCR. 0.2 = 1 frame every 5 seconds.",
+              "minimum": 0.01,
+              "maximum": 5.0,
+              "default": 0.2
+            },
+            "max_frames": {
+              "type": "integer",
+              "description": "Maximum number of frames to extract and process.",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 5
+            },
+            "confidence_threshold": {
+              "type": "number",
+              "description": "Minimum confidence score (0.0-1.0) to keep UI/terminal text blocks.",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "default": 0.70
+            },
+            "code_confidence_threshold": {
+              "type": "number",
+              "description": "Minimum confidence score (0.0-1.0) to keep code blocks. Lower than UI threshold because code is denser.",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "default": 0.55
+            },
+            "backend": {
+              "type": "string",
+              "description": "OCR engine backend to use.",
+              "enum": ["paddleocr"],
+              "default": "paddleocr"
+            },
+            "lang": {
+              "type": "string",
+              "description": "Language code for OCR model.",
+              "default": "en"
+            },
+            "cleanup_frames": {
+              "type": "boolean",
+              "description": "Delete temporary frame images after OCR processing.",
+              "default": false
+            }
+          }
+        },
+
+        "context_merge": {
+          "type": "object",
+          "description": "Configuration for merging Whisper transcript with OCR screen text.",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Enable context-aware script enhancement.",
+              "default": true
+            },
+            "agent_name": {
+              "type": "string",
+              "description": "LLM agent identifier for the merge task.",
+              "default": "teaching_merge"
+            },
+            "style": {
+              "type": "string",
+              "description": "Narration style for the LLM prompt.",
+              "enum": ["educational", "formal", "casual", "technical"],
+              "default": "educational"
+            },
+            "temperature": {
+              "type": "number",
+              "description": "LLM sampling temperature.",
+              "minimum": 0.0,
+              "maximum": 2.0,
+              "default": 0.7
+            },
+            "max_tokens": {
+              "type": "integer",
+              "description": "Maximum tokens for LLM response and context window slicing.",
+              "minimum": 500,
+              "maximum": 8000,
+              "default": 4000
+            },
+            "language": {
+              "type": "string",
+              "description": "Target language for the enhanced narration output.",
+              "default": "en"
+            }
+          }
+        },
+
+        "hologram": {
+          "type": "object",
+          "description": "Optional hologram sci-fi filter applied after merge, before crop.",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Enable hologram filter pipeline.",
+              "default": false
+            },
+            "mode": {
+              "type": "string",
+              "description": "Hologram visual mode.",
+              "enum": ["floating_screen", "projector", "glass_panel", "panel"],
+              "default": "panel"
+            },
+            "type": {
+              "type": "integer",
+              "description": "Hologram processing type. 1=standard overlay, 2=screen/OCR auto-detect.",
+              "enum": [1, 2],
+              "default": 2
+            },
+            "clip_speed": {
+              "type": "number",
+              "description": "Playback speed multiplier applied during hologram render.",
+              "minimum": 0.5,
+              "maximum": 4.0,
+              "default": 1.0
+            }
+          }
+        },
+
+        "video_formats": {
+          "type": "object",
+          "description": "Per-format crop, scale and output config. Each key is a format name.",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "description": "Enable or disable this format entirely.",
+                "default": true
+              },
+              "resolution": {
+                "type": "string",
+                "description": "Output resolution as WxH.",
+                "enum": [
+                  "1920x1080",
+                  "2560x1440",
+                  "3840x2160",
+                  "7680x4320",
+                  "1080x1920",
+                  "1440x2560",
+                  "2160x3840"
+                ],
+                "example": "1920x1080"
+              },
+              "blur_pad": {
+                "type": "boolean",
+                "description": "Use blurred background padding instead of black bars when AR doesn't match.",
+                "default": false
+              },
+              "auto_crop": {
+                "type": "boolean",
+                "description": "Smart auto-crop for landscape→vertical. Centers on middle auto_crop_center_pct of frame width. Ignores manual left/right when true.",
+                "default": false
+              },
+              "auto_crop_center_pct": {
+                "type": "number",
+                "description": "Fraction of frame width used as the center band for auto_crop. 0.55 = middle 55%. Tune 0.4–0.7 if speaker is off-center.",
+                "minimum": 0.2,
+                "maximum": 1.0,
+                "default": 0.55
+              },
+              "crop": {
+                "type": "object",
+                "description": "Manual crop values in pixels. left/right ignored when auto_crop=true.",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean",
+                    "description": "Apply crop. false = scale/pad only with no crop.",
+                    "default": true
+                  },
+                  "top": {
+                    "type": "integer",
+                    "description": "Pixels to remove from top (e.g. window title bar).",
+                    "minimum": 0,
+                    "default": 0
+                  },
+                  "bottom": {
+                    "type": "integer",
+                    "description": "Pixels to remove from bottom (e.g. taskbar/terminal).",
+                    "minimum": 0,
+                    "default": 0
+                  },
+                  "left": {
+                    "type": "integer",
+                    "description": "Pixels to remove from left (e.g. file tree sidebar). Ignored when auto_crop=true.",
+                    "minimum": 0,
+                    "default": 0
+                  },
+                  "right": {
+                    "type": "integer",
+                    "description": "Pixels to remove from right. Ignored when auto_crop=true.",
+                    "minimum": 0,
+                    "default": 0
+                  }
+                }
+              }
+            }
+          },
+          "example": {
+            "HD": {
+              "enabled": true,
+              "resolution": "1920x1080",
+              "blur_pad": false,
+              "auto_crop": false,
+              "crop": { "enabled": true, "top": 80, "bottom": 80, "left": 360, "right": 0 }
+            },
+            "Shorts": {
+              "enabled": true,
+              "resolution": "1080x1920",
+              "blur_pad": true,
+              "auto_crop": true,
+              "auto_crop_center_pct": 0.55,
+              "crop": { "enabled": true, "top": 80, "bottom": 80 }
+            }
+          }
+        }
+
+      },
+      "required": ["source_video"]
+    }
+
+  },
+  "required": ["topic", "_profile", "Unit-Dubbing", "dubbing_config"]
+}

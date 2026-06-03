@@ -1,0 +1,414 @@
+{
+  "_comment": "RU audience sources for 2026. Aligned with current traffic leaders and legal compliance. Includes state-official agencies, business leaders, and domestic tech aggregators.",
+
+  "politics_news_sources": [
+    {
+      "name": "RIA Novosti",
+      "base_url": "https://ria.ru/",
+      "category_url": "https://ria.ru/politics/",
+      "type": "official agency"
+    },
+    {
+      "name": "TASS",
+      "base_url": "https://tass.ru/",
+      "category_url": "https://tass.ru/politika",
+      "type": "state news"
+    },
+    {
+      "name": "Lenta.ru",
+      "base_url": "https://lenta.ru/",
+      "category_url": "https://lenta.ru/rubrics/russia/",
+      "type": "general news"
+    },
+    {
+      "name": "Argumenty i Fakty (AiF)",
+      "base_url": "https://aif.ru/",
+      "category_url": "https://aif.ru/politics",
+      "type": "mainstream"
+    }
+  ],
+
+  "finance_news_sources": [
+    {
+      "name": "RBC (RosBiznesConsulting)",
+      "base_url": "https://www.rbc.ru/",
+      "category_url": "https://www.rbc.ru/economics/",
+      "type": "business leader"
+    },
+    {
+      "name": "Kommersant",
+      "base_url": "https://www.kommersant.ru/",
+      "category_url": "https://www.kommersant.ru/daily",
+      "type": "financial daily"
+    },
+    {
+      "name": "Banki.ru",
+      "base_url": "https://www.banki.ru/",
+      "category_url": "https://www.banki.ru/news/",
+      "type": "banking/fintech"
+    },
+    {
+      "name": "Sber Investment",
+      "base_url": "https://www.sberbank.ru/ru/quotes",
+      "category_url": "https://www.sberbank.ru/ru/quotes/news",
+      "type": "market data"
+    }
+  ],
+
+  "health_and_education_sources": [
+    {
+      "name": "HED Club (Higher Education Discovery)",
+      "base_url": "https://hedclub.com/",
+      "category_url": "https://hedclub.com/ru/section/news",
+      "type": "education"
+    },
+    {
+      "name": "Skillbox Media",
+      "base_url": "https://media.skillbox.ru/",
+      "category_url": "https://media.skillbox.ru/education/",
+      "type": "ed-tech/training"
+    },
+    {
+      "name": "Vademecum",
+      "base_url": "https://vademec.ru/",
+      "category_url": "https://vademec.ru/news/",
+      "type": "healthcare business"
+    }
+  ],
+
+  "society_and_culture_sources": [
+    {
+      "name": "Dzen (formerly Yandex Zen)",
+      "base_url": "https://dzen.ru/",
+      "category_url": "https://dzen.ru/news",
+      "type": "content aggregator"
+    },
+    {
+      "name": "Komsomolskaya Pravda (KP)",
+      "base_url": "https://www.kp.ru/",
+      "category_url": "https://www.kp.ru/daily/society/",
+      "type": "social news"
+    },
+    {
+      "name": "Rambler News",
+      "base_url": "https://news.rambler.ru/",
+      "category_url": "https://news.rambler.ru/community/",
+      "type": "aggregator"
+    }
+  ],
+
+  "tech_and_world_sources": [
+    {
+      "name": "Habr",
+      "base_url": "https://habr.com/",
+      "category_url": "https://habr.com/ru/all/",
+      "type": "tech community"
+    },
+    {
+      "name": "4PDA",
+      "base_url": "https://4pda.to/",
+      "category_url": "https://4pda.to/tag/news/",
+      "type": "mobile/gadgets"
+    },
+    {
+      "name": "RT (Russian News)",
+      "base_url": "https://russian.rt.com/",
+      "category_url": "https://russian.rt.com/world",
+      "type": "international"
+    }
+  ],
+  "russian_conflict_news_sources": [
+    {
+      "name": "Meduza",
+      "base_url": "https://meduza.io/en",
+      "category_url": "https://meduza.io/en/feature/2022/02/24/war",
+      "type": "independent_investigative"
+    },
+    {
+      "name": "Mediazona",
+      "base_url": "https://zona.media/",
+      "category_url": "https://en.zona.media/article/justice",
+      "type": "struggle_and_justice"
+    },
+    {
+      "name": "Novaya Gazeta Europe",
+      "base_url": "https://novayagazeta.eu/",
+      "category_url": "https://novayagazeta.eu/category/war",
+      "type": "investigative"
+    },
+    {
+      "name": "The Moscow Times",
+      "base_url": "https://www.themoscowtimes.com/",
+      "category_url": "https://www.themoscowtimes.com/news",
+      "type": "news"
+    },
+    {
+      "name": "RT (Russia Today)",
+      "base_url": "https://www.rt.com/",
+      "category_url": "https://www.rt.com/russia/",
+      "type": "high_temper_official"
+    },
+    {
+      "name": "RIA Novosti",
+      "base_url": "https://ria.ru/",
+      "category_url": "https://ria.ru/defense_safety/",
+      "type": "state_news"
+    },
+    {
+      "name": "The Bell",
+      "base_url": "https://thebell.io/en/",
+      "category_url": "https://thebell.io/en/category/politics/",
+      "type": "economic_impact"
+    }
+  ],
+
+  "russian_tech_discovery_sources": [
+    {
+      "name": "Habr",
+      "base_url": "https://habr.com/en/",
+      "category_url": "https://habr.com/en/all/",
+      "type": "community_discovery"
+    },
+    {
+      "name": "RB.ru (Rusbase)",
+      "base_url": "https://rb.ru/",
+      "category_url": "https://rb.ru/tag/innovation/",
+      "type": "startup_discovery"
+    },
+    {
+      "name": "VC.ru",
+      "base_url": "https://vc.ru/",
+      "category_url": "https://vc.ru/tech",
+      "type": "business_tech"
+    },
+    {
+      "name": "CNews",
+      "base_url": "https://www.cnews.ru/",
+      "category_url": "https://www.cnews.ru/news",
+      "type": "it_news"
+    },
+    {
+      "name": "TAdviser",
+      "base_url": "https://www.tadviser.ru/",
+      "category_url": "https://www.tadviser.ru/index.php/IT_v_Rossii",
+      "type": "enterprise_tech"
+    },
+    {
+      "name": "TechInsider",
+      "base_url": "https://www.techinsider.ru/",
+      "category_url": "https://www.techinsider.ru/technologies/",
+      "type": "discovery"
+    }
+  ],
+  "russian_tech_and_innovation_discovery_sources": [
+
+    {
+      "name": "The Moscow Times - Business & Tech",
+      "base_url": "https://www.themoscowtimes.com/",
+      "category_url": "https://www.themoscowtimes.com/business",
+      "type": "independent"
+    },
+    {
+      "name": "Meduza - Technology & Science",
+      "base_url": "https://meduza.io/",
+      "category_url": "https://meduza.io/en/feature/science-and-tech",
+      "type": "independent"
+    },
+    {
+      "name": "The Bell - Technology & Innovation",
+      "base_url": "https://en.thebell.io/",
+      "category_url": "https://en.thebell.io/",
+      "type": "independent"
+    },
+    {
+      "name": "East-West Digital News",
+      "base_url": "https://ewdn.com/",
+      "category_url": "https://ewdn.com/",
+      "type": "tech_specialized"
+    },
+    {
+      "name": "TASS - Science & Technology",
+      "base_url": "https://tass.com/",
+      "category_url": "https://tass.com/science",
+      "type": "official"
+    },
+    {
+      "name": "Reuters - Russia Technology",
+      "base_url": "https://www.reuters.com/",
+      "category_url": "https://www.reuters.com/world/russia/",
+      "type": "tech_news"
+    },
+    {
+      "name": "Bloomberg - Russia & Tech",
+      "base_url": "https://www.bloomberg.com/",
+      "category_url": "https://www.bloomberg.com/europe",
+      "type": "tech_news"
+    },
+    {
+      "name": "RT - Technology",
+      "base_url": "https://www.rt.com/",
+      "category_url": "https://www.rt.com/news/technology/",
+      "type": "official"
+    },
+    {
+      "name": "Sputnik News - Tech",
+      "base_url": "https://sputnikglobe.com/",
+      "category_url": "https://sputnikglobe.com/tag_technology/",
+      "type": "official"
+    },
+    {
+      "name": "bne IntelliNews",
+      "base_url": "https://www.intellinews.com/",
+      "category_url": "https://www.intellinews.com/category/russia/",
+      "type": "analysis"
+    },
+
+    {
+      "name": "Financial Times - Russia Tech",
+      "base_url": "https://www.ft.com/",
+      "category_url": "https://www.ft.com/world/europe/russia",
+      "type": "investigative"
+    },
+    {
+      "name": "The Economist - Technology & Russia",
+      "base_url": "https://www.economist.com/",
+      "category_url": "https://www.economist.com/science-and-technology/",
+      "type": "analysis"
+    },
+    {
+      "name": "Nikkei Asia - Russia Tech",
+      "base_url": "https://asia.nikkei.com/",
+      "category_url": "https://asia.nikkei.com/Business/Technology",
+      "type": "tech_news"
+    },
+    {
+      "name": "Carnegie Russia Eurasia Center",
+      "base_url": "https://carnegieendowment.org/",
+      "category_url": "https://carnegieendowment.org/regions/russia-eurasia",
+      "type": "deep_dive"
+    },
+    {
+      "name": "The Insider - Tech & Innovation",
+      "base_url": "https://theins.ru/",
+      "category_url": "https://theins.ru/en",
+      "type": "investigative"
+    },
+
+    {
+      "name": "RBK - Technology",
+      "base_url": "https://www.rbc.ru/",
+      "category_url": "https://www.rbc.ru/technology_and_media",
+      "type": "business_tech"
+    },
+    {
+      "name": "VC.ru",
+      "base_url": "https://vc.ru/",
+      "category_url": "https://vc.ru/",
+      "type": "startup_innovation"
+    },
+    {
+      "name": "Habr - English",
+      "base_url": "https://habr.com/",
+      "category_url": "https://habr.com/en/",
+      "type": "tech_community"
+    },
+    {
+      "name": "Russia Beyond",
+      "base_url": "https://www.rbth.com/",
+      "category_url": "https://www.rbth.com/tags/technology",
+      "type": "official"
+    },
+
+    {
+      "name": "Rest of World - Russia",
+      "base_url": "https://restofworld.org/",
+      "category_url": "https://restofworld.org/region/russia/",
+      "type": "global_tech"
+    },
+    {
+      "name": "MIT Technology Review - Russia Coverage",
+      "base_url": "https://www.technologyreview.com/",
+      "category_url": "https://www.technologyreview.com/topic/artificial-intelligence/",
+      "type": "innovation"
+    },
+    {
+      "name": "Politico Europe - Russia Tech",
+      "base_url": "https://www.politico.eu/",
+      "category_url": "https://www.politico.eu/tag/russia/",
+      "type": "politics_tech"
+    },
+    {
+      "name": "Important Stories (Istories)",
+      "base_url": "https://istories.media/",
+      "category_url": "https://istories.media/en/",
+      "type": "investigative"
+    },
+    {
+      "name": "Verstka",
+      "base_url": "https://verstka.media/",
+      "category_url": "https://verstka.media/en/",
+      "type": "independent"
+    },
+    {
+    "name": "TASS Science & Space",
+    "base_url": "https://tass.com/",
+    "category_url": "https://tass.com/science",
+    "type": "news"
+  },
+  {
+    "name": "RBC Trends Innovation",
+    "base_url": "https://trends.rbc.ru/",
+    "category_url": "https://trends.rbc.ru/trends/innovation",
+    "type": "news"
+  },
+  {
+    "name": "CNews",
+    "base_url": "https://www.cnews.ru/",
+    "category_url": "https://www.cnews.ru/",
+    "type": "news"
+  },
+  {
+    "name": "Habr News",
+    "base_url": "https://habr.com/",
+    "category_url": "https://habr.com/ru/news/",
+    "type": "news"
+  },
+  {
+    "name": "vc.ru Tech",
+    "base_url": "https://vc.ru/",
+    "category_url": "https://vc.ru/tech",
+    "type": "news"
+  },
+  {
+    "name": "N + 1",
+    "base_url": "https://nplus1.ru/",
+    "category_url": "https://nplus1.ru/",
+    "type": "news"
+  },
+  {
+    "name": "Naked Science",
+    "base_url": "https://naked-science.ru/",
+    "category_url": "https://naked-science.ru/article",
+    "type": "news"
+  },
+  {
+    "name": "Scientific Russia",
+    "base_url": "https://scientificrussia.ru/",
+    "category_url": "https://scientificrussia.ru/news",
+    "type": "news"
+  },
+  {
+    "name": "Sk.ru",
+    "base_url": "https://sk.ru/",
+    "category_url": "https://sk.ru/news/",
+    "type": "news"
+  },
+  {
+    "name": "Russian Academy of Sciences",
+    "base_url": "https://new.ras.ru/",
+    "category_url": "https://new.ras.ru/activities/news/",
+    "type": "news"
+  }
+
+  ]
+}

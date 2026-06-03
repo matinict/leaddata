@@ -1,0 +1,145 @@
+{
+  "_clips_base": "assets/podcast/HFR",
+  "_folder_prefix": true,
+  "_format_suffix": {
+    "HD": "",
+    "Shorts": "_s"
+  },
+  "host_keys": [ "h0", "h1", "h2", "h3", "h4", "h5","h6", "h7","h8","h9" ],
+  "guest_keys":[ "g0","g1", "g2","g3","g4","g5","g6", "g7", "g8",  "g9" ],
+  "shared": {    
+    "intro": null,
+    "h0": {
+      "loops": [
+        "HF1{suffix}.mkv"
+      ],
+      "paths": [
+        "HF2{suffix}.mkv"
+      ],
+      "tail": [
+        "E9{suffix}.mkv"
+      ]
+    },
+    "g0": {
+      "loops": [
+        "GL1{suffix}.mkv"
+      ],
+      "paths": [
+        "GL2{suffix}.mkv"
+      ],
+      "tail": [
+        "E3{suffix}.mkv"
+      ]
+    },
+    "h1": {
+      "loops": [
+        "HF1{suffix}.mkv"
+      ],
+      "paths": [
+        "HF2{suffix}.mkv"
+      ]
+    },
+    "g1": {
+      "loops": [
+        "GL1{suffix}.mkv"
+      ],
+      "paths": [
+        "GL2{suffix}.mkv"
+      ]
+    },
+    "h2": {
+      "loops": [
+        "HF1{suffix}.mkv"
+      ],
+      "paths": [
+        "HF2{suffix}.mkv"
+      ]
+    },
+    "g2": {
+      "loops": [
+        "GL1{suffix}.mkv"
+      ],
+      "paths": [
+        "GL2{suffix}.mkv"
+      ]
+    },
+    "h3": {
+      "loops": [
+        "HF1{suffix}.mkv"
+      ],
+      "paths": [
+        "HF2{suffix}.mkv"
+      ]
+    },
+    "g3": {
+      "loops": [
+        "GL1{suffix}.mkv"
+      ],
+      "paths": [
+        "GL2{suffix}.mkv"
+      ]
+    },
+    "h4": {
+      "loops": [
+        "HF1{suffix}.mkv"
+      ],
+      "paths": [
+        "HF2{suffix}.mkv"
+      ]
+    },
+    "g4": {
+      "loops": [
+        "GL1{suffix}.mkv"
+      ],
+      "paths": [
+        "GL2{suffix}.mkv"
+      ]
+    },
+    "h5": {
+      "loops": [
+        "HF1{suffix}.mkv"
+      ],
+      "paths": [
+        "HF2{suffix}.mkv"
+      ]
+    },
+    "g5": {
+      "loops": [
+        "GL1{suffix}.mkv"
+      ],
+      "paths": [
+        "GL2{suffix}.mkv"
+      ]
+    },
+    "ad1": {
+      "paths": [
+        "Bji3s{suffix}.mkv"
+      ],
+      "subtext": "This episode is sponsored by your brand."
+    },
+    "ad2": {
+      "paths": [
+        "Bji1{suffix}.mkv"
+      ],
+      "subtext": "Thanks for supporting ThirdEyeRise."
+    },
+    "outro": {
+      "paths": [
+        "Intro{suffix}.mkv"
+      ],
+      "subtext": "Subscribe for more conversations that change how you think."
+    },
+    "sbs": {
+      "paths": [
+        "sub{suffix}.mkv"
+      ],
+      "subtext": "Subscribe @ThirdEyeRise"
+    }
+  },
+  "HD": {
+    "_extend": "shared"
+  },
+  "Shorts": {
+    "_extend": "shared"
+  }
+}

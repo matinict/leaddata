@@ -1,0 +1,15 @@
+{
+  "units": [
+    {"name": "Unit-Data", "enabled": true, "file": "data_config.json"},
+    {"name": "Unit-Debate", "enabled": true, "file": "debate_config.json"},
+    {"name": "Unit-Animation", "enabled": true, "file": "animation_config.json"},
+    {"name": "Unit-Definition", "enabled": true, "file": "definition_config.json"},
+    {"name": "Unit-Comparison", "enabled": true, "file": "comparison_config.json"},
+    {"name": "Unit-Prodcast", "enabled": true, "file": "podcast_config.json"},
+    {"name": "Unit-Classroom", "enabled": true, "file": "classroom_config.json"},
+    {"name": "Unit-Dubbing", "enabled": true, "file": "dubbing_config.json"},
+    {"name": "Unit-Publisher", "enabled": true, "file": "publisher_config.json"},
+    {"name": "Unit-LeadData", "enabled": true, "file": "leaddata_config.json"},
+    {"name": "Unit-Scout", "enabled": true, "file": "scout_config.json"}
+  ]
+}

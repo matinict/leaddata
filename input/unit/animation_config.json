@@ -1,0 +1,19 @@
+{
+  "_comment": "Place at input/unit_animation_config.json. Auto-loaded via Rule 37 when data3d.json declares: animation_config_file. File content is THE animation_config block — no outer wrapper (Rule 37 wraps it).",
+
+  "animation_styles": ["bar_race"],
+  "intro_slug": "Watch Race how the leaders change over time",
+  "use_existing_csv": false,
+  "definition_enabled": false,
+  "use_existing_definition": false,
+  "definition_max_chars": 15000,
+  "intro_enabled": false,
+  "definition_video": true,
+  "bar_race_video_enabled": false,
+  "bar_merge_enabled": false,
+  "video_enabled": false,
+  "audio_enabled": false,
+  "merge_audio_video": false,
+  "keep_shorts_backup": true,
+  "shorts_max_seconds": 179
+}

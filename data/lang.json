@@ -1,0 +1,344 @@
+{
+  "_comment": "Single source of truth for language config. Ranks derived from channel view data. Edit rank/cc to adjust MD translation order and CC upload priority.",
+  "_fields": {
+    "code": "File code used for .txt filenames (e.g. zh-hans.txt)",
+    "name": "Human-readable display name",
+    "yt_code": "YouTube BCP-47 code for CC upload and localizations API",
+    "rank": "Priority rank (1=highest). Drives LANGUAGES order, MD/CC slicing, and upload_cc_limit top-N selection.",
+    "cc": "true = eligible for CC uploads (ranks 1-20). false = MD/localizations only.",
+    "views": "Total views from channel analytics (CC + non-CC combined). Used to derive rank."
+  },
+  "languages": [
+    {
+      "rank": 1,
+      "code": "en",
+      "name": "English",
+      "yt_code": "en",
+      "cc": true,
+      "views": 5146,
+      "local_tags": "#360Debate #CriticalThinking #Geopolitics #AIAnalysis #Education #DebateClub #FactCheck #ThinkDeeper #OpenMinded #GlobalIssues #Diplomacy #Peace #ConflictResolution #InternationalRelations #CurrentEvents #WorldNews #FutureTrends #TechDebate #Society #Culture #Knowledge #Truth #Logic #Analysis #Strategy #Power #Influence #Sovereignty #Resilience #SmartThinking"
+    },
+    {
+      "rank": 2,
+      "code": "es",
+      "name": "Spanish",
+      "yt_code": "es",
+      "cc": true,
+      "views": 106,
+      "local_tags": "#España #México #Educación #DebateIA #InteligenciaArtificial #PensamientoCrítico #Aprender #Latinoamérica #Conocimiento #Verdad #Política #Economía #Cultura #Mundo #Futuro #Tecnología #Sociedad #Desarrollo #Paz #Estrategia #Poder #Influencia #Soberanía #Resiliencia #Lógica #Análisis #Hechos #Opinión #Debate"
+    },
+
+    {
+      "rank": 3,
+      "code": "bn",
+      "name": "Bengali",
+      "yt_code": "bn",
+      "cc": true,
+      "views": 105,
+      "local_tags": "#Bangladesh #WestBengal #Bangla #শিক্ষা #কৃত্রিমবুদ্ধিমত্তা #তর্ক #জ্ঞান #সত্যঅনুসন্ধান #বাংলাদেশী #পশ্চিমবঙ্গ #আন্তর্জাতিক #রাজনীতি #অর্থনীতি #সংস্কৃতি #বিশ্ব #ভবিষ্যৎ #প্রযুক্তি #সমাজ #উন্নয়ন #শান্তি #চিন্তা #যুক্তি #বিশ্লেষণ #কৌশল #শক্তি #নির্ভরযোগ্যতা #সচেতনতা #তথ্য #সত্য #জ্ঞানার্জন"
+    },
+    {
+      "rank": 4,
+      "code": "pt",
+      "name": "Portuguese",
+      "yt_code": "pt",
+      "cc": true,
+      "views": 50,
+      "local_tags": "#Brasil #Portugal #Educação #DebateIA #InteligênciaArtificial #PensamentoCrítico #Aprender #Conhecimento #Verdade #Política #Economia #Cultura #Mundo #Futuro #Tecnologia #Sociedade #Desenvolvimento #Paz #Estratégia #Poder #Influência #Soberania #Resiliência #Lógica #Análise #Fatos #Opinião #Debate #Saber #Reflexão"
+    },
+    {
+      "rank": 5,
+      "code": "id",
+      "name": "Indonesian",
+      "yt_code": "id",
+      "cc": true,
+      "views": 41,
+      "local_tags": "#Indonesia #Pendidikan #AI #KecerdasanBuatan #Debat #BerpikirKritis #Belajar #Pengetahuan #IndonesiaCerdas #Teknologi #Politik #Ekonomi #Budaya #Dunia #MasaDepan #Masyarakat #Perdamaian #Strategi #Kekuasaan #Pengaruh #Kedaulatan #Ketahanan #Logika #Analisis #Fakta #Opini #Diskusi #Kesadaran #Kebenaran"
+    },
+    {
+      "rank": 6,
+      "code": "tr",
+      "name": "Turkish",
+      "yt_code": "tr",
+      "cc": true,
+      "views": 37,
+      "local_tags": "#Türkiye #Eğitim #YapayZeka #Tartışma #AI #EleştirelDüşünme #Öğrenme #Bilgi #TürkiyeEğitim #Gerçekler #Politika #Ekonomi #Kültür #Dünya #Gelecek #Teknoloji #Toplum #Gelişme #Barış #Strateji #Güç #Etki #Egemenlik #Dayanıklılık #Mantık #Analiz #Haber #Görüş #Münazara #Farkındalık"
+    },
+    {
+      "rank": 7,
+      "code": "vi",
+      "name": "Vietnamese",
+      "yt_code": "vi",
+      "cc": true,
+      "views": 34,
+      "local_tags": "#ViệtNam #GiáoDục #TríTuệNhânTạo #AI #TranhLuận #TưDuyPhảnBiện #HọcTập #KiếnThức #ViệtNamHọc #SựThật #ChínhTrị #KinhTế #VănHóa #ThếGiới #TươngLai #CôngNghệ #XãHội #PhátTriển #HòaBình #ChiếnLược #QuyềnLực #ẢnhHưởng #ChủQuyền #KhảNăngPhụcHồi #Logic #PhânTích #TinTức #QuanĐiểm #ThảoLuận #NhậnThức"
+    },
+    {
+      "rank": 8,
+      "code": "fr",
+      "name": "French",
+      "yt_code": "fr",
+      "cc": true,
+      "views": 32,
+      "local_tags": "#France #Canada #Éducation #DébatIA #IntelligenceArtificielle #EspritCritique #Apprendre #Connaissance #Vérité #Politique #Économie #Culture #Monde #Futur #Technologie #Société #Développement #Paix #Stratégie #Pouvoir #Influence #Souveraineté #Résilience #Logique #Analyse #Faits #Opinion #Débat #Savoir #Réflexion"
+    },
+    {
+      "rank": 9,
+      "code": "ru",
+      "name": "Russian",
+      "yt_code": "ru",
+      "cc": true,
+      "views": 30,
+      "local_tags": "#Россия #Образование #ИИ #Дебаты #ИскусственныйИнтеллект #КритическоеМышление #Знание #Наука #РоссияИМир #Факты #Политика #Экономика #Культура #Мир #Будущее #Технологии #Общество #Развитие #Мир #Стратегия #Власть #Влияние #Суверенитет #Устойчивость #Логика #Анализ #Мнение #Дискуссия #Осведомленность #ПоискИстины"
+    },
+    {
+      "rank": 10,
+      "code": "zh-hans",
+      "name": "Chinese (Simplified)",
+      "yt_code": "zh-Hans",
+      "cc": true,
+      "views": 20,
+      "local_tags": "#中国 #教育 #人工智能 #辩论 #批判性思维 #知识 #真相 #政治 #经济 #文化 #世界 #未来 #科技 #社会 #发展 #和平 #战略 #权力 #影响力 #主权 #韧性 #逻辑 #分析 #新闻 #观点 #讨论 #意识 #探索 #智慧 #思考"
+    },
+    {
+      "rank": 11,
+      "code": "hi",
+      "name": "Hindi",
+      "yt_code": "hi",
+      "cc": true,
+      "views": 17,
+      "local_tags": "#भारत #शिक्षा #कृत्रिमबुद्धिमत्ता #बहस #AI #आलोचनात्मकचिंतन #ज्ञान #भारतीयशिक्षा #सत्य #राजनीति #अर्थव्यवस्था #संस्कृति #विश्व #भविष्य #प्रौद्योगिकी #समाज #विकास #शांति #रणनीति #शक्ति #प्रभाव #प्रभुसत्ता #लचीलापन #तर्क #विश्लेषण #समाचार #राय #चर्चा #जागरूकता #खोज"
+    },
+    {
+      "rank": 12,
+      "code": "ko",
+      "name": "Korean",
+      "yt_code": "ko",
+      "cc": true,
+      "views": 16,
+      "local_tags": "#한국 #교육 #인공지능 #토론 #AI #비판적사고 #학습 #지식 #한국교육 #팩트체크 #정치 #경제 #문화 #세계 #미래 #기술 #사회 #발전 #평화 #전략 #권력 #영향력 #주권 #회복력 #논리 #분석 #뉴스 #의견 #토의 #인식"
+    },
+    {
+      "rank": 13,
+      "code": "ar",
+      "name": "Arabic",
+      "yt_code": "ar",
+      "cc": true,
+      "views": 97,
+      "local_tags": "#السعودية #مصر #تعليم #ذكاءاصطناعي #نقاش #تفكير_نقدي #معرفة #العرب #حقائق #سياسة #اقتصاد #ثقافة #عالم #مستقبل #تكنولوجيا #مجتمع #تطوير #سلام #استراتيجية #قوة #نفوذ #سيادة #قدرة #منطق #تحليل #أخبار #رأي #حوار #وعي #بحث"
+    },
+    {
+      "rank": 14,
+      "code": "it",
+      "name": "Italian",
+      "yt_code": "it",
+      "cc": true,
+      "views": 14,
+      "local_tags": "#Italia #Educazione #IA #IntelligenzaArtificiale #Dibattito #PensieroCritico #Apprendimento #Conoscenza #Verità #Politica #Economia #Cultura #Mondo #Futuro #Tecnologia #Società #Sviluppo #Pace #Strategia #Potere #Influenza #Sovranità #Resilienza #Logica #Analisi #Fatti #Opinione #Dibattito #Sapere #Riflessione"
+    },
+    {
+      "rank": 15,
+      "code": "th",
+      "name": "Thai",
+      "yt_code": "th",
+      "cc": true,
+      "views": 13,
+      "local_tags": "#ไทย #การศึกษา #ปัญญาประดิษฐ์ #การอภิปราย #ความคิดวิเคราะห์ #การเรียนรู้ #ความรู้ #ความจริง #การเมือง #เศรษฐกิจ #วัฒนธรรม #โลก #อนาคต #เทคโนโลยี #สังคม #การพัฒนา #สันติภาพ #กลยุทธ์ #อำนาจ #อิทธิพล #อธิปไตย #ความยืดหยุ่น #ตรรกะ #การวิเคราะห์ #ข่าว #ความคิดเห็น #การสนทนา #ความตระหนัก #การสำรวจ #ภูมิปัญญา"
+    },
+    {
+      "rank": 16,
+      "code": "fa",
+      "name": "Persian",
+      "yt_code": "fa",
+      "cc": true,
+      "views": 12,
+      "local_tags": "#ایران #آموزش #هوش_مصنوعی #مناظره #تفکر_انتقادی #دانش #حقیقت #سیاست #اقتصاد #فرهنگ #جهان #آینده #فناوری #جامعه #توسعه #صلح #استراتژی #قدرت #نفوذ #حاکمیت #تاب_آوری #منطق #تحلیل #اخبار #نظر #بحث #آگاهی #کاوش #خرد #تفکر"
+    },
+    {
+      "rank": 17,
+      "code": "ja",
+      "name": "Japanese",
+      "yt_code": "ja",
+      "cc": true,
+      "views": 10,
+      "local_tags": "#日本 #教育 #AI #人工知能 #討論 #批判的思考 #学習 #知識 #日本の教育 #真実 #政治 #経済 #文化 #世界 #未来 #技術 #社会 #発展 #平和 #戦略 #権力 #影響 #主権 #回復力 #論理 #分析 #ニュース #意見 #議論 #認識"
+    },
+    {
+      "rank": 18,
+      "code": "de",
+      "name": "German",
+      "yt_code": "de",
+      "cc": true,
+      "views": 8,
+      "local_tags": "#Deutschland #Österreich #Schweiz #Bildung #KIDebatte #KünstlicheIntelligenz #KritischesDenken #Wissen #DeutschlandBildet #Fakten #Politik #Wirtschaft #Kultur #Welt #Zukunft #Technologie #Gesellschaft #Entwicklung #Frieden #Strategie #Macht #Einfluss #Souveränität #Resilienz #Logik #Analyse #Nachrichten #Meinung #Diskussion #Bewusstsein"
+    },
+    {
+      "rank": 19,
+      "code": "pl",
+      "name": "Polish",
+      "yt_code": "pl",
+      "cc": true,
+      "views": 7,
+      "local_tags": "#Polska #Edukacja #SI #SztucznaInteligencja #Debaty #MyślenieKrytyczne #Nauka #Wiedza #PolskaEdukacja #Fakty #Polityka #Gospodarka #Kultura #Świat #Przyszłość #Technologia #Społeczeństwo #Rozwój #Pokój #Strategia #Władza #Wpływ #Suwerenność #Odporność #Logika #Analiza #Wiadomości #Opinia #Dyskusja #Świadomość"
+    },
+    {
+      "rank": 20,
+      "code": "cs",
+      "name": "Czech",
+      "yt_code": "cs",
+      "cc": true,
+      "views": 4,
+      "local_tags": "#Česko #Vzdělávání #AI #UměláInteligence #Debaty #KritickéMyšlení #Učení #Znalosti #ČeskéVzdělávání #Fakta #Politika #Ekonomika #Kultura #Svět #Budoucnost #Technologie #Společnost #Rozvoj #Mír #Strategie #Moc #Vliv #Svrchovanost #Odolnost #Logika #Analýza #Zprávy #Názor #Diskuze #Vědomí"
+    },
+    {
+      "rank": 21,
+      "code": "uk",
+      "name": "Ukrainian",
+      "yt_code": "uk",
+      "cc": false,
+      "views": 4,
+      "local_tags": "#Україна #Освіта #ШІ #Дебати #КритичнеМислення #Знання #Факти #Політика #Економіка #Культура #Світ #Майбутнє #Технології #Суспільство #Розвиток #Мир #Стратегія #Влада #Вплив #Суверенітет #Стійкість #Логіка #Аналіз #Новини #Думка #Дискусія #Освіченість #ПошукІстини"
+    },
+    {
+      "rank": 22,
+      "code": "zh-hant",
+      "name": "Chinese (Traditional)",
+      "yt_code": "zh-Hant",
+      "cc": false,
+      "views": 4,
+      "local_tags": "#台灣 #教育 #人工智慧 #辯論 #批判性思維 #知識 #真相 #政治 #經濟 #文化 #世界 #未來 #科技 #社會 #發展 #和平 #戰略 #權力 #影響力 #主權 #韌性 #邏輯 #分析 #新聞 #觀點 #討論 #意識 #探索 #智慧 #思考"
+    },
+    {
+      "rank": 23,
+      "code": "ta",
+      "name": "Tamil",
+      "yt_code": "ta",
+      "cc": false,
+      "views": 3,
+      "local_tags": "#தமிழ்நாடு #கல்வி #செயற்கைநுண்ணறிவு #விவாதம் #AI #விமர்சனசிந்தனை #அறிவு #உண்மை #அரசியல் #பொருளாதார #கலாச்சாரம் #உலகம் #எதிர்காலம் #தொழில்நுட்பம் #சமூகம் #மேம்பாடு #அமைதி #வியூகம் #அதிகாரம் #தாக்கம் #இறையாண்மை #தாங்குதிறன் #தர்க்கம் #பகுப்பாய்வு #செய்திகள் #கருத்து #உரையாடல் #விழிப்புணர்வு"
+    },
+    {
+      "rank": 24,
+      "code": "bs",
+      "name": "Bosnian",
+      "yt_code": "bs",
+      "cc": false,
+      "views": 2,
+      "local_tags": "#Bosna #Obrazovanje #VI #VještačkaInteligencija #Debata #KritičkoRazmišljanje #Znanje #Činjenice #Politika #Ekonomija #Kultura #Svijet #Budućnost #Tehnologija #Društvo #Razvoj #Mir #Strategija #Moć #Uticaj #Suverenitet #Otpornost #Logika #Analiza #Vijesti #Mišljenje #Diskusija #Svjesnost"
+    },
+    {
+      "rank": 25,
+      "code": "pt-pt",
+      "name": "Portuguese (Portugal)",
+      "yt_code": "pt-PT",
+      "cc": false,
+      "views": 2,
+      "local_tags": "#Portugal #Educação #DebateIA #InteligênciaArtificial #PensamentoCrítico #Aprender #Conhecimento #Verdade #Política #Economia #Cultura #Mundo #Futuro #Tecnologia #Sociedade #Desenvolvimento #Paz #Estratégia #Poder #Influência #Soberania #Resiliência #Lógica #Análise #Factos #Opinião #Debate #Saber #Reflexão"
+    },
+    {
+      "rank": 26,
+      "code": "ro",
+      "name": "Romanian",
+      "yt_code": "ro",
+      "cc": false,
+      "views": 2,
+      "local_tags": "#România #Educație #IA #InteligențăArtificială #Dezbatere #GândireCritică #Învățare #Cunoaștere #Adevăr #Politică #Economie #Cultură #Lume #Viitor #Tehnologie #Societate #Dezvoltare #Pace #Strategie #Putere #Influență #Suveranitate #Reziliență #Logică #Analiză #Fapte #Opinie #Discuție"
+    },
+    {
+      "rank": 27,
+      "code": "bg",
+      "name": "Bulgarian",
+      "yt_code": "bg",
+      "cc": false,
+      "views": 1,
+      "local_tags": "#България #Образование #ИИ #Дебати #ИзкуственИнтелект #КритичноМислене #Знание #Факти #Политика #Икономика #Култура #Свят #Бъдеще #Технологии #Общество #Развитие #Мир #Стратегия #Власт #Влияние #Суверенитет #Устойчивост #Логика #Анализ #Новини #Мнение #Дискуссия #Осведомленост"
+    },
+    {
+      "rank": 28,
+      "code": "el",
+      "name": "Greek",
+      "yt_code": "el",
+      "cc": false,
+      "views": 1,
+      "local_tags": "#Ελλάδα #Εκπαίδευση #ΤΝ #ΤεχνητήΝοημοσύνη #Ντιμπέιτ #ΚριτικήΣκέψη #Μάθηση #Γνώση #Αλήθεια #Πολιτική #Οικονομία #Πολιτισμός #Κόσμος #Μέλλον #Τεχνολογία #Κοινωνία #Ανάπτυξη #Ειρήνη #Στρατηγική #Εξουσία #Επιρροή #Κυριαρχία #Ανθεκτικότητα #Λογική #Ανάλυση #Γεγονότα #Άποψη #Συζήτηση"
+    },
+    {
+      "rank": 29,
+      "code": "hu",
+      "name": "Hungarian",
+      "yt_code": "hu",
+      "cc": false,
+      "views": 1,
+      "local_tags": "#Magyarország #Oktatás #MI #MesterségesIntelligencia #Vita #KritikusGondolkodás #Tanulás #Tudás #Igazság #Politika #Gazdaság #Kultúra #Világ #Jövő #Technológia #Társadalom #Fejlődés #Béke #Stratégia #Hatalom #Befolyás #Szuverenitás #Rugalmasság #Logika #Elemzés #Tények #Vélemény #Diszkusszió"
+    },
+    {
+      "rank": 30,
+      "code": "iw",
+      "name": "Hebrew",
+      "yt_code": "iw",
+      "cc": false,
+      "views": 1,
+      "local_tags": "#ישראל #חינוך #בינהמלאכותית #דיון #חשיבהביקורתית #למידה #ידע #אמת #פוליטיקה #כלכלה #תרבות #עולם #עתיד #טכנולוגיה #חברה #פיתוח #שלום #אסטרטגיה #כוח #השפעה #ריבונות #חוסן #לוגיקה #ניתוח #עובדות #דעה #שיח"
+    },
+    {
+      "rank": 31,
+      "code": "my",
+      "name": "Burmese",
+      "yt_code": "my",
+      "cc": false,
+      "views": 1,
+      "local_tags": "#မြန်မာ #ပညာရေး #AI #ဉာဏ်ရည်တု #ဆွေးနွေးပွဲ #ဝေဖန်ပိုင်းခြားတွေးခေါ်မှု #သင်ယူခြင်း #ဗဟုသုတ #အမှန်တရား #နိုင်ငံရေး #စီးပွားရေး #ယဉ်ကျေးမှု #ကမ္ဘာ #အနာဂတ် #နည်းပညာ #လူမှုအဖွဲ့အစည်း #ဖွံ့ဖြိုးတိုးတက်ရေး #ငြိမ်းချမ်းရေး #ဗျူဟာ #အာဏာ #သြဇာ #အချုပ်အခြာအာဏာ #ခံနိုင်ရည် #ယုတ္တိဗေဒ #ဆန်းစစ်ချက် #သတင်း #ထင်မြင်ချက် #စကားဝိုင်း"
+    },
+    {
+      "rank": 32,
+      "code": "sr",
+      "name": "Serbian",
+      "yt_code": "sr-Latn",
+      "cc": false,
+      "views": 1,
+      "local_tags": "#Srbija #Obrazovanje #VI #VeštačkaInteligencija #Debata #KritičkoRazmišljanje #Učenje #Znanje #Istina #Politika #Ekonomija #Kultura #Svet #Budućnost #Tehnologija #Društvo #Razvoj #Mir #Strategija #Moć #Uticaj #Suverenitet #Otpornost #Logika #Analiza #Činjenice #Mišljenje #Diskusija"
+    },
+    {
+      "rank": 33,
+      "code": "te",
+      "name": "Telugu",
+      "yt_code": "te",
+      "cc": false,
+      "views": 1,
+      "local_tags": "#తెలుగు #విద్య #కృత్రిమమేధస్సు #చర్చ #AI #విమర్శనాత్మకచింతన #జ్ఞానం #సత్యం #రాజకీయాలు #అర్థశాస్త్రం #సంస్కృతి #ప్రపంచం #భవిష్యత్తు #సాంకేతికత #సమాజం #అభివృద్ధి #శాంతి #వ్యూహం #శక్తి #ప్రభావం #సార్వభౌమాధికారం #స్థిరత్వం #తర్కం #విశ్లేషణ #వార్తలు #అభిప్రాయం #సంభాషణ"
+    },
+    {
+      "rank": 34,
+      "code": "ur",
+      "name": "Urdu",
+      "yt_code": "ur",
+      "cc": false,
+      "views": 1,
+      "local_tags": "#پاکستان #تعلیم #مصنوعی_ذہانت #بحث #AI #تنقیدی_سوچ #علم #سچائی #سیاست #معیشت #ثقافت #دنیا #مستقبل #ٹیکنالوجی #معاشرہ #ترقی #امن #حکمت_عملی #طاقت #اثر_ورسوخ #خودمختاری #لچک #منطق #تجزیہ #خبریں #رائے #گفتگو"
+    },
+    {
+      "rank": 35,
+      "code": "ms",
+      "name": "Malay",
+      "yt_code": "ms",
+      "cc": false,
+      "views": 0,
+      "local_tags": "#Malaysia #Pendidikan #AI #KecerdasanBuatan #Debat #PemikiranKritikal #Belajar #Pengetahuan #Kebenaran #Politik #Ekonomi #Budaya #Dunia #MasaDepan #Teknologi #Masyarakat #Pembangunan #Keamanan #Strategi #Kuasa #Pengaruh #Kedaulatan #Ketahanan #Logika #Analisis #Fakta #Pendapat #Diskusi"
+    },
+    {
+      "rank": 36,
+      "code": "et",
+      "name": "Estonian",
+      "yt_code": "et",
+      "cc": false,
+      "views": 0,
+      "local_tags": "#Eesti #Haridus #Tehisintellekt #Debatt #KriitilineMõtlemine #Õppimine #Teadmised #Tõde #Poliitika #Majandus #Kultuur #Maailm #Tulevik #Tehnoloogia #Ühiskond #Areng #Rahu #Strateegia #Võim #Mõju #Suveräänsus #Vastupidavus #Loogika #Analüüs #Faktid #Arvamus #Arutelu"
+    }
+  ],
+  "aliases": {
+    "zh": "zh-hans",
+    "zh-cn": "zh-hans",
+    "zh-tw": "zh-hant",
+    "he": "iw"
+  }
+}

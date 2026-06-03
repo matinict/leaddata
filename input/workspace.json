@@ -1,0 +1,62 @@
+{
+  "_comment": "Workspace configuration — Rule 18, 22, 23, 28 compliant",
+  "output_root": ".runtime/output",
+  "workspace_collision_mode": "reuse",
+
+  "slug_generation": {
+    "max_length": 64,
+    "allowed_chars": "a-zA-Z0-9_-",
+    "collapse_spaces": true,
+    "lowercase": false
+  },
+
+  "meta_validation": {
+    "required_keys": ["topic", "slug", "status"],
+    "status_enum": ["pending", "running", "done", "failed"],
+    "lock_timeout_sec": 300
+  },
+
+  "unit_outputs": {
+    "debate": {
+      "required_files": ["propose.md", "oppose.md", "decide.md"],
+      "cache_threshold_bytes": 200
+    },
+    "podcast": {
+      "required_files": ["script.md", "audio.mp3"],
+      "cache_threshold_bytes": 1000
+    },
+    "classroom": {
+      "required_files": ["script.md", "quiz.json"],
+      "cache_threshold_bytes": 500
+    }
+  },
+
+  "smart_skip": {
+    "enabled": true,
+    "check_meta_status": true,
+    "check_file_size": true,
+    "min_file_age_sec": 0
+  },
+
+  "naming_conventions": {
+    "video_format": "{Channel}_{Slug}_{Format}.mp4",
+    "audio_format": "audio{Suffix}.mp3",
+    "script_format": "script{Suffix}.md",
+    "channel_sanitization": "remove_special_chars"
+  },
+
+  "paths": {
+    "debate_dir": "debate",
+    "podcast_dir": "podcast",
+    "classroom_dir": "classroom",
+    "assets_dir": "assets",
+    "secrets_dir": ".runtime/secrets"
+  },
+
+  "defaults": {
+    "video_fps": 30,
+    "audio_sample_rate": 24000,
+    "script_encoding": "utf-8",
+    "lock_file_suffix": ".lock"
+  }
+}

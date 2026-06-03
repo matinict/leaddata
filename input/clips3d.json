@@ -1,0 +1,39 @@
+{
+  "_clips_base": "assets/debate",
+  "_folder_prefix": true,
+  "_format_suffix": {
+    "HD": "",
+    "Shorts": "_s"
+  },
+
+  "shared": {
+    "intro":{ "paths": ["intro{suffix}.mkv"],"subtext": "360Debate! - See Every Side, Decide Smarter. A platform for open discussion, critical thinking & diverse perspectives." },
+    "p0":   { "loops": ["p0fl{suffix}.mkv"], "paths": [{ "src": "360D{suffix}.png", "frames": 30 }, "p0fl{suffix}.mkv"] },
+    "c0":   { "loops": ["c0fl{suffix}.mkv"], "paths": ["c0fl{suffix}.mkv"], "tail": ["adufl3s{suffix}.mkv"] },
+    "p1":   { "loops": ["p0fl{suffix}.mkv"], "paths": ["Arg1{suffix}.mkv"] },
+    "c1":   { "loops": ["c0fl{suffix}.mkv"], "paths": ["CA1{suffix}.mkv"], "tail": ["adufl3s{suffix}.mkv"] },
+    "p2":   { "loops": ["p0fl{suffix}.mkv"], "paths": ["Arg2{suffix}.mkv"] },
+    "c2":   { "loops": ["c0fl{suffix}.mkv"], "paths": ["CA2{suffix}.mkv"], "tail": ["adufl3s{suffix}.mkv"] },
+    "win":  { "loops": ["jCfl{suffix}.mkv"], "paths": ["pwin{suffix}.mkv", "cwin{suffix}.mkv", "nwin{suffix}.mkv"], "_resolve_by": ["propose", "oppose", "draw"] },
+    "sbs":  { "paths": ["sub2s{suffix}.mkv"], "subtext": "This video educational purposes only! If bits valuable, Subscribe @360Debate!" }
+  },
+
+  "HD": {
+    "_extend": "shared",
+    "ad1": { "paths": ["Bji3s.mkv"], "subtext": "This episode is brought to you by [bjimmigration]." },
+    "p3":  { "loops": ["p0fl{suffix}.mkv"], "paths": ["Arg3{suffix}.mkv"] },
+    "c3":  { "loops": ["c0fl{suffix}.mkv"], "paths": ["carg3{suffix}.mkv"], "tail": ["adufl3s{suffix}.mkv"] },
+    "p4":  { "loops": ["p0fl.mkv"], "paths": ["p0fl.mkv"] },
+    "c4":  { "loops": ["c0fl.mkv"], "paths": ["c0fl.mkv"] },
+    "p5":  { "loops": ["p0fl.mkv"], "paths": ["p0fl.mkv"] },
+    "c5":  { "loops": ["c0fl.mkv"], "paths": ["c0fl.mkv"] },
+    "sum": { "loops": ["jMfl.mkv"], "paths": ["sum{suffix}.mkv"], "tail": ["aly{suffix}.mkv"] },
+    "aly": { "loops": ["jFfl.mkv"], "paths": ["jFfl.mkv"],"tail": ["ds.mkv"] },
+    "ad2": { "paths": ["tr1ly3s{suffix}.mkv"],"subtext": "Discover your next adventure with Travel Only! Book your all-inclusive package today milky.travelonly.com Your journey... starts here." }
+
+  },
+
+  "Shorts": {
+    "_extend": "shared"
+  }
+}

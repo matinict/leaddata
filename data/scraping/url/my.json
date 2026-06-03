@@ -1,0 +1,126 @@
+{
+  "_comment": "MY audience sources for 2026. Includes the primary English-language legacy media, dominant Malay-vernacular portals, and tech/startup ecosystem leaders.",
+
+  "politics_news_sources": [
+    {
+      "name": "The Star",
+      "base_url": "https://www.thestar.com.my/",
+      "category_url": "https://www.thestar.com.my/news/nation",
+      "type": "legacy English leader"
+    },
+    {
+      "name": "Malaysiakini",
+      "base_url": "https://www.malaysiakini.com/",
+      "category_url": "https://www.malaysiakini.com/en/news",
+      "type": "independent digital-first"
+    },
+    {
+      "name": "New Straits Times (NST)",
+      "base_url": "https://www.nst.com.my/",
+      "category_url": "https://www.nst.com.my/news/nation",
+      "type": "official/institutional"
+    },
+    {
+      "name": "Free Malaysia Today (FMT)",
+      "base_url": "https://www.freemalaysiatoday.com/",
+      "category_url": "https://www.freemalaysiatoday.com/category/nation/",
+      "type": "fast-paced digital news"
+    }
+  ],
+
+  "vernacular_leaders_malay": [
+    {
+      "name": "Harian Metro",
+      "base_url": "https://www.hmetro.com.my/",
+      "category_url": "https://www.hmetro.com.my/mutakhir",
+      "type": "mass traffic leader"
+    },
+    {
+      "name": "Berita Harian (BH Online)",
+      "base_url": "https://www.bharian.com.my/",
+      "category_url": "https://www.bharian.com.my/berita/nasional",
+      "type": "mainstream Malay"
+    },
+    {
+      "name": "Sinar Harian",
+      "base_url": "https://www.sinarharian.com.my/",
+      "category_url": "https://www.sinarharian.com.my/nasional",
+      "type": "community focused"
+    },
+    {
+      "name": "Kosmo!",
+      "base_url": "https://www.kosmo.com.my/",
+      "category_url": "https://www.kosmo.com.my/negara/",
+      "type": "tabloid/lifestyle news"
+    }
+  ],
+
+  "finance_news_sources": [
+    {
+      "name": "The Edge Malaysia",
+      "base_url": "https://theedgemalaysia.com/",
+      "category_url": "https://theedgemalaysia.com/categories/corporate",
+      "type": "business authority"
+    },
+    {
+      "name": "The Malaysian Reserve (TMR)",
+      "base_url": "https://themalaysianreserve.com/",
+      "category_url": "https://themalaysianreserve.com/category/economy/",
+      "type": "financial analysis"
+    },
+    {
+      "name": "RinggitPlus",
+      "base_url": "https://ringgitplus.com/en/",
+      "category_url": "https://ringgitplus.com/en/blog/",
+      "type": "personal finance/fintech"
+    },
+    {
+      "name": "Focus Malaysia",
+      "base_url": "https://focusmalaysia.my/",
+      "category_url": "https://focusmalaysia.my/economy/",
+      "type": "business news"
+    }
+  ],
+
+  "tech_and_startup_sources": [
+    {
+      "name": "Digital News Asia (DNA)",
+      "base_url": "https://www.digitalnewsasia.com/",
+      "category_url": "https://www.digitalnewsasia.com/digital-economy",
+      "type": "tech ecosystem"
+    },
+    {
+      "name": "TechNode Global (SEA)",
+      "base_url": "https://technode.global/",
+      "category_url": "https://technode.global/tag/malaysia/",
+      "type": "regional tech trends"
+    },
+    {
+      "name": "SoyaCincau",
+      "base_url": "https://soyacincau.com/",
+      "category_url": "https://soyacincau.com/category/news/",
+      "type": "consumer tech leader"
+    },
+    {
+      "name": "BEAMSTART",
+      "base_url": "https://beamstart.com/",
+      "category_url": "https://beamstart.com/news",
+      "type": "startup networking"
+    }
+  ],
+
+  "public_sector_and_multilingual": [
+    {
+      "name": "Bernama (Malaysian National News Agency)",
+      "base_url": "https://www.bernama.com/",
+      "category_url": "https://www.bernama.com/en/general/",
+      "type": "official state wire"
+    },
+    {
+      "name": "China Press",
+      "base_url": "https://www.chinapress.com.my/",
+      "category_url": "https://www.chinapress.com.my/category/local/nation/",
+      "type": "Chinese-vernacular leader"
+    }
+  ]
+}

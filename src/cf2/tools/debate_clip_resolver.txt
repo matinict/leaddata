@@ -1,0 +1,475 @@
+"""
+cf2/tools/debate_clip_resolver.py — Debate Video Clip Path Resolution
+
+Migrated from: cf2/core/render/clip_resolver.py
+Responsibility: Resolve filesystem paths for all clip types.
+Pure logic — no cv2, no ffmpeg, no rendering.
+
+Single source of truth: debate_3d_clips in data.json
+All paths come from config — no static fallback directories.
+
+────────────────────────────────────────────────────────
+Auto-prefix (clips_base) feature
+────────────────────────────────────────────────────────
+Set "_clips_base" inside debate_3d_clips to avoid repeating
+the full path for every clip filename.
+
+  "_clips_base": "assets/clips"
+
+────────────────────────────────────────────────────────
+Numbered folder prefix feature
+────────────────────────────────────────────────────────
+Set "_folder_prefix": true when folders on disk use a
+numeric sort prefix (e.g. 00_intro, 14_sum, 17_win).
+
+  "_folder_prefix": true
+
+Resolution rule for bare filenames:
+  _folder_prefix=false (default):
+    key "intro", file "intro.mkv" → assets/clips/intro/intro.mkv
+
+  _folder_prefix=true:
+    key "intro", file "intro.mkv" → finds assets/clips/00_intro/ → assets/clips/00_intro/intro.mkv
+    key "sum",   file "jFfl.mkv"  → finds assets/clips/14_sum/   → assets/clips/14_sum/jFfl.mkv
+    key "win",   file "cwin.mkv"  → finds assets/clips/17_win/   → assets/clips/17_win/cwin.mkv
+
+Paths containing "/" are always used as-is (no prefix applied).
+
+────────────────────────────────────────────────────────
+Supported clip entry formats (all backward compatible)
+────────────────────────────────────────────────────────
+  Plain string:       "pro1_fl.mkv"  or  "assets/clips/p0/pro1.mkv"
+  Single path+loop:   { "path": "intro.mkv", "loop": "loop.mkv" }
+  Multi path+loops:   { "paths": [...], "loops": [...] }
+  Image+frames:       { "src": "360D.png", "frames": 90 }
+  Mixed:              { "paths": [{"src": "360D.png", "frames": 60}, "clip.mkv"],
+                        "loops": ["clip.mkv"] }
+"""
+from pathlib import Path
+from typing import Dict, List, Optional, Any, Tuple
+
+from cf2.core.paths import PROJECT_ROOT
+
+
+# ── Types ─────────────────────────────────────────────────────────────────────
+MediaEntry   = Tuple[Optional[str], Optional[int]]
+ClipSequence = Dict[str, List[MediaEntry]]
+
+DEFAULT_CLIPS_BASE = "assets/clips"
+
+
+def _resolve_path(path_str: str) -> str:
+    """Convert relative asset path to absolute using PROJECT_ROOT."""
+    p = Path(path_str)
+    if not p.is_absolute():
+        p = PROJECT_ROOT / p
+    return str(p)
+
+
+def _abs_if_exists(raw: Optional[str]) -> Optional[str]:
+    """Resolve to absolute path; return only if file exists on disk."""
+    if not raw:
+        return None
+    abs_path = _resolve_path(raw)
+    return abs_path if Path(abs_path).exists() else None
+
+
+def _apply_suffix_with_fallback(raw: Optional[str], fmt_suffix: str) -> Optional[str]:
+    """
+    Substitute {suffix} placeholder; fall back to bare filename when the
+    suffixed file does not exist on disk.
+
+    Mirrors the Classroom renderer behavior — Shorts can render using HD
+    clips when format-specific (_s) clips are missing.
+
+    Examples (fmt_suffix="_s"):
+        "p0fl{suffix}.mkv" → tries "p0fl_s.mkv", falls back to "p0fl.mkv"
+        "intro.mkv"        → returns "intro.mkv" (no placeholder, no change)
+    """
+    if not raw or "{suffix}" not in raw:
+        return raw
+
+    suffixed = raw.replace("{suffix}", fmt_suffix or "")
+    bare     = raw.replace("{suffix}", "")
+
+    if fmt_suffix and Path(_resolve_path(suffixed)).exists():
+        return suffixed
+    return bare
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Folder resolution with optional numeric prefix
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _find_keyed_folder(clips_base: str, key: str, use_prefix: bool) -> str:
+    """
+    Resolve the folder path for a given clip key.
+
+    use_prefix=False → clips_base/key/
+    use_prefix=True  → scan clips_base/ for folder ending in _{key}
+                        e.g. key="intro" finds "00_intro"
+                             key="sum"   finds "14_sum"
+                        Falls back to clips_base/key/ if not found.
+    """
+    if not use_prefix:
+        return f"{clips_base.rstrip('/')}/{key}"
+
+    base = Path(_resolve_path(clips_base))
+    if base.exists():
+        suffix = f"_{key}"
+        matches = sorted(
+            [d for d in base.iterdir() if d.is_dir() and d.name.endswith(suffix)]
+        )
+        if matches:
+            return str(matches[0])
+
+    # Fallback
+    return f"{clips_base.rstrip('/')}/{key}"
+
+
+def _apply_base(raw: str, key: str, clips_base: str, use_prefix: bool) -> str:
+    """
+    Prepend clips_base/key/ (or prefixed folder) to bare filenames.
+    Paths containing "/" are returned as-is.
+    """
+    if not raw:
+        return raw
+    if "/" in raw or "\\" in raw:
+        return raw   # already has a path component
+    folder = _find_keyed_folder(clips_base, key, use_prefix)
+    return f"{folder}/{raw}"
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Config extraction helpers
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _extract_path(cfg_entry: Any) -> Optional[str]:
+    """Extract primary path string — accepts 'path' (str), 'paths' (list), or 'src'."""
+    if isinstance(cfg_entry, str):
+        return cfg_entry
+    if isinstance(cfg_entry, dict):
+        # Prefer 'paths' (new), fall back to 'path' (legacy), 'src' (nested entries)
+        val = cfg_entry.get("paths") or cfg_entry.get("path") or cfg_entry.get("src")
+        if isinstance(val, list):
+            # Take first string entry; skip dicts like {"src": "...", "frames": N}
+            for item in val:
+                if isinstance(item, str):
+                    return item
+                if isinstance(item, dict):
+                    s = item.get("src") or item.get("path")
+                    if s:
+                        return s
+            return None
+        return val if isinstance(val, str) else None
+    return None
+
+
+def _parse_entry(entry: Any) -> Tuple[Optional[str], Optional[int]]:
+    """Parse a single list entry → (path_str, frames_or_None)."""
+    if isinstance(entry, str):
+        return entry, None
+    if isinstance(entry, dict):
+        path   = entry.get("src") or entry.get("path")
+        frames = entry.get("frames")
+        return path, int(frames) if frames is not None else None
+    return None, None
+
+
+def _wildcard_fallback(key: str, clips_base: str, use_prefix: bool, ext: str = ".mkv", raw_basename: str = "") -> Optional[str]:
+    """
+    Fallback resolver: tries known suffix variants then any *.mkv.
+    Priority:
+      1. <base>_sh<ext>   — common Shorts variant
+      2. <base>_s<ext>    — legacy Shorts variant
+      3. <base><ext>      — bare HD version
+      4. first real *.mkv — last resort (alphabetical, symlinks last)
+    """
+    folder = _find_keyed_folder(clips_base, key, use_prefix)
+    folder_path = Path(_resolve_path(folder))
+    if not folder_path.exists():
+        return None
+
+    if raw_basename:
+        base = raw_basename.replace("{suffix}", "").replace(ext, "")
+        for suffix in ("_sh", "_s", ""):
+            candidate = folder_path / f"{base}{suffix}{ext}"
+            if candidate.exists() and not candidate.is_symlink():
+                return str(candidate)
+        # Also try symlinks
+        for suffix in ("_sh", "_s", ""):
+            candidate = folder_path / f"{base}{suffix}{ext}"
+            if candidate.exists():
+                return str(candidate)
+
+    # Last resort: first real *.mkv alphabetically
+    matches = sorted(folder_path.glob(f"*{ext}"))
+    real = [m for m in matches if not m.is_symlink()]
+    pick = real[0] if real else (matches[0] if matches else None)
+    return str(pick) if pick else None
+
+
+def _resolve_entries(
+    raw_list: List[Any],
+    key: str,
+    clips_base: str,
+    use_prefix: bool,
+    fmt_suffix: str = "",
+) -> List[MediaEntry]:
+    """Resolve a list of entries to (absolute_path, frames) tuples.
+
+    Fallback order:
+      1. Suffixed file  (e.g. c0fl_sh.mkv) — full folder path
+      2. Bare file      (e.g. c0fl.mkv)    — full folder path
+      3. Wildcard glob  (first *.mkv in folder) — beats black frames
+    """
+    result: List[MediaEntry] = []
+    for entry in raw_list:
+        raw_path, frames = _parse_entry(entry)
+        if isinstance(entry, dict) and entry.get("src"):
+            # Image entry — handle separately, no wildcard
+            img_path = _apply_base(entry["src"].replace("{suffix}", fmt_suffix or ""), key, clips_base, use_prefix)
+            resolved = _abs_if_exists(img_path) or _abs_if_exists(
+                _apply_base(entry["src"].replace("{suffix}", ""), key, clips_base, use_prefix)
+            )
+            result.append((resolved, frames))
+            continue
+        if raw_path and "{suffix}" in raw_path:
+            suffixed = _apply_base(raw_path.replace("{suffix}", fmt_suffix or ""), key, clips_base, use_prefix)
+            bare     = _apply_base(raw_path.replace("{suffix}", ""),               key, clips_base, use_prefix)
+            resolved = _abs_if_exists(suffixed) or _abs_if_exists(bare) or _wildcard_fallback(key, clips_base, use_prefix)
+        elif raw_path:
+            raw_path = _apply_base(raw_path.replace("{suffix}", fmt_suffix or ""), key, clips_base, use_prefix)
+            resolved = _abs_if_exists(raw_path) or _wildcard_fallback(key, clips_base, use_prefix)
+        else:
+            resolved = None
+        result.append((resolved, frames))
+    return result
+
+
+def _extract_sequence(cfg_entry: Any) -> Tuple[List[Any], List[Any], List[Any]]:
+    """Extract raw (paths_list, loops_list, tail_list) from any config format."""
+    if cfg_entry is None:
+        return [], [], []
+    if isinstance(cfg_entry, str):
+        return [cfg_entry], [], []
+    if not isinstance(cfg_entry, dict):
+        return [], [], []
+    if "src" in cfg_entry:
+        return [cfg_entry], [], []
+    paths = cfg_entry.get("paths") or ([cfg_entry["path"]] if "path" in cfg_entry else [])
+    loops = cfg_entry.get("loops") or ([cfg_entry["loop"]] if "loop" in cfg_entry else [])
+    tail  = cfg_entry.get("tail")  or ([cfg_entry["end"]]  if "end"  in cfg_entry else [])
+    if not isinstance(paths, list): paths = [paths]
+    if not isinstance(loops, list): loops = [loops]
+    if not isinstance(tail,  list): tail  = [tail]
+    return paths, loops, tail
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Config helpers
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _get_base_and_prefix(clip_config: dict) -> Tuple[str, bool]:
+    """Extract _clips_base and _folder_prefix from clip_config."""
+    clips_base  = clip_config.get("_clips_base", DEFAULT_CLIPS_BASE)
+    use_prefix  = bool(clip_config.get("_folder_prefix", False))
+    return clips_base, use_prefix
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Public API
+# ─────────────────────────────────────────────────────────────────────────────
+
+def resolve_intro(
+    fmt: str,
+    intro_enabled: bool,
+    debate_dir: Path,
+    clip_config: dict,
+    logger=print,
+    fmt_suffix: str = "",
+) -> Tuple[Optional[str], bool]:
+    """
+    Resolve intro clip path and whether to include it in the pipeline.
+    Returns: (intro_path, has_intro)
+    """
+    fmt_clips  = clip_config.get(fmt, {})
+    clips_base, use_prefix = _get_base_and_prefix(clip_config)
+    if intro_enabled:
+        candidate = debate_dir / f"intro_{fmt}.mp4"
+        if candidate.exists():
+            logger(f"✅ Intro (generated): {candidate.name}")
+            return str(candidate), True
+        logger(f"ℹ️  No pre-generated intro for {fmt} — using clip config.")
+    raw = _extract_path(fmt_clips.get("intro"))
+
+    if raw:
+        raw = _apply_suffix_with_fallback(raw, fmt_suffix)
+        raw = _apply_base(raw, "intro", clips_base, use_prefix)
+    path = _abs_if_exists(raw)
+    if path:
+        logger(f"✅ Intro (config): {Path(path).name}")
+        return path, True
+
+    logger(f"⚠️  No intro clip found for {fmt}.")
+    return None, False
+
+def resolve_win_clip(verdict_path: Path, clip_config: dict, fmt: str) -> str:
+    """
+    Pick win clip based on DECISION text.
+
+    Args:
+        verdict_path: Path to decide.md or decide-m.md
+        clip_config: The "win" config dict with "paths" array
+        fmt: Video format ("Shorts", "HD", etc.)
+
+    Returns:
+        Selected clip filename (e.g., "pwin.mkv" or "pwin_s.mkv")
+
+    Logic:
+        - "PROPOSITION WINS" → paths[0] (pwin.mkv)
+        - "OPPOSITION WINS"  → paths[1] (cwin.mkv)
+        - "DRAW"             → paths[2] (nwin.mkv)
+        - Error/ambiguous    → paths[2] (nwin.mkv fallback)
+    """
+    paths = clip_config.get("paths", [])
+    if not isinstance(paths, list) or len(paths) < 3:
+        return paths[0] if paths else None
+
+    # Parse verdict
+    try:
+        text = verdict_path.read_text(encoding="utf-8").upper()
+        if "PROPOSITION WINS" in text:
+            idx = 0  # pwin.mkv
+        elif "OPPOSITION WINS" in text:
+            idx = 1  # cwin.mkv
+        elif "DRAW" in text:
+            idx = 2  # nwin.mkv (explicit draw)
+        else:
+            idx = 2  # Fallback to neutral
+    except Exception:
+        idx = 2  # Safe fallback on file read error
+
+    selected = paths[idx]
+
+    # Apply _s suffix for Shorts
+    if "Shorts" in fmt and not selected.endswith("_s.mkv"):
+        selected = selected.replace(".mkv", "_s.mkv")
+
+    return selected
+
+def resolve_subscribe(fmt: str, clip_config: dict, fmt_suffix: str = "") -> bool:
+    """Check if a subscribe/sbs clip is configured and exists on disk."""
+    fmt_clips  = clip_config.get(fmt, {})
+    clips_base, use_prefix = _get_base_and_prefix(clip_config)
+
+    # Support both key names
+    key = "sbs" if "sbs" in fmt_clips else "subscribe"
+    raw = _extract_path(fmt_clips.get(key))
+    if raw:
+        raw = _apply_suffix_with_fallback(raw, fmt_suffix)
+        raw = _apply_base(raw, key, clips_base, use_prefix)
+    return _abs_if_exists(raw) is not None
+
+
+def resolve_clip_map(
+    pipeline: List[Dict],
+    fmt: str,
+    fmt_clips: Dict[str, Any],
+    intro_path: Optional[str],
+    clips_base: str = DEFAULT_CLIPS_BASE,
+    use_prefix: bool = False,
+    fmt_suffix: str = "",
+) -> Dict[str, Optional[str]]:
+    """
+    Build key → absolute PRIMARY path for every pipeline step.
+    Used for audio extraction from video steps only.
+    """
+    clip_map: Dict[str, Optional[str]] = {}
+    for step in pipeline:
+        key = step["key"]
+        clip_map[key] = _resolve_primary(key, fmt_clips, intro_path, clips_base, use_prefix, fmt_suffix)
+    return clip_map
+
+
+def resolve_clip_sequences(
+    pipeline: List[Dict],
+    fmt_clips: Dict[str, Any],
+    intro_path: Optional[str],
+    clips_base: str = DEFAULT_CLIPS_BASE,
+    use_prefix: bool = False,
+    fmt_suffix: str = "",
+) -> Dict[str, ClipSequence]:
+    """
+    Build key → ClipSequence for every pipeline step.
+
+    ClipSequence = {
+        "paths": [(path, frames), ...],
+        "loops": [(path, frames), ...],
+    }
+
+    Args:
+        fmt_suffix: e.g. "_s" for Shorts. Substituted into "{suffix}"
+                    placeholders in clip paths. Falls back to bare filename
+                    when the suffixed file is missing on disk.
+    """
+    sequences: Dict[str, ClipSequence] = {}
+
+    for step in pipeline:
+        key = step["key"]
+
+        if key == "intro":
+            p = intro_path if (intro_path and Path(intro_path).exists()) else \
+                _abs_if_exists(
+                    _apply_base(_extract_path(fmt_clips.get("intro")) or "",
+                                "intro", clips_base, use_prefix) or None
+                )
+            sequences[key] = {"paths": [(p, None)], "loops": [(p, None)]}
+            continue
+
+        cfg = fmt_clips.get(key)
+        raw_paths, raw_loops, raw_tail = _extract_sequence(cfg)
+        resolved_paths = _resolve_entries(raw_paths, key, clips_base, use_prefix, fmt_suffix)
+        resolved_loops = _resolve_entries(raw_loops, key, clips_base, use_prefix, fmt_suffix)
+        resolved_tail  = _resolve_entries(raw_tail,  key, clips_base, use_prefix, fmt_suffix)
+        if not resolved_loops:
+            last_valid = next((p for p, _ in reversed(resolved_paths) if p), None)
+            resolved_loops = [(last_valid, None)] if last_valid else []
+        sequences[key] = {
+            "paths": resolved_paths,
+            "loops": resolved_loops,
+            "tail":  resolved_tail,
+        }
+
+    return sequences
+
+
+def _resolve_primary(
+    key: str,
+    fmt_clips: Dict[str, Any],
+    intro_path: Optional[str],
+    clips_base: str = DEFAULT_CLIPS_BASE,
+    use_prefix: bool = False,
+    fmt_suffix: str = "",
+) -> Optional[str]:
+    """Resolve first/primary path for a key (used for audio extraction)."""
+    if key == "intro":
+        if intro_path and Path(intro_path).exists():
+            return intro_path
+        raw = _extract_path(fmt_clips.get("intro"))
+        if raw:
+            raw = _apply_suffix_with_fallback(raw, fmt_suffix)
+            raw = _apply_base(raw, "intro", clips_base, use_prefix)
+        return _abs_if_exists(raw)
+
+    raw_paths, _, _ = _extract_sequence(fmt_clips.get(key))
+    if not raw_paths:
+        return _wildcard_fallback(key, clips_base, use_prefix)
+    raw_path, _ = _parse_entry(raw_paths[0])
+    if raw_path and "{suffix}" in raw_path and fmt_suffix:
+        suffixed = _apply_base(raw_path.replace("{suffix}", fmt_suffix), key, clips_base, use_prefix)
+        bare     = _apply_base(raw_path.replace("{suffix}", ""),         key, clips_base, use_prefix)
+        return _abs_if_exists(suffixed) or _abs_if_exists(bare) or _wildcard_fallback(key, clips_base, use_prefix)
+    if raw_path:
+        raw_path = _apply_base(raw_path.replace("{suffix}", fmt_suffix or ""), key, clips_base, use_prefix)
+    return _abs_if_exists(raw_path) or _wildcard_fallback(key, clips_base, use_prefix)

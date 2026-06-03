@@ -1,0 +1,41 @@
+{
+  "_clips_base": "assets/classroom/clips",
+  "_folder_prefix": true,
+  "_format_suffix": {
+    "HD":     "",
+    "Shorts": "_s"
+  },
+
+  "shared": {
+    "intro": {
+      "paths": ["Intro{suffix}.mkv"],
+      "subtext": "360Classroom! - See Every Side, Decide Smarter."
+    },
+
+    "T1": { "init": ["T1{suffix}.mkv"],   "loop": ["T1{suffix}.mkv"],   "trails": ["T1{suffix}.mkv"] },
+    "T2": { "init": ["T2F{suffix}.mkv"],  "loop": ["T2F{suffix}.mkv"],  "trails": ["T2F{suffix}.mkv"] },
+
+    "S1": { "init": ["S1{suffix}.mkv"],   "loop": ["S1{suffix}.mkv"],   "trails": ["S1{suffix}.mkv"] },
+    "S2": { "init": ["S2M{suffix}.mkv"],  "loop": ["S2M{suffix}.mkv"],  "trails": ["S2M{suffix}.mkv"] },
+    "S3": { "init": ["S3F{suffix}.mkv"],  "loop": ["S3F{suffix}.mkv"],  "trails": ["S3F{suffix}.mkv"] },
+    "S4": { "init": ["S11R{suffix}.mkv"], "loop": ["S11R{suffix}.mkv"], "trails": ["S11R{suffix}.mkv"] },
+    "S5": { "init": ["S5F{suffix}.mkv"],  "loop": ["S5F{suffix}.mkv"],  "trails": ["S5F{suffix}.mkv"] },
+    "S6": { "init": ["S6{suffix}.mkv"],   "loop": ["S6{suffix}.mkv"],   "trails": ["S6{suffix}.mkv"] },
+    "S7": { "init": ["S7{suffix}.mkv"],   "loop": ["S7{suffix}.mkv"],   "trails": ["S7{suffix}.mkv"] },
+    "S8": { "init": ["S8{suffix}.mkv"],   "loop": ["S8{suffix}.mkv"],   "trails": ["S8{suffix}.mkv"] },
+
+    "ad1": { "init": ["Bji3s{suffix}.mkv"], "subtext": "This episode is brought to you by Scale 360 A.I." },
+    "sum": { "init": ["T2F{suffix}.mkv"], "loop": ["T2F{suffix}.mkv"], "trails": ["T2F{suffix}.mkv"] },
+    "ad2": { "init": ["try{suffix}.mkv"],   "subtext": "Discover your next adventure! Scale 360 A.I." },
+    "end": { "init": ["T1{suffix}.mkv"],    "loop": ["T1{suffix}.mkv"],  "trails": ["T1{suffix}.mkv"] },
+    "sbs": { "paths": ["sub{suffix}.mkv"],  "subtext": "Loved this lesson? Subscribe @KidsThinkAI!" }
+  },
+
+  "HD": {
+    "_extend": "shared"
+  },
+
+  "Shorts": {
+    "_extend": "shared"
+  }
+}

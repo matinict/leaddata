@@ -1,0 +1,56 @@
+{
+  "topic": "Found Donar Financing for Ai startup Company Bangladesh",
+  "_comment": "CF2-Intent lead. Change topic only.",
+  "_profile": "leadint",
+  "_version": "3.0.0",
+  "Unit-LeadData": true,
+  "Unit-Scout": false,
+  "Unit-Data": false,
+  "Unit-Debate": false,
+  "Unit-Prodcast": false,
+  "Unit-Classroom": false,
+  "Unit-Definition": false,
+  "Unit-Animation": false,
+  "Unit-Comparison": false,
+  "Unit-Packaging": false,
+  "Unit-Publisher": false,
+  "Unit-Advertise": false,
+  "leaddata_config": {
+    "enabled": true,
+    "auto_select_sources": true,
+    "enrich_enabled": false,
+    "credentials_file": "serpapi_credentials.json",
+    "skip_if_cached": false,
+    "tool_overrides": {
+      "google_maps": {
+        "require_phone": true,
+        "require_website": true,
+        "min_reviews": 1,
+        "min_rating": 3.0,
+        "scrape_emails": true,
+        "max_results_per_keyword": 20
+      },
+      "reddit_business": {
+        "force_reddit": true,
+        "max_results_per_keyword": 20
+      },
+      "quora": {
+        "force_quora": true,
+        "max_results_per_keyword": 20
+      }
+    },
+    "normalize_config": {
+      "deduplicate_on": ["website"],
+      "phone_country_default": "+1",
+      "lowercase_email": true,
+      "force_https": true
+    },
+    "score_config": {
+      "score_enabled": true
+    },
+    "export_config": {
+      "formats": ["csv", "json"],
+      "generate_stats": true
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "_comment": "Place at input/unit_scout_config.json. Auto-loaded via Rule 37 when data3d.json declares: scout_config_file. File content is THE scout_config block — no outer wrapper (Rule 37 wraps it).",
+
+  "force_scraping": true,
+  "platforms": ["scraping_url", "YouTube", "Facebook", "LinkedIn", "instagram"],
+  "niche_strict": true,
+  "niches": ["News", "politics", "conflict"],
+  "min_virality_score": 75,
+  "output_queue_size": 10,
+  "auto_consume": true,
+  "use_web_search": true,
+  "scraping_url": "data/scraping_url.json",
+  "social_credentials_file": "input/3d_social_credentials.json",
+  "fb_credentials_file": "input/3d_fb_credentials.json",
+  "yt_client_secrets_file": "input/3d_client_secrets.json",
+  "yt_token_file": "input/3d_token.json"
+}

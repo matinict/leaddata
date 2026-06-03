@@ -1,0 +1,33 @@
+{
+  "prodcast_enabled": true,
+  "prodcast_video_enabled": true,
+  "prodcast_max_script_chars": 5000,
+  "prodcast_video_style": "waveform",
+  "prodcast_video_width": 1920,
+  "prodcast_video_height": 1080,
+  "prodcast_video_fps": 30,
+  "prodcast_video_bg_color": "#0a0a0a",
+  "prodcast_video_waveform_color": "#00d4ff",
+  "prodcast_intro_dur": 3.0,
+  "prodcast_sbs_dur": 4.0,
+  "keep_shorts_backup": true,
+  "shorts_max_seconds": 179,
+  "channel": "ThirdEyeRise",
+  "channel_lower": "ThirdEyeRise",
+  "website": "youtube.com/@ThirdEyeRise",
+  "watermark_enabled": true,
+  "watermark_text": "@ThirdEyeRise",
+  "watermark_opacity": 60,
+  "prodcast_config": {
+    "audio_speed": {
+      "Shorts": 1.15,
+      "HD": 1.0,
+      "default": 1.0
+    },
+    "covers": {
+      "Shorts": "input/prodcast_cover_short.png",
+      "HD": "input/prodcast_cover_hd.png",
+      "default": "input/prodcast_cover.png"
+    }
+  }
+}

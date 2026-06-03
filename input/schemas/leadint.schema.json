@@ -1,0 +1,157 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "cf2/profile/leadint.schema.json",
+  "title": "CF2 LeadIntent Profile Configuration",
+  "description": "Profile override schema for CF2 Unit-LeadData intent-mining pipeline. Rule 27/28 compliant: only overrides existing base config keys. No arbitrary keys allowed.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "_comment": {
+      "type": "string",
+      "description": "Developer notes. Ignored by CF2 runtime.",
+      "default": "CF2 — Config-driven AI automation. Topic-focused pipeline execution."
+    },
+    "_profile": {
+      "type": "string",
+      "description": "Short profile identifier.",
+      "default": "leadint"
+    },
+    "_version": {
+      "type": "string",
+      "description": "Schema/profile version string.",
+      "default": "1.0.0"
+    },
+    "topic": {
+      "type": "string",
+      "description": "Intent topic or comma-separated keywords. Example: Planning to visit Dentist Montreal"
+    },
+
+    "Unit-LeadData": { "type": "boolean" },
+    "Unit-Scout": { "type": "boolean" },
+    "Unit-Data": { "type": "boolean" },
+    "Unit-Debate": { "type": "boolean" },
+    "Unit-Prodcast": { "type": "boolean" },
+    "Unit-Classroom": { "type": "boolean" },
+    "Unit-Definition": { "type": "boolean" },
+    "Unit-Animation": { "type": "boolean" },
+    "Unit-Comparison": { "type": "boolean" },
+    "Unit-Packaging": { "type": "boolean" },
+    "Unit-Publisher": { "type": "boolean" },
+    "Unit-Advertise": { "type": "boolean" },
+
+    "leaddata_config_file": {
+      "type": "string",
+      "format": "uri-reference",
+      "description": "Path to master unit config."
+    },
+
+    "leaddata_config": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable Unit-LeadData execution."
+        },
+        "sources": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Allowed: maps_reviewers, maps, reddit_travel, quora, youtube_comments, google_trends"
+        },
+        "collect_config": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "credentials_file": {
+              "type": "string",
+              "description": "Credential file for collection API."
+            },
+            "api_endpoint": {
+              "type": "string",
+              "format": "uri"
+            },
+            "engine": {
+              "type": "string",
+              "enum": ["google_maps", "google_maps_reviews"]
+            },
+            "request_timeout": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "max_results_per_keyword": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "skip_if_cached": {
+              "type": "boolean"
+            },
+            "reviewer_mining": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enabled": { "type": "boolean" },
+                "review_recency_days": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "default": 90
+                },
+                "min_reviewer_activity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "default": 5
+                }
+              }
+            }
+          }
+        },
+        "normalize_config": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "deduplicate_on": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["name", "phone", "website", "email", "location"]
+              }
+            },
+            "phone_country_default": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            },
+            "lowercase_email": { "type": "boolean" },
+            "force_https": { "type": "boolean" },
+            "strip_unicode": { "type": "boolean" },
+            "min_name_length": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "score_config": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "score_enabled": { "type": "boolean" },
+            "scoring_rubric": {
+              "type": "object",
+              "description": "Keys must match CSV column names.",
+              "additionalProperties": { "type": "number" }
+            },
+            "segment_thresholds": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "hot": { "type": "number", "minimum": 0 },
+                "warm": { "type": "number", "minimum": 0 },
+                "cold": { "type": "number", "minimum": 0 }
+              }
+            },
+            "sort_by_score_desc": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  },
+  "required": ["topic", "leaddata_config_file"]
+}

@@ -1,0 +1,1998 @@
+{
+  "_comment": "Video Factory configuration schema. Unit master switches (Unit-Scout, Unit-Data, etc.) gate entire pipelines. All nested *_config blocks are only read when the parent Unit-* switch is true.",
+  "topic": {
+    "type": "string",
+    "description": "Topic for video (e.g., 'Programming Language', 'AI Frameworks'). Can be a debate motion when Unit-Debate=true. When packaging_config.video_style=[\"ytid\"], set this to a YouTube video ID (e.g. 'WnS4zE4wOtQ') — the metadata tool fetches title/description/tags from that existing video. Set to 'auto' to let the scout pipeline pick the next topic from the output queue automatically (requires Unit-Scout=true).",
+    "example": "Programming Language",
+    "example_ytid": "WnS4zE4wOtQ",
+    "special_values": {
+      "auto": "Pull next queued topic from scout output queue. Requires Unit-Scout=true and a populated queue. The scout writes candidate topics to a JSON queue file; 'auto' pops the top-ranked entry and uses it as the topic for this run."
+    }
+  },
+  "start": {
+    "type": "integer",
+    "description": "Start year for data range",
+    "example": 2015
+  },
+  "end": {
+    "type": "integer",
+    "description": "End year for data range",
+    "example": 2026
+  },
+  "granularity": {
+    "type": "string",
+    "description": "Data granularity",
+    "enum": [
+      "yearly",
+      "monthly",
+      "daily"
+    ],
+    "example": "yearly"
+  },
+  "video_formats": {
+    "type": "array",
+    "description": "Video formats to generate. Applies to all tools: bar_race, intro, definition_video, debate_video.",
+    "enum": [
+      "HD",
+      "2K",
+      "4K",
+      "8K",
+      "Shorts",
+      "ShortsHD",
+      "Shorts4K"
+    ],
+    "example": [
+      "Shorts",
+      "HD"
+    ]
+  },
+  "video_style": {
+    "type": "array",
+    "description": "Top-level video style tag(s) used by the packaging pipeline. Mirrors packaging_config.video_style and controls which branch the metadata tool takes. Valid values: 'debate', 'bar_race', 'animation', 'ytid'.",
+    "enum": [
+      "debate",
+      "bar_race",
+      "animation",
+      "ytid"
+    ],
+    "example": [
+      "debate"
+    ]
+  },
+  "fps": {
+    "type": "number",
+    "description": "Seconds per period for bar_race videos. Controls animation pace — higher = slower/longer video.",
+    "minimum": 0.1,
+    "maximum": 30.0,
+    "examples": {
+      "0.5": "~6s total (12 periods × 0.5s)",
+      "1.0": "~12s total",
+      "2.0": "~24s total",
+      "5.0": "~60s total",
+      "10.0": "~120s total"
+    }
+  },
+  "fps_hd_offset": {
+    "type": "number",
+    "description": "Extra seconds per period for HD only. Shorts uses fps; HD uses fps + fps_hd_offset.",
+    "minimum": 0.0,
+    "maximum": 10.0,
+    "example": 1.37,
+    "tip": "fps=4.9 + fps_hd_offset=1.37 → Shorts=4.9s/period, HD=6.27s/period"
+  },
+  "video_fps": {
+    "type": "integer",
+    "description": "Output frame rate for ALL video tools (intro, bar_race, definition_video, debate_video). Must be identical across all tools — mismatched fps causes A/V sync failure on merge.",
+    "enum": [
+      24,
+      30,
+      60
+    ],
+    "default": 30,
+    "example": 30,
+    "tip": "30fps recommended. Never mix fps values — all segment tools read this single field."
+  },
+  "audio_speed": {
+    "type": "number",
+    "description": "Speech speed for Shorts audio via ffmpeg atempo. 1.0=normal, <1.0=slower, >1.0=faster.",
+    "minimum": 0.5,
+    "maximum": 2.0,
+    "example": 1.1,
+    "tip": "1.1 = slightly faster. Good for Shorts where narration must be concise."
+  },
+  "audio_speed_hd": {
+    "type": "number",
+    "description": "Speech speed for HD audio only. Set 0.0 to fall back to audio_speed for all formats.",
+    "minimum": 0.0,
+    "maximum": 2.0,
+    "examples": {
+      "0.0": "No override — HD uses same speed as audio_speed",
+      "0.9": "Slightly slower than Shorts — good for longer HD narration",
+      "1.0": "Normal speed for HD"
+    }
+  },
+  "tts_engine": {
+    "type": "string",
+    "description": "TTS engine used for ALL video audio generation (definition_video, debate_video, and future tools). Set once here — applies globally.",
+    "enum": [
+      "gtts",
+      "edge-tts",
+      "piper"
+    ],
+    "default": "gtts",
+    "example": "edge-tts",
+    "options": {
+      "gtts": "Google Text-to-Speech. Free, offline-friendly. Install: pip install gTTS",
+      "edge-tts": "Microsoft Edge Neural TTS. High-quality neural voices. Install: pip install edge-tts. Uses edge_tts_voices config. Falls back to gtts if not installed.",
+      "piper": "Local offline neural TTS via ONNX models. Fastest, no internet needed. Install: pip install piper-tts. Uses piper_voices config. Falls back to gtts if not installed."
+    }
+  },
+  "audio_lang": {
+    "type": "string",
+    "description": "Language code for gTTS narration (non-debate audio tools: bar_race, definition_video). Only applies when tts_engine=gtts.",
+    "default": "en",
+    "example": "en",
+    "tip": "Use standard BCP-47 codes: 'en', 'fr', 'de', 'es', 'zh', etc."
+  },
+  "audio_tld": {
+    "type": "string",
+    "description": "Top-level domain for gTTS accent selection. Only applies when tts_engine=gtts and audio_lang=en.",
+    "default": "com",
+    "example": "com",
+    "options": {
+      "com": "US English (default)",
+      "co.uk": "British English",
+      "com.au": "Australian English",
+      "co.in": "Indian English",
+      "ca": "Canadian English"
+    }
+  },
+  "use_label_mappings": {
+    "type": "boolean",
+    "description": "Apply label_mappings.json to shorten bar names (e.g. 'JavaScript' → 'JS').",
+    "example": false
+  },
+  "channel": {
+    "type": "string",
+    "description": "Channel name used in audio narration, intro clip, agent backstory, and metadata. No @ prefix.",
+    "example": "PlayOwnAi"
+  },
+  "channel_lower": {
+    "type": "string",
+    "description": "Lowercase channel slug used in LinkedIn and other platform URLs.",
+    "example": "playownai"
+  },
+  "website": {
+    "type": "string",
+    "description": "Channel website or primary URL shown in YouTube metadata.",
+    "example": "youtube.com/@PlayOwnAi"
+  },
+  "watermark_enabled": {
+    "type": "boolean",
+    "description": "Overlay semi-transparent watermark text on video frames.",
+    "example": true
+  },
+  "watermark_text": {
+    "type": "string",
+    "description": "Watermark text displayed on video. Usually '@ChannelName'.",
+    "example": "@PlayOwnAi"
+  },
+  "watermark_opacity": {
+    "type": "integer",
+    "description": "Watermark opacity: 0=invisible, 255=fully opaque. 60=subtle, 160=visible.",
+    "minimum": 0,
+    "maximum": 255,
+    "example": 60
+  },
+  "_section_unit_switches": "════════════════════════════════════════",
+  "_unit_switches_comment": "Master pipeline switches. Set false to hard-skip that unit — no lock, no meta check, no execution.",
+  "Unit-Scout": {
+    "type": "boolean",
+    "description": "Master switch for Unit-Scout. When true, scans configured platforms and niches for viral/trending content and populates a topic queue. When topic='auto', the next queued topic is consumed automatically. When false, scout_config is ignored and the unit is skipped entirely.",
+    "default": false,
+    "example": false
+  },
+  "Unit-Data": {
+    "type": "boolean",
+    "description": "Master switch for Unit-Data. Generates all base content: CSV data, debate scripts (.md), definition text. All other content units depend on its output. When false, unit is skipped entirely.",
+    "default": true,
+    "example": true
+  },
+  "Unit-LeadData": {
+    "type": "boolean",
+    "description": "Master switch for Unit-LeadData. Collects business leads from Google Maps (via SerpAPI) using the topic as keyword(s) — comma-separate for multiple keywords. Normalizes phone/email/URL, deduplicates, scores quality 0–100, segments hot/warm/cold, and exports CSV/JSON. When false, leaddata_config is ignored and the unit is skipped entirely.",
+    "default": false,
+    "example": true
+  },
+  "Unit-Debate": {
+    "type": "boolean",
+    "description": "Master switch for Unit-Debate. Renders debate video from propose.md + oppose.md + decide.md produced by Unit-Data. When false, debate_config is ignored and the unit is skipped entirely.",
+    "default": false,
+    "example": true
+  },
+  "Unit-Definition": {
+    "type": "boolean",
+    "description": "Master switch for Unit-Definition. Renders scrolling definition video from definition .md files produced by Unit-Data. When false, unit is skipped entirely.",
+    "default": false,
+    "example": false
+  },
+  "Unit-Animation": {
+    "type": "boolean",
+    "description": "Master switch for Unit-Animation. Renders bar race and other animation videos from CSV produced by Unit-Data. When false, animation_config is ignored and the unit is skipped entirely.",
+    "default": false,
+    "example": false
+  },
+  "Unit-Comparison": {
+    "type": "boolean",
+    "description": "Master switch for Unit-Comparison. Generates comparison content. When false, unit is skipped entirely.",
+    "default": false,
+    "example": false
+  },
+  "Unit-Packaging": {
+    "type": "boolean",
+    "description": "Master switch for Unit-Packaging. Generates YouTube metadata (title, description, tags, translations), CC subtitles, and thumbnails — everything needed to package the video before upload. When false, packaging_config is ignored and the unit is skipped entirely.",
+    "default": false,
+    "example": false
+  },
+  "Unit-Publisher": {
+    "type": "boolean",
+    "description": "Master switch for Unit-Publisher. Uploads final videos to YouTube and/or Facebook. Requires Unit-Packaging output to exist. When false, publisher_config is ignored and the unit is skipped entirely.",
+    "default": false,
+    "example": false
+  },
+  "Unit-Advertise": {
+    "type": "boolean",
+    "description": "Master switch for Unit-Advertise. Creates promotional derivatives (Shorts cuts, social clips, TVC) from finished videos and posts to social platforms. When false, advertise_config is ignored and the unit is skipped entirely.",
+    "default": false,
+    "example": false
+  },
+  "leaddata_config_file": {
+    "type": "string",
+    "description": "Path to external Unit-LeadData config JSON. Auto-loaded by config_loader (Rule 37) and injected as inputs['leaddata_config']. The referenced file's content IS the leaddata_config block — no outer wrapper needed (same pattern as clips3d.json).",
+    "example": "input/unit_leaddata_config.json"
+  },
+  "_section_scout": "════════════════════════════════════════",
+  "scout_config": {
+    "type": "object",
+    "description": "Trend Scout pipeline settings. Only read when Unit-Scout=true.",
+    "properties": {
+      "force_scraping": {
+        "type": "boolean",
+        "description": "Force URL scraping even if cached results exist. Useful to refresh stale data.",
+        "default": false,
+        "example": false
+      },
+      "platforms": {
+        "type": "array",
+        "description": "Platforms to scout for trending topics. 'scraping_url' triggers scraping from URLs defined in scraping_url file.",
+        "items": {
+          "type": "string",
+          "enum": [
+            "scraping_url",
+            "YouTube",
+            "Facebook",
+            "LinkedIn",
+            "instagram"
+          ]
+        },
+        "example": [
+          "scraping_url",
+          "YouTube",
+          "Facebook",
+          "LinkedIn",
+          "instagram"
+        ]
+      },
+      "niches": {
+        "type": "array",
+        "description": "Topic niches / keywords to filter trending content by. Only posts/videos matching these themes are considered.",
+        "items": {
+          "type": "string"
+        },
+        "example": [
+          "Ai",
+          "LLM",
+          "GenAi"
+        ]
+      },
+      "min_virality_score": {
+        "type": "integer",
+        "description": "Minimum virality score (0–100) a candidate topic must reach to be added to the queue. Higher = stricter filtering.",
+        "minimum": 0,
+        "maximum": 100,
+        "default": 75,
+        "example": 75
+      },
+      "output_queue_size": {
+        "type": "integer",
+        "description": "Maximum number of topics to keep in the output queue at once. Oldest entries are evicted when the queue is full.",
+        "minimum": 1,
+        "maximum": 100,
+        "default": 10,
+        "example": 10
+      },
+      "auto_consume": {
+        "type": "boolean",
+        "description": "When true and topic='auto', automatically pop the top-ranked topic from the queue and set it as the run topic without manual intervention.",
+        "default": true,
+        "example": true
+      },
+      "llm_scout": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "LLM for the trend scout agent used to score and rank candidate topics. null=project default.",
+        "example": "deepseek/deepseek-chat"
+      },
+      "use_web_search": {
+        "type": "boolean",
+        "description": "Allow the scout agent to perform live web searches to validate and enrich candidate topics before scoring.",
+        "default": true,
+        "example": true
+      },
+      "scraping_url": {
+        "type": "string",
+        "description": "Path to a JSON file listing URLs to scrape for trending content. Used when 'scraping_url' is included in platforms.",
+        "default": "data/scraping_url.json",
+        "example": "data/scraping_url.json"
+      },
+      "social_credentials_file": {
+        "type": "string",
+        "description": "Path to social platform credentials JSON for reading platform feeds (LinkedIn, Instagram, etc.).",
+        "default": "input/social_credentials.json",
+        "example": "input/social_credentials.json"
+      },
+      "fb_credentials_file": {
+        "type": "string",
+        "description": "Path to Facebook credentials JSON for reading Facebook Page/Group feeds.",
+        "default": "input/fb_credentials.json",
+        "example": "input/fb_credentials.json"
+      },
+      "yt_client_secrets_file": {
+        "type": "string",
+        "description": "Path to YouTube OAuth2 client_secrets.json for reading YouTube trending data.",
+        "default": "input/client_secrets.json",
+        "example": "input/client_secrets.json"
+      },
+      "yt_token_file": {
+        "type": "string",
+        "description": "Path to saved YouTube OAuth2 token. Auto-created after first browser login.",
+        "default": "input/token.json",
+        "example": "input/token.json"
+      }
+    }
+  },
+  "_section_leaddata": "════════════════════════════════════════",
+  "leaddata_config": {
+    "type": "object",
+    "description": "Lead data collection pipeline settings. Only read when Unit-LeadData=true. Topic field provides search keywords (comma-separated for multiple). Pipeline: collect → normalize → score → export.",
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "description": "Inner enable flag. When false, the unit returns 'disabled' even if Unit-LeadData=true. Useful for keeping the config block intact while temporarily disabling.",
+        "default": true,
+        "example": true
+      },
+      "sources": {
+        "type": "array",
+        "description": "Lead data sources to query. 'maps' = Google Maps via SerpAPI (primary). 'csv' = local CSV at input/leads.csv (fallback for testing).",
+        "items": {
+          "type": "string",
+          "enum": [
+            "maps",
+            "csv"
+          ]
+        },
+        "default": [
+          "maps"
+        ],
+        "example": [
+          "maps"
+        ]
+      },
+      "collect_config": {
+        "type": "object",
+        "description": "Lead collection settings. Controls how raw leads are fetched from external sources.",
+        "properties": {
+          "credentials_file": {
+            "type": "string",
+            "description": "Filename of SerpAPI credentials JSON. Resolved to .runtime/secrets/{filename}. File content: { \"api_key\": \"...\" }. Never commit.",
+            "default": "serpapi_credentials.json",
+            "example": "serpapi_credentials.json"
+          },
+          "api_endpoint": {
+            "type": "string",
+            "description": "SerpAPI search endpoint. Override only if using a regional/proxy mirror.",
+            "default": "https://serpapi.com/search.json",
+            "example": "https://serpapi.com/search.json"
+          },
+          "engine": {
+            "type": "string",
+            "description": "SerpAPI engine. 'google_maps' returns local_results with phone/address/website/coordinates.",
+            "enum": [
+              "google_maps"
+            ],
+            "default": "google_maps",
+            "example": "google_maps"
+          },
+          "search_type": {
+            "type": "string",
+            "description": "Maps search subtype. 'search' = standard place search.",
+            "enum": [
+              "search"
+            ],
+            "default": "search",
+            "example": "search"
+          },
+          "request_timeout": {
+            "type": "integer",
+            "description": "HTTP request timeout in seconds for each SerpAPI call.",
+            "minimum": 5,
+            "maximum": 120,
+            "default": 30,
+            "example": 30
+          },
+          "max_results_per_keyword": {
+            "type": "integer",
+            "description": "Maximum number of leads to extract per keyword. SerpAPI returns up to 20 local_results per call.",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 20,
+            "example": 20
+          },
+          "skip_if_cached": {
+            "type": "boolean",
+            "description": "When true and raw/leads_raw.csv already exists in the workspace, skip the collect step and reuse the cached file. Set false to force a fresh fetch.",
+            "default": true,
+            "example": true
+          }
+        }
+      },
+      "normalize_config": {
+        "type": "object",
+        "description": "Normalization and deduplication settings. Standardizes phone/email/URL formatting and removes duplicate leads.",
+        "properties": {
+          "deduplicate_on": {
+            "type": "array",
+            "description": "Field(s) used to detect duplicate leads via hash key. Most reliable: ['phone']. Stricter: ['phone', 'email'].",
+            "items": {
+              "type": "string",
+              "enum": [
+                "phone",
+                "email",
+                "name",
+                "website"
+              ]
+            },
+            "default": [
+              "phone"
+            ],
+            "example": [
+              "phone"
+            ]
+          },
+          "phone_country_default": {
+            "type": "string",
+            "description": "Country prefix to prepend to phones missing a '+'. Empty string = prepend '+' only. Format: '+971' for UAE, '+880' for BD, etc.",
+            "default": "",
+            "example": "+971"
+          },
+          "lowercase_email": {
+            "type": "boolean",
+            "description": "Force email addresses to lowercase before storing. Disable only if you need raw casing preserved.",
+            "default": true,
+            "example": true
+          },
+          "force_https": {
+            "type": "boolean",
+            "description": "Prepend 'https://' to website URLs missing a scheme. When false, prepends 'http://' instead.",
+            "default": true,
+            "example": true
+          },
+          "strip_unicode": {
+            "type": "boolean",
+            "description": "Apply NFD unicode normalization to text fields (name, address, location, category) for consistent searchability.",
+            "default": true,
+            "example": true
+          },
+          "min_name_length": {
+            "type": "integer",
+            "description": "Reject leads whose normalized name is shorter than this many characters. Filters out junk results.",
+            "minimum": 0,
+            "maximum": 50,
+            "default": 2,
+            "example": 2
+          }
+        }
+      },
+      "score_config": {
+        "type": "object",
+        "description": "Quality scoring and segmentation settings. Each lead gets a 0–100 score based on data completeness, then bucketed into hot/warm/cold.",
+        "properties": {
+          "score_enabled": {
+            "type": "boolean",
+            "description": "When false, all leads receive score=0 and segment='cold'. Useful for skipping scoring on already-scored datasets.",
+            "default": true,
+            "example": true
+          },
+          "scoring_rubric": {
+            "type": "object",
+            "description": "Point values awarded for each present field. Sum is capped at 100.",
+            "properties": {
+              "has_phone": {
+                "type": "integer",
+                "description": "Points awarded when phone is present.",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 20
+              },
+              "has_email": {
+                "type": "integer",
+                "description": "Points awarded when email is present.",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 20
+              },
+              "has_website": {
+                "type": "integer",
+                "description": "Points awarded when website is present.",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 20
+              },
+              "has_address": {
+                "type": "integer",
+                "description": "Points awarded when address is present (proxy for premium/verified location).",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 20
+              },
+              "active_business": {
+                "type": "integer",
+                "description": "Points awarded when last_verified timestamp exists (active record).",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 20
+              }
+            },
+            "example": {
+              "has_phone": 20,
+              "has_email": 20,
+              "has_website": 20,
+              "has_address": 20,
+              "active_business": 20
+            }
+          },
+          "segment_thresholds": {
+            "type": "object",
+            "description": "Score boundaries for each segment. score >= hot → 'hot'; score >= warm → 'warm'; otherwise → 'cold'.",
+            "properties": {
+              "hot": {
+                "type": "integer",
+                "description": "Minimum score for hot segment (ready to contact).",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 70
+              },
+              "warm": {
+                "type": "integer",
+                "description": "Minimum score for warm segment (nurture).",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 40
+              },
+              "cold": {
+                "type": "integer",
+                "description": "Minimum score for cold segment. Always 0.",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 0
+              }
+            },
+            "example": {
+              "hot": 70,
+              "warm": 40,
+              "cold": 0
+            }
+          },
+          "sort_by_score_desc": {
+            "type": "boolean",
+            "description": "Sort scored CSV/JSON output by quality_score descending (highest first). Disable to preserve collection order.",
+            "default": true,
+            "example": true
+          }
+        }
+      },
+      "export_config": {
+        "type": "object",
+        "description": "Output formatting and statistics settings.",
+        "properties": {
+          "formats": {
+            "type": "array",
+            "description": "Final export formats. CSV is always written; 'json' adds a parallel JSON file. Reserved: 'jsonl', 'parquet'.",
+            "items": {
+              "type": "string",
+              "enum": [
+                "csv",
+                "json"
+              ]
+            },
+            "default": [
+              "csv",
+              "json"
+            ],
+            "example": [
+              "csv",
+              "json"
+            ]
+          },
+          "generate_stats": {
+            "type": "boolean",
+            "description": "Generate insights/lead_stats.json with totals, fill rates, and segment breakdown. Disable to skip the analytics step.",
+            "default": true,
+            "example": true
+          },
+          "stats_file": {
+            "type": "string",
+            "description": "Filename for the stats JSON written to insights/. Override only if multiple runs share an insights directory.",
+            "default": "lead_stats.json",
+            "example": "lead_stats.json"
+          },
+          "include_segments_breakdown": {
+            "type": "boolean",
+            "description": "When true, add a per-segment count map ({hot:N, warm:N, cold:N}) to the stats file.",
+            "default": true,
+            "example": true
+          }
+        }
+      }
+    }
+  },
+  "_section_animation": "════════════════════════════════════════",
+  "animation_config": {
+    "type": "object",
+    "description": "Animation pipeline settings. Only read when Unit-Animation=true.",
+    "properties": {
+      "animation_styles": {
+        "type": "array",
+        "description": "Animation styles for standard video_producer.",
+        "enum": [
+          "bar",
+          "line",
+          "bubble",
+          "pie",
+          "stream",
+          "map",
+          "bar_race"
+        ],
+        "example": [
+          "bar_race"
+        ]
+      },
+      "use_existing_csv": {
+        "type": "boolean",
+        "description": "Skip research+CSV generation and use existing output/{filename}.csv. Auto-generates if CSV missing.",
+        "example": false
+      },
+      "definition_enabled": {
+        "type": "boolean",
+        "description": "Generate plain-English topic definition saved to output/{filename}.txt.",
+        "example": true
+      },
+      "use_existing_definition": {
+        "type": "boolean",
+        "description": "Use existing output/{filename}.txt instead of generating a new one.",
+        "example": false
+      },
+      "definition_max_chars": {
+        "type": "integer",
+        "description": "Maximum characters for the topic definition text.",
+        "minimum": 300,
+        "maximum": 3000,
+        "default": 1200,
+        "example": 1500
+      },
+      "definition_video": {
+        "type": "boolean",
+        "description": "Create scrolling text video from definition .txt file. Output: definition_video_{fmt}_with_audio.mp4.",
+        "example": true
+      },
+      "intro_enabled": {
+        "type": "boolean",
+        "description": "Generate branded intro clip for the animation pipeline. Output: intro_{fmt}_with_audio.mp4. Controlled independently per pipeline block — does not affect debate intro.",
+        "example": true
+      },
+      "intro_duration": {
+        "type": "integer",
+        "description": "Intro clip duration in seconds for Shorts/portrait formats (animation pipeline).",
+        "minimum": 1,
+        "maximum": 60,
+        "example": 7
+      },
+      "intro_duration_hd": {
+        "type": "integer",
+        "description": "Intro clip duration in seconds for HD/landscape formats (animation pipeline). Set 0 to use intro_duration for all.",
+        "minimum": 0,
+        "maximum": 60,
+        "example": 10
+      },
+      "bar_race_video_enabled": {
+        "type": "boolean",
+        "description": "Generate bar race video. Output: bar_race_{fmt}_with_audio.mp4.",
+        "example": true
+      },
+      "bar_race_audio_enabled": {
+        "type": "boolean",
+        "description": "Generate TTS audio narration specifically for bar race videos. Reads CSV data to create data-driven commentary synced to the animation. Output: bar_race_{fmt}_audio.mp3 and bar_race_cc_en.txt. Independent of audio_enabled.",
+        "default": false,
+        "example": true
+      },
+      "bar_merge_enabled": {
+        "type": "boolean",
+        "description": "Concatenate intro + bar_race + definition_video into final video per format. Output: {channel}_{topic_slug}_{fmt}.mp4.",
+        "example": true,
+        "note": "All 3 segment _with_audio.mp4 files must exist and have identical video_fps."
+      },
+      "video_enabled": {
+        "type": "boolean",
+        "description": "Enable standard video generation via smart_video_tool.",
+        "example": false
+      },
+      "audio_enabled": {
+        "type": "boolean",
+        "description": "Enable audio narration for standard (non-bar-race) videos.",
+        "example": false
+      },
+      "merge_audio_video": {
+        "type": "boolean",
+        "description": "Merge standard audio with standard video files.",
+        "example": false
+      },
+      "llm_researcher": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "LLM for data_researcher agent. null=project default.",
+        "example": "deepseek/deepseek-chat"
+      },
+      "llm_definition": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "LLM for definition_specialist agent. null=project default.",
+        "example": "deepseek/deepseek-chat"
+      },
+      "llm_csv": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "LLM for csv_generator agent. null=project default.",
+        "example": "deepseek/deepseek-chat"
+      },
+      "llm_video": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "LLM for video_producer and bar_race_video_producer agents. null=project default.",
+        "example": "ollama/llama3.1:8b"
+      },
+      "llm_audio": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "LLM for audio_engineer agent. null=project default.",
+        "example": "ollama/deepseek-r1:1.5b"
+      },
+      "intro_slug": {
+        "type": "string",
+        "description": "Custom subtitle line shown in the animation intro clip. Replaces the default second line of the intro.",
+        "example": "Watch Race how the leaders change over time"
+      }
+    }
+  },
+  "_section_debate": "════════════════════════════════════════",
+  "debate_config": {
+    "type": "object",
+    "description": "Debate pipeline settings. Only read when Unit-Debate=true.",
+    "properties": {
+      "use_label_mappings": {
+        "type": "boolean",
+        "description": "Apply label_mappings.json to shorten bar names in debate context (e.g. 'JavaScript' → 'JS'). Mirrors the top-level use_label_mappings but scoped to the debate pipeline only.",
+        "default": false,
+        "example": true
+      },
+      "debate_definition_enabled": {
+        "type": "boolean",
+        "description": "Generate debate text (propose.md, oppose.md, decide.md) via LLM agents. Smart skip: if all 3 .md files already exist, LLM generation is skipped automatically.",
+        "example": true
+      },
+      "debate_video_enabled": {
+        "type": "boolean",
+        "description": "Render debate video from propose.md + oppose.md + decide.md. Output: debate_video_{fmt}_with_audio.mp4.",
+        "example": true
+      },
+      "debate_3d_enabled": {
+        "type": "boolean",
+        "description": "Render the debate video using a 3D scene/effect instead of the standard 2D scrolling text layout. When true, the debate_video_tool switches to a 3D rendering mode. Requires additional dependencies.",
+        "default": false,
+        "example": false
+      },
+      "debate_merge_enabled": {
+        "type": "boolean",
+        "description": "Concatenate debate_video segments into final video per format. Output: {channel}_{topic_slug}_{fmt}.mp4.",
+        "example": true,
+        "note": "Requires debate_video_{fmt}_with_audio.mp4 to exist."
+      },
+      "intro_slug": {
+        "type": "string",
+        "description": "Custom subtitle line shown in the debate intro clip (if intro_enabled=true). Replaces the default second line.",
+        "example": "One of the biggest debates in tech right now"
+      },
+      "intro_enabled": {
+        "type": "boolean",
+        "description": "Generate branded intro clip for the debate pipeline. Output: intro_{fmt}_with_audio.mp4. Controlled independently per pipeline block — does not affect animation intro.",
+        "default": false,
+        "example": true
+      },
+      "intro_duration": {
+        "type": "integer",
+        "description": "Intro clip duration in seconds for Shorts/portrait formats (debate pipeline).",
+        "minimum": 1,
+        "maximum": 60,
+        "example": 7
+      },
+      "intro_duration_hd": {
+        "type": "integer",
+        "description": "Intro clip duration in seconds for HD/landscape formats (debate pipeline). Set 0 to use intro_duration for all.",
+        "minimum": 0,
+        "maximum": 60,
+        "example": 10
+      },
+      "debate_secs_per_line": {
+        "type": "number",
+        "description": "Seconds each line is shown as active in the debate video.",
+        "minimum": 0.5,
+        "maximum": 10.0,
+        "default": 3.5,
+        "examples": {
+          "2.0": "Fast pace",
+          "3.5": "Default — comfortable reading speed",
+          "5.0": "Slow — good for complex arguments"
+        }
+      },
+      "debate_max_chars": {
+        "type": "integer",
+        "description": "Maximum characters for each debate section (propose, oppose, decide). Hard cap applied by DebateDefinitionTool.",
+        "minimum": 500,
+        "maximum": 50000,
+        "default": 10000,
+        "example": 1000
+      },
+      "llm_debate": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "LLM for debater and judge agents. null=project default.",
+        "examples": {
+          "null": "Use project default model",
+          "deepseek/deepseek-chat": "Cost-effective, strong reasoning",
+          "dashscope/qwen-plus": "Good for debate-style structured text",
+          "openai/gpt-4o": "Best argument quality",
+          "anthropic/claude-3-5-sonnet": "Excellent balanced reasoning"
+        },
+        "example": "dashscope/qwen-plus"
+      },
+      "piper_voices": {
+        "type": "object",
+        "description": "Per-role voice config for tts_engine=piper. Only read when tts_engine=piper. Install: pip install piper-tts. Download models from https://huggingface.co/rhasspy/piper-voices",
+        "properties": {
+          "propose": {
+            "type": "object",
+            "description": "Voice for PROPOSITION section.",
+            "properties": {
+              "model": {
+                "type": "string",
+                "example": "models/joe_medium.onnx"
+              },
+              "speed": {
+                "type": "number",
+                "default": 1.0,
+                "example": 1.05
+              },
+              "pitch": {
+                "type": "number",
+                "default": 0,
+                "example": 0.5
+              }
+            }
+          },
+          "oppose": {
+            "type": "object",
+            "description": "Voice for OPPOSITION section.",
+            "properties": {
+              "model": {
+                "type": "string",
+                "example": "models/alba_medium.onnx"
+              },
+              "speed": {
+                "type": "number",
+                "default": 1.0,
+                "example": 1.05
+              },
+              "pitch": {
+                "type": "number",
+                "default": 0,
+                "example": -0.5
+              }
+            }
+          },
+          "decide": {
+            "type": "object",
+            "description": "Voice for VERDICT section.",
+            "properties": {
+              "model": {
+                "type": "string",
+                "example": "models/en_GB-scott-medium.onnx"
+              },
+              "speed": {
+                "type": "number",
+                "default": 1.0,
+                "example": 1.0
+              },
+              "pitch": {
+                "type": "number",
+                "default": 0,
+                "example": 0
+              }
+            }
+          }
+        }
+      },
+      "edge_tts_voices": {
+        "type": "object",
+        "description": "Per-role neural voice config for tts_engine=edge-tts. 5 roles: propose, oppose, judge_f (Female Judge/SUMMARY), judge_m (Male Judge/ANALYSIS), decide (Chief Judge/DECISION).",
+        "properties": {
+          "propose": {
+            "type": "object",
+            "description": "Voice for PROPOSITION section.",
+            "properties": {
+              "edge_voice": {
+                "type": "string",
+                "example": "en-US-GuyNeural"
+              }
+            }
+          },
+          "oppose": {
+            "type": "object",
+            "description": "Voice for OPPOSITION section.",
+            "properties": {
+              "edge_voice": {
+                "type": "string",
+                "example": "en-US-AriaNeural"
+              }
+            }
+          },
+          "decide": {
+            "type": "object",
+            "description": "Voice for DECISION section — Chief Judge. Declares the winner. Used for mod_verdict block.",
+            "properties": {
+              "edge_voice": {
+                "type": "string",
+                "example": "en-GB-RyanNeural"
+              }
+            }
+          },
+          "judge_f": {
+            "type": "object",
+            "description": "Voice for SUMMARY section — Female Judge. Reads both sides summary. Recommended: en-CA-ClaraNeural (Canadian, ~35, neutral).",
+            "properties": {
+              "edge_voice": {
+                "type": "string",
+                "example": "en-CA-ClaraNeural"
+              }
+            }
+          },
+          "judge_m": {
+            "type": "object",
+            "description": "Voice for ANALYSIS section — Male Judge. Provides analytical commentary. Recommended: en-CA-LiamNeural (Canadian, ~35, neutral).",
+            "properties": {
+              "edge_voice": {
+                "type": "string",
+                "example": "en-CA-LiamNeural"
+              }
+            }
+          }
+        }
+      },
+      "debate_bg_opacity": {
+        "type": "integer",
+        "description": "Background image opacity for debate video overlay. 0=transparent, 255=opaque.",
+        "minimum": 0,
+        "maximum": 255,
+        "default": 150,
+        "example": 150
+      },
+      "debate_background_enabled": {
+        "type": "boolean",
+        "description": "Generate an AI-created background image and composite it behind the debate text. Requires image_gen_backend to be configured.",
+        "default": false,
+        "example": false
+      },
+      "debate_background_prompt": {
+        "type": "string",
+        "description": "Text prompt for AI background image generation. Keep cinematic and abstract — avoid text, people, and faces.",
+        "example": "futuristic digital debate arena, dark navy deep purple, abstract geometric circuit patterns, soft volumetric light beams, blurred bokeh background, cinematic, no text, no people, no faces"
+      },
+      "_clips_folder_structure": {
+        "type": "documentation",
+        "description": "Debate video clips folder structure when _folder_prefix=true. Each segment has a numbered folder (00-18) containing HD and Shorts variants.",
+        "base_path": "assets/clips/",
+        "folders": {
+          "00_intro": {
+            "files": [
+              "intro.mkv",
+              "intro_s.mkv"
+            ],
+            "key": "intro",
+            "desc": "Welcome/channel intro"
+          },
+          "01_ad1": {
+            "files": [
+              "Bji000.mkv",
+              "Bji000_s.mkv"
+            ],
+            "key": "ad1/ads1",
+            "desc": "Primary sponsor ad (pre-debate)"
+          },
+          "02_p0": {
+            "files": [
+              "360D.png",
+              "360D_s.png",
+              "p0fl.mkv",
+              "p0fl_s.mkv"
+            ],
+            "key": "p0",
+            "desc": "Opening - Proposition",
+            "note": "PNG for static intro"
+          },
+          "03_c0": {
+            "files": [
+              "c0fl.mkv",
+              "c0fl_s.mkv"
+            ],
+            "key": "c0",
+            "desc": "Opening - Opposition"
+          },
+          "04_p1": {
+            "files": [
+              "p0fl.mkv",
+              "p0fl_s.mkv"
+            ],
+            "key": "p1",
+            "desc": "Arg 1 - Proposition"
+          },
+          "05_c1": {
+            "files": [
+              "c0fl.mkv",
+              "c0fl_s.mkv"
+            ],
+            "key": "c1",
+            "desc": "Counter-Arg 1 - Opposition"
+          },
+          "06_p2": {
+            "files": [
+              "p0fl.mkv",
+              "p0fl_s.mkv"
+            ],
+            "key": "p2",
+            "desc": "Arg 2 - Proposition"
+          },
+          "07_c2": {
+            "files": [
+              "c0fl.mkv",
+              "c0fl_s.mkv"
+            ],
+            "key": "c2",
+            "desc": "Counter-Arg 2 - Opposition"
+          },
+          "08_p3": {
+            "files": [
+              "p0fl.mkv",
+              "p0fl_s.mkv"
+            ],
+            "key": "p3",
+            "desc": "Arg 3 - Proposition (Shorts max)"
+          },
+          "09_c3": {
+            "files": [
+              "c0fl.mkv",
+              "c0fl_s.mkv"
+            ],
+            "key": "c3",
+            "desc": "Counter-Arg 3 - Opposition (Shorts max)"
+          },
+          "10_p4": {
+            "files": [
+              "p0fl.mkv",
+              "p0fl_s.mkv"
+            ],
+            "key": "p4",
+            "desc": "Arg 4 - Proposition (HD only)"
+          },
+          "11_c4": {
+            "files": [
+              "c0fl.mkv",
+              "c0fl_s.mkv"
+            ],
+            "key": "c4",
+            "desc": "Counter-Arg 4 - Opposition (HD only)"
+          },
+          "12_p5": {
+            "files": [
+              "p0fl.mkv",
+              "p0fl_s.mkv"
+            ],
+            "key": "p5",
+            "desc": "Arg 5 - Proposition (HD only)"
+          },
+          "13_c5": {
+            "files": [
+              "c0fl.mkv",
+              "c0fl_s.mkv"
+            ],
+            "key": "c5",
+            "desc": "Counter-Arg 5 - Opposition (HD only)"
+          },
+          "14_sum": {
+            "files": [
+              "jMfl.mkv",
+              "jMfl_s.mkv"
+            ],
+            "key": "sum",
+            "desc": "SUMMARY - Male Judge",
+            "voice": "judge_m (en-CA-LiamNeural)"
+          },
+          "15_aly": {
+            "files": [
+              "jFfl.mkv",
+              "jFfl_s.mkv"
+            ],
+            "key": "aly/anly",
+            "desc": "ANALYSIS - Female Judge",
+            "voice": "judge_f (en-CA-ClaraNeural)"
+          },
+          "16_ad2": {
+            "files": [
+              "Bji1.mkv",
+              "Bji1_s.mkv"
+            ],
+            "key": "ad2/ads2",
+            "desc": "Secondary sponsor ad (post-debate)"
+          },
+          "17_win": {
+            "files": [
+              "cwin.mkv",
+              "cwin_s.mkv",
+              "cwin2.mkv",
+              "cwin2_s.mkv",
+              "jCfl.mkv",
+              "jCfl_s.mkv",
+              "jCfl_sh.mp4",
+              "pwin.mkv",
+              "pwin_s.mkv"
+            ],
+            "key": "win",
+            "desc": "DECISION - Chief Judge",
+            "voice": "decide (en-US-ChristopherNeural)"
+          },
+          "18_sbs": {
+            "files": [
+              "sub.mkv",
+              "sub_s.mkv"
+            ],
+            "key": "sbs/subscribe",
+            "desc": "Subscribe/outro CTA"
+          }
+        },
+        "naming": {
+          "HD": "filename.mkv (e.g., intro.mkv, p0fl.mkv)",
+          "Shorts": "filename_s.mkv (e.g., intro_s.mkv, p0fl_s.mkv)",
+          "static": "filename.png (for intro frames)"
+        },
+        "lookup_mechanism": "When _folder_prefix=true, scans assets/clips/ for folders ending with _{key}. E.g., 'sum' finds '14_sum', 'intro' finds '00_intro'. Falls back to assets/clips/{key}/ if not found.",
+        "pipeline_usage": {
+          "Shorts": "Uses p0-p3, c0-c3 (max 4 args per side)",
+          "HD": "Uses p0-p5, c0-c5 (max 6 args per side)"
+        }
+      },
+      "image_gen_backend": {
+        "type": "string",
+        "description": "Backend for AI image generation when debate_background_enabled=true.",
+        "enum": [
+          "auto",
+          "replicate",
+          "stability",
+          "openai",
+          "local"
+        ],
+        "default": "auto",
+        "example": "auto",
+        "options": {
+          "auto": "Tries backends in order: replicate → stability → openai → local",
+          "replicate": "Replicate API (REPLICATE_API_TOKEN required)",
+          "stability": "Stability AI API (STABILITY_API_KEY required)",
+          "openai": "OpenAI DALL-E (OPENAI_API_KEY required)",
+          "local": "Local diffusion model (requires local setup)"
+        }
+      },
+      "debate_mini_enabled": {
+        "type": "boolean",
+        "description": "Generate short/mini debate version (-m.md files) for Shorts format. When true, debate_propose_m / debate_oppose_m / debate_decide_m tasks run to produce compressed debate scripts.",
+        "default": false,
+        "example": true
+      },
+      "debate_mini_max_chars": {
+        "type": "integer",
+        "description": "Maximum characters for each mini debate section (-m.md files used for Shorts). Should be significantly smaller than debate_max_chars.",
+        "minimum": 200,
+        "maximum": 10000,
+        "default": 4000,
+        "example": 4000
+      },
+      "debate_3d_clips": {
+        "type": "object",
+        "description": "Background clip configuration for the 3D debate renderer (debate_3d_enabled=true). Maps each pipeline segment key to one or more video/image sources. Supports multi-clip sequences with intro paths (played once) and loop clips (cycled indefinitely). Config is the single source of truth — no static fallback directories.",
+        "format_note": "All path values are relative to PROJECT_ROOT. Missing files resolve to None — renderer shows placeholder frame.",
+        "clip_entry_formats": {
+          "plain_string": {
+            "description": "Single clip, loops forever.",
+            "example": "assets/clips/p0/clip.mkv"
+          },
+          "single_path_loop": {
+            "description": "Intro clip plays once, then loop clip cycles.",
+            "example": {
+              "path": "intro.mkv",
+              "loop": "loop.mkv"
+            }
+          },
+          "multi_path_loop": {
+            "description": "Multiple intro clips each played once in order, then loops cycled.",
+            "example": {
+              "paths": [
+                "clip_a.mkv",
+                "clip_b.mkv"
+              ],
+              "loops": [
+                "loop_a.mkv",
+                "loop_b.mkv"
+              ]
+            }
+          },
+          "image_with_frames": {
+            "description": "Static image held for exactly N frames, then advances to next path entry.",
+            "example": {
+              "src": "assets/img/stage.png",
+              "frames": 90
+            }
+          },
+          "mixed_paths": {
+            "description": "Image intro (held 90 frames) followed by video clip, then loop.",
+            "example": {
+              "paths": [
+                {
+                  "src": "assets/img/stage.png",
+                  "frames": 90
+                },
+                "assets/clips/clip.mkv"
+              ],
+              "loops": [
+                "assets/clips/clip.mkv"
+              ]
+            }
+          }
+        },
+        "image_support": {
+          "extensions": [
+            ".jpg",
+            ".jpeg",
+            ".png",
+            ".webp",
+            ".bmp",
+            ".tiff",
+            ".tif"
+          ],
+          "frames_default": 90,
+          "frames_note": "IMAGE_DEFAULT_HOLD=90 frames (~3s at 30fps). Override per entry with frames key."
+        },
+        "special_keys": {
+          "intro": {
+            "description": "Intro clip with optional subtext subtitle. Plays when intro_enabled=true or when clip config path exists. Must include subtext for subtitle overlay.",
+            "format": {
+              "path": "string",
+              "subtext": "string (optional)"
+            }
+          },
+          "ads_primary": {
+            "description": "Ad clip played after intro. Set null to disable. Must include subtext.",
+            "format": {
+              "path": "string",
+              "subtext": "string (optional)"
+            }
+          },
+          "ads_secondary": {
+            "description": "Ad clip played before mod_verdict. Must include subtext.",
+            "format": {
+              "path": "string",
+              "subtext": "string (optional)"
+            }
+          },
+          "subscribe": {
+            "description": "Subscribe CTA clip played last. Must include subtext.",
+            "format": {
+              "path": "string",
+              "subtext": "string (optional)"
+            }
+          },
+          "p0_to_p5": {
+            "description": "Proposition argument background clips. p0=opening, p1-p5=arguments. Shorts uses p0-p3; HD uses p0-p5. Missing keys render placeholder frame."
+          },
+          "c0_to_c5": {
+            "description": "Opposition argument background clips. c0=opening, c1-c5=arguments."
+          },
+          "mod_summary": {
+            "description": "Background for Female Judge SUMMARY section (## SUMMARY in decide.md). Voice: judge_f (en-CA-ClaraNeural)."
+          },
+          "mod_analysis": {
+            "description": "Background for Male Judge ANALYSIS section (## ANALYSIS in decide.md). Voice: judge_m (en-CA-LiamNeural)."
+          },
+          "mod_verdict": {
+            "description": "Background for Chief Judge DECISION section (## DECISION in decide.md). Voice: decide (en-US-ChristopherNeural)."
+          }
+        },
+        "pipeline_order": {
+          "Shorts": [
+            "intro",
+            "ads_primary",
+            "p0",
+            "c0",
+            "p1",
+            "c1",
+            "p2",
+            "c2",
+            "p3",
+            "c3",
+            "mod_summary",
+            "mod_analysis",
+            "ads_secondary",
+            "mod_verdict",
+            "subscribe"
+          ],
+          "HD": [
+            "intro",
+            "ads_primary",
+            "p0",
+            "c0",
+            "p1",
+            "c1",
+            "p2",
+            "c2",
+            "p3",
+            "c3",
+            "p4",
+            "c4",
+            "p5",
+            "c5",
+            "mod_summary",
+            "mod_analysis",
+            "ads_secondary",
+            "mod_verdict",
+            "subscribe"
+          ]
+        },
+        "properties": {
+          "Shorts": {
+            "type": "object",
+            "description": "Clip map for Shorts format (1080x1920 portrait). All block clips use TTS audio — no subtext needed. Only intro, ads, subscribe use subtext.",
+            "example": {
+              "intro": {
+                "path": "assets/clips/intro/intro_Shorts01_En.mkv",
+                "subtext": "Welcome 360Debate! See Every Side, Decide Smarter."
+              },
+              "ads_primary": null,
+              "p0": {
+                "paths": [
+                  {
+                    "src": "assets/img/360D_Stage1080x1920.png",
+                    "frames": 90
+                  },
+                  "assets/clips/pro/pro1_fl_short.mkv"
+                ],
+                "loops": [
+                  "assets/clips/pro/pro1_fl_short.mkv"
+                ]
+              },
+              "c0": {
+                "paths": [
+                  {
+                    "src": "assets/img/360D_Stage1080x1920.png",
+                    "frames": 90
+                  },
+                  "assets/clips/op/op1_fl_short.mkv"
+                ],
+                "loops": [
+                  "assets/clips/op/op1_fl_short.mkv"
+                ]
+              },
+              "p1": {
+                "paths": [
+                  "assets/clips/pro/pro1_fl_short.mkv"
+                ],
+                "loops": [
+                  "assets/clips/pro/pro1_fl_short.mkv"
+                ]
+              },
+              "c1": {
+                "paths": [
+                  "assets/clips/op/op1_fl_short.mkv"
+                ],
+                "loops": [
+                  "assets/clips/op/op1_fl_short.mkv"
+                ]
+              },
+              "mod_summary": {
+                "paths": [
+                  "assets/clips/jf/jf1_fl_short.mkv"
+                ],
+                "loops": [
+                  "assets/clips/jf/jf1_fl_short.mkv"
+                ]
+              },
+              "mod_analysis": {
+                "paths": [
+                  "assets/clips/jm/jm1_fl_short.mkv"
+                ],
+                "loops": [
+                  "assets/clips/jm/jm1_fl_short.mkv"
+                ]
+              },
+              "ads_secondary": {
+                "path": "assets/clips/adsp/Ads_short.mkv",
+                "subtext": "Sponsored message here."
+              },
+              "mod_verdict": {
+                "paths": [
+                  "assets/clips/mv/short_judge_verdict_opp.mkv"
+                ],
+                "loops": [
+                  "assets/clips/mv/short_judge_verdict_opp.mkv"
+                ]
+              },
+              "subscribe": {
+                "path": "assets/clips/sbc/subscribe_shorts.mkv",
+                "subtext": "Subscribe for more!"
+              }
+            }
+          },
+          "HD": {
+            "type": "object",
+            "description": "Clip map for HD format (1920x1080 landscape). Same structure as Shorts with additional p4/c4/p5/c5 keys.",
+            "example": {
+              "intro": {
+                "path": "assets/clips/intro/intro_HD01_En.mkv",
+                "subtext": "Welcome 360Debate! Full-Length Debate!"
+              },
+              "ads_primary": {
+                "path": "assets/clips/adsp/Ads_hd.mkv",
+                "subtext": "Brought to you by sponsor."
+              },
+              "p0": {
+                "paths": [
+                  {
+                    "src": "assets/img/360D_Stage1920x1080.png",
+                    "frames": 90
+                  },
+                  "assets/clips/pro/pro1_fl.mkv"
+                ],
+                "loops": [
+                  "assets/clips/pro/pro1_fl.mkv"
+                ]
+              },
+              "c0": {
+                "paths": [
+                  {
+                    "src": "assets/img/360D_Stage1920x1080.png",
+                    "frames": 90
+                  },
+                  "assets/clips/op/op1_fl.mkv"
+                ],
+                "loops": [
+                  "assets/clips/op/op1_fl.mkv"
+                ]
+              },
+              "p1": {
+                "paths": [
+                  "assets/clips/pro/pro1_fl.mkv"
+                ],
+                "loops": [
+                  "assets/clips/pro/pro1_fl.mkv"
+                ]
+              },
+              "c1": {
+                "paths": [
+                  "assets/clips/op/op1_fl.mkv"
+                ],
+                "loops": [
+                  "assets/clips/op/op1_fl.mkv"
+                ]
+              },
+              "mod_summary": {
+                "paths": [
+                  "assets/clips/jf/jf1_fl.mkv"
+                ],
+                "loops": [
+                  "assets/clips/jf/jf1_fl.mkv"
+                ]
+              },
+              "mod_analysis": {
+                "paths": [
+                  "assets/clips/jm/jm1_fl.mkv"
+                ],
+                "loops": [
+                  "assets/clips/jm/jm1_fl.mkv"
+                ]
+              },
+              "ads_secondary": {
+                "path": "assets/clips/adsp/Ads_hd2.mkv",
+                "subtext": "Sponsored message here."
+              },
+              "mod_verdict": {
+                "paths": [
+                  "assets/clips/mv/hd_judge_verdict_opp.mkv"
+                ],
+                "loops": [
+                  "assets/clips/mv/hd_judge_verdict_opp.mkv"
+                ]
+              },
+              "subscribe": {
+                "path": "assets/clips/sbc/subscribe_hd.mkv",
+                "subtext": "Subscribe for more HD content!"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "_section_lang": "════════════════════════════════════════",
+  "lang_suffix": {
+    "type": "string",
+    "description": "Auto-injected at runtime from CLI flag (e.g. -bn → 'Bn'). Do NOT set this manually in data.json — it is always derived from the CLI flag. Defaults to 'En' when no flag is given.",
+    "example": "En",
+    "runtime_values": {
+      "crewai run": "En  (default)",
+      "crewai run -bn": "Bn",
+      "crewai run -fr": "Fr",
+      "crewai run -ar": "Ar",
+      "crewai run -de": "De",
+      "crewai run -es": "Es",
+      "crewai run -zh": "Zh"
+    },
+    "affects": [
+      "propose_{lang}.md / oppose_{lang}.md / decide_{lang}.md",
+      "intro_{fmt}_{lang}.mp4 / intro_{fmt}_{lang}_with_audio.mp4 / intro_{fmt}_{lang}_cc.txt",
+      "debate_video_{fmt}_{lang}.mp4 / debate_video_{fmt}_{lang}_with_audio.mp4 / debate_video_{fmt}_{lang}_cc.txt",
+      "{channel}_Debate_{topic_slug}_{fmt}_{lang}.mp4",
+      "{channel}_Debate_{topic_slug}_{fmt}_{lang}_cc.txt"
+    ]
+  },
+  "_lang_override_files": {
+    "description": "To run in a different language, create input/dataXx.json (where Xx = capitalized ISO code). Only fields that differ from data.json need to be included — the override is deep-merged on top of data.json.",
+    "convention": "input/data{Lang}.json — e.g. dataBn.json, dataFr.json, dataAr.json",
+    "cli": "crewai run -{xx}  — e.g.  crewai run -bn  |  crewai run -fr  |  crewai run -ar",
+    "minimal_override_example": {
+      "_comment": "Bengali override — only fields that differ from data.json",
+      "tts_engine": "edge-tts",
+      "debate_config": {
+        "edge_tts_voices": {
+          "propose": {
+            "edge_voice": "bn-BD-NabanitaNeural"
+          },
+          "oppose": {
+            "edge_voice": "bn-BD-PradeepNeural"
+          },
+          "decide": {
+            "edge_voice": "bn-IN-TanishaaNeural"
+          }
+        }
+      }
+    },
+    "supported_edge_tts_voices_by_lang": {
+      "Bengali (bn)": [
+        "bn-BD-NabanitaNeural",
+        "bn-BD-PradeepNeural",
+        "bn-IN-TanishaaNeural",
+        "bn-IN-BashkarNeural"
+      ],
+      "French (fr)": [
+        "fr-FR-DeniseNeural",
+        "fr-FR-HenriNeural",
+        "fr-CA-SylvieNeural",
+        "fr-CA-JeanNeural"
+      ],
+      "Arabic (ar)": [
+        "ar-SA-ZariyahNeural",
+        "ar-SA-HamedNeural",
+        "ar-EG-SalmaNeural",
+        "ar-EG-ShakirNeural"
+      ],
+      "German (de)": [
+        "de-DE-KatjaNeural",
+        "de-DE-ConradNeural",
+        "de-AT-IngridNeural"
+      ],
+      "Spanish (es)": [
+        "es-ES-ElviraNeural",
+        "es-ES-AlvaroNeural",
+        "es-MX-DaliaNeural",
+        "es-MX-JorgeNeural"
+      ],
+      "Chinese (zh)": [
+        "zh-CN-XiaoxiaoNeural",
+        "zh-CN-YunxiNeural",
+        "zh-TW-HsiaoChenNeural"
+      ],
+      "Hindi (hi)": [
+        "hi-IN-SwaraNeural",
+        "hi-IN-MadhurNeural"
+      ],
+      "Japanese (ja)": [
+        "ja-JP-NanamiNeural",
+        "ja-JP-KeitaNeural"
+      ],
+      "Korean (ko)": [
+        "ko-KR-SunHiNeural",
+        "ko-KR-InJoonNeural"
+      ],
+      "Portuguese (pt)": [
+        "pt-BR-FranciscaNeural",
+        "pt-BR-AntonioNeural",
+        "pt-PT-RaquelNeural"
+      ]
+    }
+  },
+  "_section_packaging": "════════════════════════════════════════",
+  "packaging_config": {
+    "type": "object",
+    "description": "Metadata & thumbnail preparation settings. Only read when Unit-Packaging=true. Generates YouTube metadata (title, description, tags, CC subtitles, translations) and AI thumbnail — everything needed to package the video before upload.",
+    "properties": {
+      "video_style": {
+        "type": "array",
+        "description": "Pipeline type to generate metadata for. Controls which branch the metadata tool takes.",
+        "enum": [
+          "debate",
+          "bar_race",
+          "animation",
+          "ytid"
+        ],
+        "example": [
+          "debate"
+        ],
+        "enum_notes": {
+          "debate": "Generates metadata from debate pipeline output files",
+          "bar_race": "Generates metadata from bar race animation output",
+          "animation": "Generates metadata from standard animation pipeline",
+          "ytid": "Fetches metadata from an existing YouTube video — set topic to the video ID (e.g. 'WnS4zE4wOtQ')"
+        }
+      },
+      "generate_youtube_metadata": {
+        "type": "boolean",
+        "description": "Generate YouTube metadata (title, description, tags, chapters) and translate to 31 languages. Output: YT/{fmt}/MD/ and YT/{fmt}/CC/.",
+        "example": true
+      },
+      "generate_thumbnail": {
+        "type": "boolean",
+        "description": "Generate AI thumbnail image for YouTube. Output: {topic_slug}.jpg and {topic_slug}.png in output/{slug}/YT/{fmt}/Th/. Alias: generate_yt_thumbnail also accepted.",
+        "example": true
+      },
+      "generate_yt_thumbnail": {
+        "type": "boolean",
+        "description": "Alias for generate_thumbnail. Use generate_thumbnail instead.",
+        "example": true
+      },
+      "yt_metadata_lang": {
+        "type": "string",
+        "description": "Number of languages to generate YouTube metadata translations (title, description) for. String-encoded integer.",
+        "default": "35",
+        "example": "50"
+      },
+      "yt_cc_lang": {
+        "type": "string",
+        "description": "Number of languages to generate CC subtitle translations for. String-encoded integer.",
+        "default": "20",
+        "example": "50"
+      },
+      "video_formats": {
+        "type": "array",
+        "description": "Video format subdirectory names to generate metadata for. Use 'debate' for debate pipeline output.",
+        "example": [
+          "debate"
+        ],
+        "note": "Use ['HD','Shorts'] for animation pipeline, ['debate'] for debate pipeline."
+      },
+      "llm_youtube": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "LLM for youtube_metadata_specialist agent. null=project default.",
+        "example": "ollama/qwen2.5:latest"
+      }
+    }
+  },
+  "_section_publisher": "════════════════════════════════════════",
+  "publisher_config": {
+    "type": "object",
+    "description": "Upload destination settings. Only read when Unit-Publisher=true. Sub-blocks (yt_upload_config, fb_upload_config) controlled by their own yt_upload / fb_upload switches.",
+    "properties": {
+      "llm_upload": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "LLM for youtube_upload_specialist agent. null=project default.",
+        "example": "ollama/qwen2.5-coder:3b"
+      },
+      "llm_embed": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "LLM for embedding tasks (semantic search). null=project default.",
+        "example": "ollama/nomic-embed-text:latest"
+      },
+      "yt_upload": {
+        "type": "boolean",
+        "description": "Enable YouTube upload sub-block.",
+        "default": false,
+        "example": false
+      },
+      "yt_upload_config": {
+        "type": "object",
+        "description": "YouTube upload settings. Only active when yt_upload=true.",
+        "properties": {
+          "upload_youtube_video": {
+            "type": "boolean",
+            "description": "Upload final merged videos to YouTube via Data API v3. Smart skip: if upload_log.json already contains video_id, re-upload is skipped.",
+            "example": true,
+            "note": "Requires client_secrets.json from Google Cloud Console. First run opens browser for OAuth2 login."
+          },
+          "upload_dry_run": {
+            "type": "boolean",
+            "description": "Dry run mode — validates that video files, metadata, and CC files exist without uploading anything to YouTube. No API calls made. Useful for testing before real upload.",
+            "default": false,
+            "example": true
+          },
+          "upload_privacy": {
+            "type": "string",
+            "description": "YouTube video privacy on upload.",
+            "enum": [
+              "private",
+              "unlisted",
+              "public"
+            ],
+            "default": "private",
+            "example": "private",
+            "tip": "Use 'private' to review before publishing."
+          },
+          "upload_category_id": {
+            "type": "string",
+            "description": "YouTube category ID.",
+            "default": "28",
+            "example": "28",
+            "enum_reference": {
+              "22": "People & Blogs",
+              "27": "Education",
+              "28": "Science & Technology",
+              "24": "Entertainment",
+              "25": "News & Politics"
+            }
+          },
+          "upload_cc": {
+            "type": "boolean",
+            "description": "Upload CC subtitle files from YT/{fmt}/CC/ to YouTube after video upload. Covers all 31 languages.",
+            "default": true,
+            "example": true
+          },
+          "upload_cc_lang": {
+            "type": "string",
+            "description": "Max number of CC subtitle languages to upload to YouTube (0 or omit = upload all). String-encoded integer. Independent from yt_cc_lang (generation count).",
+            "default": "0",
+            "example": "5"
+          },
+          "upload_md_lang": {
+            "type": "string",
+            "description": "Max number of MD localization languages to upload to YouTube (0 or omit = upload all). String-encoded integer. Independent from yt_metadata_lang (generation count).",
+            "default": "0",
+            "example": "35"
+          },
+          "upload_notify_subscribers": {
+            "type": "boolean",
+            "description": "Notify channel subscribers when video is uploaded. Recommended false for private/unlisted.",
+            "default": false,
+            "example": false
+          },
+          "upload_client_secrets_file": {
+            "type": "string",
+            "description": "Path to OAuth2 client_secrets.json from Google Cloud Console.",
+            "default": "input/client_secrets.json",
+            "example": "input/client_secrets.json",
+            "setup": "https://console.cloud.google.com → APIs & Services → Credentials → Create OAuth 2.0 Client ID → Desktop App → Download JSON"
+          },
+          "upload_token_file": {
+            "type": "string",
+            "description": "Path to saved OAuth2 token. Auto-created after first browser login. Reused on subsequent runs.",
+            "default": "input/token.json",
+            "example": "input/token.json"
+          },
+          "yt_pin_comment_gen": {
+            "type": "boolean",
+            "description": "Auto-generate and pin a comment on the video after upload using LLM.",
+            "default": false,
+            "example": true
+          }
+        }
+      },
+      "fb_upload": {
+        "type": "boolean",
+        "description": "Enable Facebook upload sub-block.",
+        "default": false,
+        "example": true
+      },
+      "fb_upload_config": {
+        "type": "object",
+        "description": "Facebook upload settings. Only active when fb_upload=true. Shorts → Facebook Reel. HD → Facebook Video. Smart skip: if fb_upload_log.json already contains video_id, re-upload is skipped.",
+        "properties": {
+          "upload_facebook_video": {
+            "type": "boolean",
+            "description": "Upload video directly to Facebook Page via Graph API.",
+            "example": true,
+            "note": "Requires input/fb_credentials.json with page_id and access_token."
+          },
+          "privacy_status": {
+            "type": "string",
+            "description": "Facebook video privacy level.",
+            "enum": [
+              "SELF",
+              "FRIENDS",
+              "EVERYONE"
+            ],
+            "default": "SELF",
+            "example": "SELF",
+            "tip": "Use SELF (only me) for testing before setting EVERYONE for public."
+          },
+          "credentials_file": {
+            "type": "string",
+            "description": "Path to Facebook credentials JSON. Must contain page_id and access_token.",
+            "default": "input/fb_credentials.json",
+            "example": "input/fb_credentials.json"
+          }
+        }
+      }
+    }
+  },
+  "_section_advertise": "════════════════════════════════════════",
+  "advertise_config": {
+    "type": "object",
+    "description": "Social sharing and promotional derivative settings. Only read when Unit-Advertise=true. Posts the YouTube video URL as a link post to configured platforms — completely independent of publisher/fb_upload. Reads upload_log.json directly.",
+    "properties": {
+      "social_share_enabled": {
+        "type": "boolean",
+        "description": "Post uploaded YouTube video URL + thumbnail to configured social platforms.",
+        "example": true
+      },
+      "social_share_dry_run": {
+        "type": "boolean",
+        "description": "Simulate social posts without actually posting. Logs what would be posted.",
+        "default": false,
+        "example": false
+      },
+      "social_platforms": {
+        "type": "array",
+        "description": "Platforms to post to. Credentials read from input/social_credentials.json.",
+        "enum": [
+          "Facebook",
+          "LinkedIn",
+          "X",
+          "YouTube",
+          "Instagram"
+        ],
+        "example": [
+          "LinkedIn",
+          "Instagram",
+          "Facebook"
+        ],
+        "tip": "Facebook here = link post to FB Page (not a video upload). YouTube posts a Community post. Instagram requires a publicly accessible image URL."
+      },
+      "schedule_post": {
+        "type": "boolean",
+        "description": "Wait until schedule_datetime before posting to social platforms. The crew sleeps in 60-second chunks with countdown logs until the target time is reached. If the scheduled time has already passed, posts immediately.",
+        "default": false,
+        "example": true
+      },
+      "schedule_datetime": {
+        "type": "string",
+        "description": "Target date and time to post. Interpreted in schedule_timezone.",
+        "format": "YYYY-MM-DD HH:MM:SS",
+        "example": "2026-03-15 18:00:00"
+      },
+      "schedule_timezone": {
+        "type": "string",
+        "description": "IANA timezone string for schedule_datetime. Used with Python's zoneinfo module (Python 3.9+).",
+        "default": "UTC",
+        "example": "Asia/Dhaka",
+        "common_values": {
+          "UTC": "Coordinated Universal Time",
+          "Asia/Dhaka": "Bangladesh Standard Time (UTC+6)",
+          "Asia/Kolkata": "India Standard Time (UTC+5:30)",
+          "Asia/Dubai": "Gulf Standard Time (UTC+4)",
+          "Europe/London": "GMT / BST (UTC+0 / UTC+1)",
+          "Europe/Berlin": "CET / CEST (UTC+1 / UTC+2)",
+          "America/New_York": "Eastern Time (UTC-5 / UTC-4)",
+          "America/Los_Angeles": "Pacific Time (UTC-8 / UTC-7)",
+          "Asia/Tokyo": "Japan Standard Time (UTC+9)",
+          "Australia/Sydney": "Australian Eastern Time (UTC+10 / UTC+11)"
+        }
+      },
+      "llm_social": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "LLM for social_share_specialist agent. null=project default.",
+        "example": "ollama/nomic-embed-text:latest"
+      }
+    }
+  },
+  "_section_llm_reference": "════════════════════════════════════════",
+  "_llm_examples": {
+    "description": "LLM string format reference for all llm_* fields",
+    "format": "provider/model-name",
+    "examples": {
+      "null": "Use project default (from .env or agents.yaml)",
+      "openai/gpt-4o": "OpenAI GPT-4o — best quality",
+      "openai/gpt-4o-mini": "OpenAI GPT-4o Mini — fast and cheap",
+      "anthropic/claude-3-5-sonnet": "Claude 3.5 Sonnet — excellent reasoning",
+      "deepseek/deepseek-chat": "DeepSeek — cost-effective, strong instruction following",
+      "dashscope/qwen-plus": "Alibaba Qwen Plus — good for structured text",
+      "ollama/llama3.1:8b": "Local Ollama — llama3.1 8B",
+      "ollama/qwen2.5:latest": "Local Ollama — Qwen 2.5",
+      "ollama/deepseek-r1:1.5b": "Local Ollama — DeepSeek R1 1.5B (very fast)"
+    }
+  },
+  "intro_enabled": {
+    "type": "boolean",
+    "description": "DEPRECATED at top level. Set inside animation_config and/or debate_config instead. Each pipeline block controls its own intro independently — intro_enabled=true in an active block triggers the intro clip for that pipeline only. OR logic: if any active block has intro_enabled=true, the intro runs.",
+    "example": false
+  },
+  "intro_duration": {
+    "type": "integer",
+    "description": "DEPRECATED at top level. Set inside animation_config and/or debate_config instead.",
+    "minimum": 0,
+    "maximum": 60,
+    "example": 7
+  },
+  "intro_duration_hd": {
+    "type": "integer",
+    "description": "DEPRECATED at top level. Set inside animation_config and/or debate_config instead. Set 0 to use intro_duration for all formats.",
+    "minimum": 0,
+    "maximum": 60,
+    "example": 10
+  }
+}

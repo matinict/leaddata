@@ -1,0 +1,34 @@
+{
+  "_clips_base": "assets/podcast/HFR",
+  "_folder_prefix": true,
+  "_format_suffix": {  "HD": "",    "Shorts": "_s"  },
+  "_max_loop_clips": 4,
+  "_loop_start_index": 0,
+  "host_keys": ["h0","h1","h2","h3","h4","h5","h6","h7","h8","h9" ],
+  "guest_keys":["g0","g1","g2","g3","g4","g5","g6","g7","g8", "g9" ],
+  "shared": {
+    "intro": null,
+    "h0": { "init": ["H0{suffix}.mkv" ], "loop": ["LHH1{suffix}.mkv"], "trails": ["THF0{suffix}.mkv"] },
+    "g0": { "init": ["GL2{suffix}.mkv"], "loop": ["GL1{suffix}.mkv"], "trails": ["TGF0{suffix}.mkv"] },
+    "h1": { "init": ["HF2{suffix}.mkv"], "loop": ["LHH1{suffix}.mkv"], "trails": ["THH0{suffix}.mkv"] },
+    "g1": { "init": ["GL2{suffix}.mkv"], "loop": ["GL1{suffix}.mkv"], "trails": ["TGH0{suffix}.mkv"] },
+    "h2": { "init": ["HF2{suffix}.mkv"], "loop": ["LHH1{suffix}.mkv"], "trails": ["E3{suffix}.mkv"] },
+    "g2": { "init": ["GL2{suffix}.mkv"], "loop": ["GL1{suffix}.mkv"], "trails": ["E3{suffix}.mkv"] },
+    "h3": { "init": ["HF2{suffix}.mkv"], "loop": ["LHH1{suffix}.mkv"], "trails": ["E3{suffix}.mkv"] },
+    "g3": { "init": ["GL2{suffix}.mkv"], "loop": ["GL1{suffix}.mkv"], "trails": ["E3{suffix}.mkv"] }
+
+  },
+  "HD": {
+    "_extend": "shared",
+    "ad1":{ "init": ["Bji3s.mkv"], "subtext": "This episode is brought to you by [bjimmigration]." },
+    "h4": { "init": ["E3.mkv"], "loop": ["LHH1.mkv"], "trails": ["THH0{suffix}.mkv"] },
+    "g4": { "init": ["E3.mkv"], "loop": ["GL1.mkv"], "trails": ["TGH0{suffix}.mkv"] },
+    "h5": { "init": ["E3.mkv"], "loop": ["HF1.mkv"], "trails": ["THH0{suffix}.mkv"] },
+    "g5": { "init": ["E3.mkv"], "loop": ["GL1.mkv"], "trails": ["E3{suffix}.mkv"] },
+    "ad2":{ "init": ["try{suffix}.mkv"], "subtext": "Discover your next adventure with Travel Only! Book your all-inclusive package today milky.travelonly.com Your journey... starts here." },
+    "sbs": null
+  },
+  "Shorts": {
+    "_extend": "shared"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CTutor Profile Schema",
+  "type": "object",
+  "required": [
+    "topic",
+    "classroom_mode",
+    "classroom_config"
+  ],
+  "properties": {
+    "topic": {
+      "type": "string"
+    },
+    "focus": {
+      "type": "string"
+    },
+    "_profile": {
+      "type": "string",
+      "const": "ctutor"
+    },
+    "channel": {
+      "type": "string"
+    },
+    "tts_engine": {
+      "type": "string",
+      "enum": [
+        "edge-tts",
+        "xtts"
+      ]
+    },
+    "classroom_mode": {
+      "type": "string",
+      "enum": [
+        "single",
+        "group"
+      ]
+    },
+    "classroom_teacher1_name": {
+      "type": "string"
+    },
+    "classroom_teacher1_gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "classroom_config": {
+      "type": "object",
+      "properties": {
+        "video_formats": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Shorts",
+              "HD"
+            ]
+          }
+        },
+        "audio_speed": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 2.0
+        },
+        "pause_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "hologram": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "floating_screen",
+                "side_by_side"
+              ]
+            },
+            "position": {
+              "type": "string"
+            },
+            "scale_pct": {
+              "type": "number",
+              "minimum": 0.1,
+              "maximum": 1.0
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "type",
+                  "path"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "local",
+                      "url"
+                    ]
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "clips": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "start",
+                        "end"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "start": {
+                          "type": "string",
+                          "pattern": "^[0-9]{2}:[0-9]{2}$"
+                        },
+                        "end": {
+                          "type": "string",
+                          "pattern": "^[0-9]{2}:[0-9]{2}$"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "roles": {
+          "type": "object",
+          "properties": {
+            "teachers": {
+              "type": "object",
+              "patternProperties": {
+                "^T[0-9]+$": {
+                  "type": "object",
+                  "required": [
+                    "name",
+                    "voice"
+                  ],
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string"
+                    },
+                    "gender": {
+                      "type": "string",
+                      "enum": [
+                        "M",
+                        "F"
+                      ]
+                    },
+                    "voice": {
+                      "type": "string"
+                    },
+                    "speech": {
+                      "type": "string"
+                    },
+                    "label_color": {
+                      "type": "string",
+                      "pattern": "^#[0-9A-Fa-f]{6}$"
+                    },
+                    "personality": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "script_prompt": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

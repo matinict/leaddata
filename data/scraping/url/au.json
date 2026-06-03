@@ -1,0 +1,120 @@
+{
+  "_comment": "AU audience sources for 2026. Prioritizes the 'Big Three' media networks (ABC, News Corp, Nine) and real-time service hubs that drive daily Australian digital engagement.",
+
+  "politics_news_sources": [
+    {
+      "name": "ABC News Australia",
+      "base_url": "https://www.abc.net.au/",
+      "category_url": "https://www.abc.net.au/news/politics",
+      "type": "national broadcaster"
+    },
+    {
+      "name": "The Sydney Morning Herald (SMH)",
+      "base_url": "https://www.smh.com.au/",
+      "category_url": "https://www.smh.com.au/politics/federal",
+      "type": "legacy daily (Nine)"
+    },
+    {
+      "name": "The Guardian Australia",
+      "base_url": "https://www.theguardian.com/au",
+      "category_url": "https://www.theguardian.com/australia-news/australian-politics",
+      "type": "independent digital"
+    },
+    {
+      "name": "The Age",
+      "base_url": "https://www.theage.com.au/",
+      "category_url": "https://www.theage.com.au/politics/victoria",
+      "type": "regional/national news"
+    }
+  ],
+
+  "finance_news_sources": [
+    {
+      "name": "Australian Financial Review (AFR)",
+      "base_url": "https://www.afr.com/",
+      "category_url": "https://www.afr.com/policy/economy",
+      "type": "institutional authority"
+    },
+    {
+      "name": "Business Insider Australia",
+      "base_url": "https://www.businessinsider.com.au/",
+      "category_url": "https://www.businessinsider.com.au/economy",
+      "type": "business news"
+    },
+    {
+      "name": "CommBank Research",
+      "base_url": "https://www.commbank.com.au/",
+      "category_url": "https://www.commbank.com.au/guidance/newsroom.html",
+      "type": "market analysis"
+    },
+    {
+      "name": "The Australian - Business",
+      "base_url": "https://www.theaustralian.com.au/",
+      "category_url": "https://www.theaustralian.com.au/business",
+      "type": "national business daily"
+    }
+  ],
+
+  "general_and_lifestyle_sources": [
+    {
+      "name": "news.com.au",
+      "base_url": "https://www.news.com.au/",
+      "category_url": "https://www.news.com.au/national",
+      "type": "high-traffic mass portal"
+    },
+    {
+      "name": "Nine.com.au",
+      "base_url": "https://www.nine.com.au/",
+      "category_url": "https://www.nine.com.au/news",
+      "type": "major media portal"
+    },
+    {
+      "name": "Realestate.com.au",
+      "base_url": "https://www.realestate.com.au/",
+      "category_url": "https://www.realestate.com.au/news/",
+      "type": "property market trends"
+    },
+    {
+      "name": "SBS News",
+      "base_url": "https://www.sbs.com.au/",
+      "category_url": "https://www.sbs.com.au/news/topic/politics",
+      "type": "multicultural broadcaster"
+    }
+  ],
+
+  "tech_and_innovation_sources": [
+    {
+      "name": "InnovationAus",
+      "base_url": "https://www.innovationaus.com/",
+      "category_url": "https://www.innovationaus.com/category/policy/",
+      "type": "tech policy"
+    },
+    {
+      "name": "Gizmodo Australia",
+      "base_url": "https://www.gizmodo.com.au/",
+      "category_url": "https://www.gizmodo.com.au/category/tech/",
+      "type": "consumer tech"
+    },
+    {
+      "name": "Startup Daily",
+      "base_url": "https://www.startupdaily.net/",
+      "category_url": "https://www.startupdaily.net/category/news/",
+      "type": "ecosystem news"
+    }
+  ],
+
+  "public_data_and_weather": [
+    {
+      "name": "Bureau of Meteorology (BOM)",
+      "base_url": "http://www.bom.gov.au/",
+      "category_url": "http://www.bom.gov.au/news/",
+      "type": "critical weather data"
+    },
+    {
+      "name": "Productivity Commission",
+      "base_url": "https://www.pc.gov.au/",
+      "category_url": "https://www.pc.gov.au/media-speeches/media-releases",
+      "type": "government economic data"
+    }
+  ]
+}

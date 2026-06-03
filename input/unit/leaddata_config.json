@@ -1,0 +1,66 @@
+{
+  "_comment": "CF2 Unit-LeadData — Lead Collection Configuration",
+  "_version": "3.6.0",
+  "_rule": "No 'enabled' field here. Master switch is Unit-LeadData in profile only.",
+
+  "sources": ["maps"],
+
+  "collect_config": {
+    "credentials_file": "serpapi_credentials.json",
+    "api_endpoint": "https://serpapi.com/search.json",
+    "engine": "google_maps",
+    "search_type": "search",
+    "request_timeout": 60,
+    "max_results_per_keyword": 100,
+    "skip_if_cached": false,
+
+    "maps_config": {
+      "require_phone": true,
+      "require_website": false,
+      "category_filter": [],
+      "min_rating": 0.0,
+      "min_reviews": 0
+    },
+
+    "reviewer_mining": {
+      "enabled": false,
+      "review_recency_days": 90,
+      "min_reviewer_activity": 3,
+      "target_destinations": []
+    }
+  },
+
+  "normalize_config": {
+    "deduplicate_on": ["phone"],
+    "phone_country_default": "CA",
+    "phone_format": "e164",
+    "lowercase_email": true,
+    "force_https": true,
+    "strip_unicode": true,
+    "min_name_length": 2
+  },
+
+  "score_config": {
+    "score_enabled": true,
+    "scoring_rubric": {
+      "has_phone": 40,
+      "has_website": 25,
+      "has_email": 20,
+      "review_count": 10,
+      "rating": 5
+    },
+    "segment_thresholds": {
+      "hot": 60,
+      "warm": 35,
+      "cold": 0
+    },
+    "sort_by_score_desc": true
+  },
+
+  "export_config": {
+    "formats": ["csv", "json"],
+    "generate_stats": true,
+    "stats_file": "lead_stats.json",
+    "include_segments_breakdown": true
+  }
+}

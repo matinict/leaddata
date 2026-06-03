@@ -1,0 +1,3512 @@
+{
+  "queue": [
+    {
+      "title": "Google’s Gemini AI will use what it knows about you from Gmail, Search, and YouTube",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 81,
+      "debate_score": 63,
+      "format_scores": {
+        "debate": 63,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 84,
+        "growth_speed": 81,
+        "emotional": 78,
+        "search_momentum": 82
+      },
+      "status": "SELECTED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": "2026-04-19T07:53:55.403556+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Musk v. Altman Is a Battle for OpenAI’s Soul",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 81,
+      "debate_score": 63,
+      "format_scores": {
+        "debate": 70,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 84,
+        "growth_speed": 81,
+        "emotional": 78,
+        "search_momentum": 82
+      },
+      "status": "SELECTED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": "2026-04-19T08:16:43.821601+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Allbirds Is Pivoting to AI Compute. Sure, Why Not",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 81,
+      "debate_score": 63,
+      "format_scores": {
+        "debate": 63,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 84,
+        "growth_speed": 81,
+        "emotional": 78,
+        "search_momentum": 82
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "The Deepfake Nudes Crisis in Schools Is Much Worse Than You Thought",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 81,
+      "debate_score": 93,
+      "format_scores": {
+        "debate": 93,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 84,
+        "growth_speed": 81,
+        "emotional": 78,
+        "search_momentum": 82
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Train-to-Test scaling explained: How to optimize your end-to-end AI compute budget for inference",
+      "niche": "Tech",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 81,
+      "debate_score": 48,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 84,
+        "growth_speed": 81,
+        "emotional": 78,
+        "search_momentum": 82
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "‘Tokenmaxxing’ is making developers less productive than they think",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 60,
+      "format_scores": {
+        "debate": 60,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Physical Intelligence, a hot robotics startup, says its new robot brain can figure out tasks it was never taught",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 60,
+      "format_scores": {
+        "debate": 60,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Anthropic CPO leaves Figma’s board after reports he will offer a competing product",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 60,
+      "format_scores": {
+        "debate": 60,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "OpenAI Executive Kevin Weil Is Leaving the Company",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 60,
+      "format_scores": {
+        "debate": 60,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "AI Drafting My Stories? Over My Dead Body",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 60,
+      "format_scores": {
+        "debate": 60,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Google's AI Mode Update Tries to Kill Tab Hopping in Chrome",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 45,
+      "format_scores": {
+        "debate": 45,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "This Beanie Is Designed to Read Your Thoughts",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 60,
+      "format_scores": {
+        "debate": 60,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "AI Could Democratize One of Tech's Most Valuable Resources",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 45,
+      "format_scores": {
+        "debate": 45,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "How to Use Google Chrome’s New AI-Powered ‘Skills’",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 45,
+      "format_scores": {
+        "debate": 45,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Silicon Valley Is Spending Millions to Stop One of Its Own",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 60,
+      "format_scores": {
+        "debate": 60,
+        "bar_chart": 50,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "You Can Soon Buy a $4,370 Humanoid Robot on AliExpress",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 60,
+      "format_scores": {
+        "debate": 60,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Meta Pivots From Open Weights, Big Pharma Bets On AI, Regulatory Patchwork, Simulating Human Cohorts",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 52,
+      "format_scores": {
+        "debate": 52,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Curiosity / Surprise",
+      "raw_signals": {
+        "engagement": 80,
+        "growth_speed": 77,
+        "emotional": 82,
+        "search_momentum": 75
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Data Privacy Is a Growth Strategy",
+      "niche": "Business",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 77,
+      "debate_score": 56,
+      "format_scores": {
+        "debate": 56,
+        "bar_chart": 50,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 77,
+        "growth_speed": 75,
+        "emotional": 71,
+        "search_momentum": 88
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Tesla brings its robotaxi service to Dallas and Houston",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "AI chip startup Cerebras files for IPO",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Anthropic’s relationship with the Trump administration seems to be thawing",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Sam Altman’s project World looks to scale its human verification empire. First stop: Tinder.",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Kevin Weil and Bill Peebles exit OpenAI as company continues to shed ‘side quests’",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Sources: Cursor in talks to raise $2B+ at $50B valuation as enterprise growth surges",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 70,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "bar_chart",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Tokenmaxxing, OpenAI’s shopping spree, and the AI Anxiety Gap",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Anthropic launches Claude Design, a new product for creating quick visuals",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 50
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Factory hits $1.5B valuation to build AI coding for enterprises",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Luma launches AI-powered production studio with faith-focused Wonder Project",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Upscale AI in talks to raise at $2B valuation, says report",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "OpenAI takes aim at Anthropic with beefed-up Codex that gives it more power over your desktop",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "AI News & Artificial Intelligence",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "It Takes 2 Minutes to Hack the EU’s New Age-Verification App",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 50
+      },
+      "best_format": "shorts",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "They Built the ‘Cursor for Hardware.’ Now, Anthropic Wants In",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Gazing Into Sam Altman’s Orb Now Proves You’re Human on Tinder",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "The UK Launches Its $675 Million Sovereign AI Fund",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Anthropic Plots Major London Expansion",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Anthropic Opposes the Extreme AI Liability Bill That OpenAI Backed",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Introducing Claude Opus 4.7",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Building a Fast Multilingual OCR Model with Synthetic Data",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 50
+      },
+      "best_format": "shorts",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "VC Ron Conway says he has a ‘rare form of cancer’",
+      "niche": "Tech",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Madison Square Garden’s surveillance system banned this fan over his T-shirt design",
+      "niche": "Tech",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 57,
+      "format_scores": {
+        "debate": 57,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "The Outdoor Smart Home Gear I’ll Always Recommend",
+      "niche": "Tech",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-04-19T06:01:13.528519+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "State of Open Source on Hugging Face: Spring 2026",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 45,
+      "format_scores": {
+        "debate": 45,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "IN_PROGRESS",
+      "discovered_at": "2026-03-30T01:17:38.707721+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-30T06:16:12.576625+00:00"
+    },
+    {
+      "title": "Nvidia’s Open Salvo, OpenAI’s Amazon Deal, Grok Cuts Video Prices, Recursive Language Models",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 52,
+      "format_scores": {
+        "debate": 52,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Curiosity / Surprise",
+      "raw_signals": {
+        "engagement": 80,
+        "growth_speed": 77,
+        "emotional": 82,
+        "search_momentum": 75
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-30T01:17:38.707721+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "What 81,000 people want from AI",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 45,
+      "format_scores": {
+        "debate": 45,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-30T01:17:38.707721+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "NASA Is Planning A Nuclear-Powered Trip To Mars",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 77,
+      "debate_score": 62,
+      "format_scores": {
+        "debate": 62,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 76,
+        "emotional": 77,
+        "search_momentum": 81
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-30T01:17:38.707721+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Liberate your OpenClaw",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-30T01:17:38.707721+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Build a Domain-Specific Embedding Model in Under a Day",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-30T01:17:38.707721+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Holotron-12B - High Throughput Computer Use Agent",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-30T01:17:38.707721+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Introducing Storage Buckets on the Hugging Face Hub",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-30T01:17:38.707721+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Keep the Tokens Flowing: Lessons from 16 Open-Source RL Libraries",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-30T01:17:38.707721+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Ulysses Sequence Parallelism: Training with Million-Token Contexts",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-30T01:17:38.707721+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Agent Evaluation Readiness Checklist",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-30T01:17:38.707721+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Bluesky leans into AI with Attie, an app for building custom feeds",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "IN_PROGRESS",
+      "discovered_at": "2026-03-29T05:04:44.022027+00:00",
+      "selected_at": "2026-03-29T05:04:44.022027+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-29T05:44:13.344823+00:00"
+    },
+    {
+      "title": "Stanford study outlines dangers of asking AI chatbots for personal advice",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "IN_PROGRESS",
+      "discovered_at": "2026-03-29T05:04:44.022027+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-29T05:51:57.073445+00:00"
+    },
+    {
+      "title": "VCs are betting billions on AI’s next wave, so why is OpenAI killing Sora?",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 89,
+      "debate_score": 86,
+      "format_scores": {
+        "debate": 86,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Curiosity / Surprise",
+      "raw_signals": {
+        "engagement": 92,
+        "growth_speed": 89,
+        "emotional": 86,
+        "search_momentum": 90
+      },
+      "status": "IN_PROGRESS",
+      "discovered_at": "2026-03-28T18:27:32.429257+00:00",
+      "selected_at": "2026-03-28T18:27:32.429257+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-28T18:42:03.610536+00:00"
+    },
+    {
+      "title": "Google’s Veo 3 AI video creation tools are now widely available",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 45,
+      "format_scores": {
+        "debate": 45,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "IN_PROGRESS",
+      "discovered_at": "2026-03-28T18:27:32.429257+00:00",
+      "selected_at": "2026-03-29T05:52:06.151775+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-29T05:59:42.964867+00:00"
+    },
+    {
+      "title": "Anthropic’s Claude popularity with paying consumers is skyrocketing",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 60,
+      "format_scores": {
+        "debate": 60,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "IN_PROGRESS",
+      "discovered_at": "2026-03-28T18:27:32.429257+00:00",
+      "selected_at": "2026-03-29T05:59:47.975929+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-29T06:02:13.714617+00:00"
+    },
+    {
+      "title": "Anthropic wins injunction against Trump administration over Defense Department saga",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 78,
+      "debate_score": 45,
+      "format_scores": {
+        "debate": 45,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 81,
+        "growth_speed": 78,
+        "emotional": 75,
+        "search_momentum": 79
+      },
+      "status": "IN_PROGRESS",
+      "discovered_at": "2026-03-28T18:27:32.429257+00:00",
+      "selected_at": "2026-03-29T06:02:19.909584+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-29T06:05:12.979345+00:00"
+    },
+    {
+      "title": "Heavy industries secure global IoT connectivity from new alliance",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:17:55.419476+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "AI shifts from feature to brand story at Samsung",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:17:55.419476+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "AI in Financial Services: Managing Risk, Fraud and Compliance",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "ABB: Physical AI simulation boosts ROI for factory automation",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Google makes its industrial robotics AI play official–and this time, it means business",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 57,
+      "format_scores": {
+        "debate": 57,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Mastercard’s AI payment demo points to agent-led commerce",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Hitachi bets on industrial expertise to win the physical AI race",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Coca-Cola turns to AI marketing as price-led growth slows",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 50,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "bar_chart",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Thailand becomes one of the first in Asia to get the Sora app",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Malaysia launches Ryt Bank, its first AI-powered bank",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Google’s Veo 3 AI video creation tools are now widely available",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "US and Japan announce sweeping AI and tech collaboration",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "UK and Canada sign AI compute agreement",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Quantum AI represents a ‘transformative advancement’",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "JPMorgan expands AI investment as tech spending nears $20B",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "How AI is changing the way we travel",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 57,
+      "format_scores": {
+        "debate": 57,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Spot AI introduces the world’s first universal AI agent builder for security cameras",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Scaling intelligent automation without breaking live workflows",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "The firm that never forgets: Rowspace launches with $50M to make AI for private equity actually work",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 57,
+      "format_scores": {
+        "debate": 70,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Upgrading agentic AI for finance workflows",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Trustpilot partners with AI companies as traditional search declines",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Agentic AI in finance speeds up operational automation",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "RPA matters, but AI changes how automation works",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Ocorian: Family offices turn to AI for financial data insights",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 50,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "AI agents enter banking roles at Bank of America",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Automating complex finance workflows with multimodal AI",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "More from TechCrunch",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Elon Musk’s last co-founder reportedly leaves xAI",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Anthropic’s Claude popularity with paying consumers is skyrocketing",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 57,
+      "format_scores": {
+        "debate": 57,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Why SoftBank’s new $40B loan points to a 2026 OpenAI IPO",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 50,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "bar_chart",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "VCs are betting billions on AI’s next wave, so why is OpenAI killing Sora?",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 72,
+      "format_scores": {
+        "debate": 72,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "OpenAI shuts down Sora while Meta gets shut out in court",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Artificial Intelligence",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url"
+    },
+    {
+      "title": "Sora's Scary Success: Why Hollywood is Panicking & Your Video Job is Already Dead",
+      "niche": "GenAi",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 95,
+      "debate_score": 80,
+      "format_scores": {
+        "debate": 80,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 96,
+        "growth_speed": 94,
+        "emotional": 95,
+        "search_momentum": 97
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T17:50:26.187284+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "The 'Open' AI Lie: Why Every Major LLM is Now Secretly Censored & Controlled",
+      "niche": "LLM",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 92,
+      "debate_score": 75,
+      "format_scores": {
+        "debate": 75,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 95,
+        "growth_speed": 92,
+        "emotional": 90,
+        "search_momentum": 93
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T17:50:26.187284+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "The 'Agentic' AI Takeover: Why Your Business Will Be Run by Bots Before Q4 2026",
+      "niche": "Ai",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 92,
+      "debate_score": 73,
+      "format_scores": {
+        "debate": 73,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Curiosity / Surprise",
+      "raw_signals": {
+        "engagement": 92,
+        "growth_speed": 95,
+        "emotional": 88,
+        "search_momentum": 94
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T17:50:26.187284+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "Midjourney v7 is Here: The Final Nail in the Coffin for Stock Photography & Graphic Designers",
+      "niche": "GenAi",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 90,
+      "debate_score": 74,
+      "format_scores": {
+        "debate": 74,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Curiosity / Surprise",
+      "raw_signals": {
+        "engagement": 90,
+        "growth_speed": 91,
+        "emotional": 89,
+        "search_momentum": 92
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T17:50:26.187284+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "AI Music Generators Are Being Sued Into Oblivion: Why Suno & Udio's 2026 is Doomed",
+      "niche": "GenAi",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 90,
+      "debate_score": 76,
+      "format_scores": {
+        "debate": 76,
+        "bar_chart": 50,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 93,
+        "growth_speed": 89,
+        "emotional": 91,
+        "search_momentum": 90
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T17:50:26.187284+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "The $100B Data Center Rush: Why AI's Insatiable Thirst for Power Will CRIPPLE the Grid",
+      "niche": "Ai",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 89,
+      "debate_score": 77,
+      "format_scores": {
+        "debate": 77,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 87,
+        "growth_speed": 90,
+        "emotional": 92,
+        "search_momentum": 89
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T17:50:26.187284+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "Forget Coding: Why Prompt Engineering is a 2026 Scam & These 3 Skills Are the Real Money",
+      "niche": "Ai",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 87,
+      "debate_score": 70,
+      "format_scores": {
+        "debate": 70,
+        "bar_chart": 50,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Curiosity / Surprise",
+      "raw_signals": {
+        "engagement": 89,
+        "growth_speed": 87,
+        "emotional": 85,
+        "search_momentum": 88
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T17:50:26.187284+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "Claude 3.5 Opus Exposed: The 'Reasoning' Breakthrough That's Actually Just Clever Mimicry",
+      "niche": "LLM",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 85,
+      "debate_score": 69,
+      "format_scores": {
+        "debate": 69,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Curiosity / Surprise",
+      "raw_signals": {
+        "engagement": 88,
+        "growth_speed": 85,
+        "emotional": 84,
+        "search_momentum": 86
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T17:50:26.187284+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "Why Every CEO Is Secretly Replacing Middle Management With AI 'Co-Pilots'",
+      "niche": "Future of Work",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 91,
+      "debate_score": 62,
+      "format_scores": {
+        "debate": 62,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 93,
+        "growth_speed": 91,
+        "emotional": 92,
+        "search_momentum": 90
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T08:10:34.914028+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "The 'AI Winter' Lie: Why 2026 Layoffs Are Actually a Talent Reckoning",
+      "niche": "Future of Work",
+      "platforms": [
+        "LinkedIn",
+        "YouTube"
+      ],
+      "virality_score": 90,
+      "debate_score": 75,
+      "format_scores": {
+        "debate": 75,
+        "bar_chart": 50,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 95,
+        "growth_speed": 88,
+        "emotional": 90,
+        "search_momentum": 85
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T08:10:34.914028+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "Why 'AI Therapist' Bans Are the Dumbest Policy Debate of 2026",
+      "niche": "AI",
+      "platforms": [
+        "LinkedIn",
+        "YouTube"
+      ],
+      "virality_score": 86,
+      "debate_score": 64,
+      "format_scores": {
+        "debate": 64,
+        "bar_chart": 50,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 89,
+        "growth_speed": 82,
+        "emotional": 94,
+        "search_momentum": 80
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T08:10:34.914028+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "The 'Prompt Engineer' Job Title Officially Died This Week. Here's Why.",
+      "niche": "AI",
+      "platforms": [
+        "LinkedIn",
+        "YouTube"
+      ],
+      "virality_score": 86,
+      "debate_score": 52,
+      "format_scores": {
+        "debate": 52,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Curiosity / Surprise",
+      "raw_signals": {
+        "engagement": 91,
+        "growth_speed": 87,
+        "emotional": 82,
+        "search_momentum": 86
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T08:10:34.914028+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "EU's AI Act 2.0 Just Killed Europe's Tech Future. America Wins Again.",
+      "niche": "Tech",
+      "platforms": [
+        "LinkedIn",
+        "YouTube"
+      ],
+      "virality_score": 86,
+      "debate_score": 59,
+      "format_scores": {
+        "debate": 59,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Curiosity / Surprise",
+      "raw_signals": {
+        "engagement": 90,
+        "growth_speed": 84,
+        "emotional": 89,
+        "search_momentum": 82
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T08:10:34.914028+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    },
+    {
+      "title": "Apple's R1 Chip Flop: Why On-Device AI Is a Marketing Scam in 2026",
+      "niche": "Tech",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 85,
+      "debate_score": 54,
+      "format_scores": {
+        "debate": 54,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Curiosity / Surprise",
+      "raw_signals": {
+        "engagement": 88,
+        "growth_speed": 85,
+        "emotional": 84,
+        "search_momentum": 83
+      },
+      "status": "UNUSED",
+      "discovered_at": "2026-03-28T08:10:34.914028+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search"
+    }
+  ],
+  "current": null,
+  "archive": [
+    {
+      "title": "OpenAI's 'Strawberry' Is Scarier Than AGI: The Silent Reasoning Breakthrough",
+      "niche": "AI",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 96,
+      "debate_score": 68,
+      "format_scores": {
+        "debate": 68,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 97,
+        "growth_speed": 93,
+        "emotional": 98,
+        "search_momentum": 96
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T08:10:34.914028+00:00",
+      "selected_at": "2026-03-28T08:10:34.914028+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search",
+      "started_at": "2026-03-28T09:07:52.741939+00:00",
+      "completed_at": "2026-03-28T09:08:03.157811+00:00"
+    },
+    {
+      "title": "Google's Project Astra Leak: The Smartphone Killer Is Finally Here",
+      "niche": "Tech",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 91,
+      "debate_score": 57,
+      "format_scores": {
+        "debate": 57,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Curiosity / Surprise",
+      "raw_signals": {
+        "engagement": 92,
+        "growth_speed": 95,
+        "emotional": 87,
+        "search_momentum": 94
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T08:10:34.914028+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search",
+      "started_at": "2026-03-28T12:43:32.664283+00:00",
+      "completed_at": "2026-03-28T12:43:49.970007+00:00"
+    },
+    {
+      "title": "The 'No-Code' Bubble Just Burst: Devs Are Laughing at LinkedIn Gurus",
+      "niche": "Future of Work",
+      "platforms": [
+        "LinkedIn",
+        "YouTube"
+      ],
+      "virality_score": 91,
+      "debate_score": 76,
+      "format_scores": {
+        "debate": 76,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 96,
+        "growth_speed": 90,
+        "emotional": 91,
+        "search_momentum": 87
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T08:10:34.914028+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search",
+      "started_at": "2026-03-28T12:50:59.891577+00:00",
+      "completed_at": "2026-03-28T12:51:12.648796+00:00"
+    },
+    {
+      "title": "Remote Work Is Dead. The New Fight Is Over 'AI Surveillance Scoring'",
+      "niche": "Future of Work",
+      "platforms": [
+        "LinkedIn",
+        "YouTube"
+      ],
+      "virality_score": 91,
+      "debate_score": 65,
+      "format_scores": {
+        "debate": 65,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 94,
+        "growth_speed": 89,
+        "emotional": 95,
+        "search_momentum": 88
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T08:10:34.914028+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search",
+      "started_at": "2026-03-28T17:49:51.356357+00:00",
+      "completed_at": "2026-03-28T17:50:36.524680+00:00"
+    },
+    {
+      "title": "GPT-5 Leaks CONFIRMED: The 3 'AGI Sparks' That Have Insiders Terrified",
+      "niche": "LLM",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 97,
+      "debate_score": 67,
+      "format_scores": {
+        "debate": 67,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 98,
+        "growth_speed": 96,
+        "emotional": 97,
+        "search_momentum": 99
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T17:50:26.187284+00:00",
+      "selected_at": "2026-03-28T17:50:26.187284+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "llm_web_search",
+      "started_at": "2026-03-28T18:11:03.414892+00:00",
+      "completed_at": "2026-03-28T18:12:08.606945+00:00"
+    },
+    {
+      "title": "AI News | Latest AI News, Analysis & Events",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 57,
+      "format_scores": {
+        "debate": 57,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T18:12:00.502896+00:00",
+      "selected_at": "2026-03-28T18:12:00.502896+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-28T18:17:18.606716+00:00",
+      "completed_at": "2026-03-28T18:18:02.892859+00:00"
+    },
+    {
+      "title": "Why Nvidia and Nokia are backing AI RAN specialist ODC",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 81,
+      "debate_score": 48,
+      "format_scores": {
+        "debate": 48,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 84,
+        "growth_speed": 81,
+        "emotional": 78,
+        "search_momentum": 82
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T18:17:55.419476+00:00",
+      "selected_at": "2026-03-28T18:17:55.419476+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-28T18:21:02.431196+00:00",
+      "completed_at": "2026-03-28T18:21:46.735903+00:00"
+    },
+    {
+      "title": "David Sacks is done as AI czar — here’s what he’s doing instead",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 81,
+      "debate_score": 63,
+      "format_scores": {
+        "debate": 63,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 84,
+        "growth_speed": 81,
+        "emotional": 78,
+        "search_momentum": 82
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T18:21:36.017005+00:00",
+      "selected_at": "2026-03-28T18:21:36.017005+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-28T18:27:02.052036+00:00",
+      "completed_at": "2026-03-28T18:27:42.459756+00:00"
+    },
+    {
+      "title": "Memory chip giant SK hynix could help end ‘RAMmageddon’ with blockbuster US IPO",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 81,
+      "debate_score": 48,
+      "format_scores": {
+        "debate": 48,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 84,
+        "growth_speed": 81,
+        "emotional": 78,
+        "search_momentum": 82
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T18:27:32.429257+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-28T19:36:40.099556+00:00",
+      "completed_at": "2026-03-28T19:38:17.007375+00:00"
+    },
+    {
+      "title": "David Sacks is done as AI czar — here’s what he’s doing instead",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 81,
+      "debate_score": 63,
+      "format_scores": {
+        "debate": 63,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 84,
+        "growth_speed": 81,
+        "emotional": 78,
+        "search_momentum": 82
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T18:27:32.429257+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-29T05:04:11.482158+00:00",
+      "completed_at": "2026-03-29T05:05:41.915215+00:00"
+    },
+    {
+      "title": "Securing AI systems under today’s and tomorrow’s conditions",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T18:27:32.429257+00:00",
+      "selected_at": "2026-03-29T06:05:17.687584+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-29T06:56:36.096627+00:00",
+      "completed_at": "2026-03-29T06:57:13.502497+00:00"
+    },
+    {
+      "title": "AI Research Is Getting Harder to Separate From Geopolitics",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 77,
+      "debate_score": 62,
+      "format_scores": {
+        "debate": 62,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 76,
+        "emotional": 77,
+        "search_momentum": 81
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T18:17:55.419476+00:00",
+      "selected_at": "2026-03-29T07:09:52.712963+00:00",
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-29T07:51:50.930105+00:00",
+      "completed_at": "2026-03-29T08:28:14.974454+00:00"
+    },
+    {
+      "title": "Expo , In-Person Events",
+      "niche": "AI",
+      "platforms": [
+        "scraping_url"
+      ],
+      "virality_score": 75,
+      "debate_score": 42,
+      "format_scores": {
+        "debate": 42,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Debate / Opinion",
+      "raw_signals": {
+        "engagement": 78,
+        "growth_speed": 75,
+        "emotional": 72,
+        "search_momentum": 76
+      },
+      "status": "done",
+      "discovered_at": "2026-03-28T18:17:55.419476+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "data_source": "scraping_url",
+      "started_at": "2026-03-30T01:17:06.625537+00:00",
+      "completed_at": "2026-03-30T01:51:19.044335+00:00"
+    }
+  ],
+  "_updated_at": "2026-04-19T08:16:43.821846+00:00",
+  "_note": "queue: no size limit — all topics kept. archive.video_urls {youtube, facebook, tiktok} set by main.py after upload."
+}

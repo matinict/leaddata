@@ -1,0 +1,205 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Unit-Classroom Config",
+  "type": "object",
+  "required": ["classroom_enabled", "video_formats", "voice_mapping"],
+  "properties": {
+    "classroom_enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Master toggle for Unit-Classroom"
+    },
+    "age_group": {
+      "type": "string",
+      "enum": ["kids_3_5", "kids_6_10", "kids_11_14", "teens"],
+      "default": "kids_6_10"
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["2T8S", "1T6S", "1T4S"],
+      "default": "2T8S"
+    },
+    "student_count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 12,
+      "default": 8
+    },
+    "gender_distribution": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["fixed_balanced", "random", "all_male", "all_female"]
+        },
+        "male":   { "type": "array", "items": { "type": "string" } },
+        "female": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "voice_mapping": {
+      "type": "object",
+      "properties": {
+        "teacher_1":   { "type": "string" },
+        "teacher_2":   { "type": "string" },
+        "students":    {
+          "type": "object",
+          "additionalProperties": { "type": "array", "items": { "type": "string" } }
+        },
+        "pool_voices": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "script": {
+      "type": "object",
+      "properties": {
+        "max_words_per_line":        { "type": "integer", "default": 12 },
+        "vocab_grade":               { "type": "string",  "default": "3-5" },
+        "min_student_turns":         { "type": "integer", "default": 1 },
+        "active_students_per_phase": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "minItems": 2,
+          "maxItems": 2,
+          "default": [3, 5]
+        },
+        "phases": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["hook", "explain", "interaction", "example", "reinforcement", "fun_fact", "recap_quiz"]
+        },
+        "include_sections": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["LESSON GOAL", "LEARNING OBJECTIVES", "PRE-THINK", "QUIZ", "KEY POINTS", "EMOTIONAL CLOSURE"]
+          },
+          "default": ["LESSON GOAL", "LEARNING OBJECTIVES", "PRE-THINK", "QUIZ", "KEY POINTS", "EMOTIONAL CLOSURE"]
+        }
+      }
+    },
+    "video_formats": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["Shorts", "HD"] },
+      "default": ["Shorts", "HD"]
+    },
+    "video_fps":              { "type": "integer", "default": 30 },
+    "audio_speed":            { "type": "number",  "minimum": 0.5, "maximum": 2.0, "default": 1.05 },
+    "pause_between_lines_ms": { "type": "integer", "default": 350 },
+    "audio": {
+      "type": "object",
+      "description": "Audio post-processing controls",
+      "properties": {
+        "volume":         { "type": "number",  "default": 3.0,    "description": "1.0=normal, 3.0=3x louder" },
+        "normalize":      { "type": "boolean", "default": false,  "description": "Use loudnorm instead of volume" },
+        "normalize_lufs": { "type": "integer", "default": -16 },
+        "bitrate":        { "type": "string",  "default": "192k" },
+        "sample_rate":    { "type": "integer", "default": 44100 },
+        "channels":       { "type": "integer", "default": 2 },
+        "student_pitch_shift": {
+          "type": "number",
+          "default": 1.18,
+          "minimum": 1.0,
+          "maximum": 1.5,
+          "description": "Pitch multiplier for student voices to sound younger. 1.0=off, 1.18=kid-like"
+        }
+      }
+    },
+    "bubble": {
+      "type": "object",
+      "description": "Cartoon speech bubble overlay",
+      "properties": {
+        "opacity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255,
+          "default": 130,
+          "description": "0=invisible, 255=solid. 130-180 recommended"
+        },
+        "animate":            { "type": "boolean", "default": false, "description": "Currently disabled — ffmpeg expression issues" },
+        "animation_style":    {
+          "type": "string",
+          "enum": [
+            "none", "slide_in", "slide_left", "slide_right",
+            "slide_top", "slide_bottom", "bounce", "wobble",
+            "drop", "shake", "random"
+          ],
+          "default": "none"
+        },
+        "animation_duration": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 2.0,
+          "default": 0.4
+        },
+        "shapes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "rounded", "circle", "cloud", "starburst", "ribbon", "hexagon",
+              "cat", "dog", "bunny", "bird", "fish", "fox", "panda", "owl"
+            ]
+          },
+          "description": "Pool of shapes randomly chosen per segment. Empty = use all 14.",
+          "default": []
+        },
+        "use_assets": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use ready-made PNG shapes instead of Pillow generation"
+        },
+        "shape_assets_dir": {
+          "type": "string",
+          "default": "assets/classroom/bubble_shapes",
+          "description": "Directory of PNG shape assets when use_assets=true"
+        }
+      }
+    },
+    "clip_mapping": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "target_duration": {
+      "type": "object",
+      "properties": {
+        "Shorts": {
+          "type": "object",
+          "properties": {
+            "min_sec": { "type": "integer" },
+            "max_sec": { "type": "integer" }
+          }
+        },
+        "HD": {
+          "type": "object",
+          "properties": {
+            "min_sec": { "type": "integer" },
+            "max_sec": { "type": "integer" }
+          }
+        }
+      }
+    },
+    "classroom_config": {
+      "type": "object",
+      "properties": {
+        "classroom_clips_file": { "type": "string", "default": "input/classroom_clips.json" }
+      }
+    },
+    "bgm_enabled":           { "type": "boolean", "default": false },
+    "bgm_volume":            { "type": "number",  "default": 0.15 },
+    "watermark_enabled":     { "type": "boolean", "default": true },
+    "watermark_text":        { "type": "string",  "default": "@KidsThinkAI" },
+    "watermark_opacity":     { "type": "integer", "minimum": 0, "maximum": 100, "default": 60 },
+    "speaker_label_overlay": { "type": "boolean", "default": true },
+    "generate_subtitles":    { "type": "boolean", "default": true },
+    "generate_cc":           { "type": "boolean", "default": true },
+    "output_naming":         { "type": "string",  "default": "{channel}_{slug}_Classroom_{format}.mp4" },
+    "skip_if_cached":        { "type": "boolean", "default": true },
+    "cleanup_intermediates": {
+      "type": "boolean",
+      "default": true,
+      "description": "Delete _cls_segs_*, _cls_clips_*, _cls_bubbles_*, classroom_audio_*.mp3 after final video"
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "topic": "Interfaces in Python",
+  "focus": "Beginner-friendly OOP explanation",
+  "_profile": "dub",
+  "description": "Voice dubbing — replace video audio with cloned voice",
+
+  "Unit-Dubbing": true,
+  "Unit-Data": false,
+  "Unit-Prodcast": false,
+  "Unit-Scout": false,
+  "Unit-LeadData": false,
+  "Unit-Debate": false,
+  "Unit-Classroom": false,
+  "Unit-Definition": false,
+  "Unit-Animation": false,
+  "Unit-Comparison": false,
+  "Unit-Packaging": false,
+  "Unit-Publisher": false,
+  "Unit-Advertise": false,
+
+  "channel": "PlayOwnAi",
+  "channel_lower": "PlayOwnAi",
+
+  "llmconf": "input/llm_conf.json",
+  "tts_config_file": "input/tts_conf.json",
+  "workspace_config_file": "input/workspace.json",
+  "dubbing_config_file": "input/unit_dubbing_config.json",
+
+  "dubbing_config": {
+    "source_video": "/media/matin/MHDD500/TUt/Python/OOP-PythonBeginners/3 -Interfaces.mp4",
+    "script_path": "",
+    "auto_transcribe_if_script_missing": true,
+
+    "tts_engine": "edge",
+    "tts_voice": "en-US-JennyNeural",
+    "voice_clone_enabled": false,
+
+    "whisper_model": "base",
+    "sync_mode": "none",
+
+    "keep_bgm": false,
+    "bgm_volume": 0.15,
+    "bgm_path": "assets/mp3/bgm.mp3",
+    "chunk_max_chars": 140,
+
+    "xtts_temperature": 0.25,
+    "xtts_speed": 0.78,
+    "xtts_model_dir": "models/xtts",
+
+    "voice_clone_config": {
+      "speaker_wav": "assets/voices/matin3.wav",
+      "language": "en",
+      "device": "cpu",
+      "use_cache": true
+    },
+
+    "screen_ocr": {
+      "enabled": true,
+      "fps": 0.2,
+      "max_frames": 5,
+      "confidence_threshold": 0.70,
+      "code_confidence_threshold": 0.55,
+      "backend": "paddleocr",
+      "lang": "en",
+      "cleanup_frames": false
+    },
+
+    "context_merge": {
+      "enabled": true,
+      "agent_name": "teaching_merge",
+      "style": "educational",
+      "temperature": 0.7,
+      "max_tokens": 4000,
+      "language": "en"
+    },
+
+    "hologram": {
+      "enabled": true,
+      "mode": "panel",
+      "type": 2,
+      "clip_speed": 1.0
+    },
+
+    "video_formats": {
+      "HD": {
+        "enabled": true,
+        "resolution": "1920x1080",
+        "blur_pad": false,
+        "auto_crop": false,
+        "crop": {
+          "enabled": true,
+          "top": 80,
+          "bottom": 85,
+          "left": 360,
+          "right": 0
+        }
+      },
+      "Shorts": {
+        "enabled": true,
+        "resolution": "1080x1920",
+        "blur_pad": true,
+        "auto_crop": false,
+        "crop": {
+          "enabled": true,
+          "top": 50,
+          "bottom": 85,
+          "left": 330,
+          "right": 30
+        }
+      }
+    }
+  }
+}

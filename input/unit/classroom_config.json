@@ -1,0 +1,20 @@
+{
+  "age_group": "kids_6_10",
+  "mode": "2T8S",
+  "student_count": 8,
+  "classroom_config": {
+    "classroom_clips_file": "input/classroom_clips.json"
+  },
+  "script": {
+    "max_words_per_line": 16,
+    "vocab_grade": "3-5",
+    "min_student_turns": 1,
+    "active_students_per_phase": [4, 7],
+    "phases": [
+      "hook", "explain", "interaction", "example",
+      "reinforcement", "fun_fact", "recap_quiz"
+    ]
+  },
+  "keep_shorts_backup": true,
+  "shorts_max_seconds": 179
+}

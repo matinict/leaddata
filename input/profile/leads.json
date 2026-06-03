@@ -1,0 +1,68 @@
+{
+  "topic": "need equipment financing Canada",
+  "_version": "1.0.0",
+  "_profile": "leads",
+  "_comment": "CF2 —  General LeadData.",
+
+  "Unit-LeadData":   true,
+  "Unit-Scout":      false,
+  "Unit-Data":       false,
+  "Unit-Debate":     false,
+  "Unit-Prodcast":   false,
+  "Unit-Classroom":  false,
+  "Unit-Definition": false,
+  "Unit-Animation":  false,
+  "Unit-Comparison": false,
+  "Unit-Packaging":  false,
+  "Unit-Publisher":  false,
+  "Unit-Advertise":  false,
+
+  "leaddata_config": {
+    "enabled": true,
+    "enrich_enabled": false,
+
+    "location_sources": [],
+    "directory_sources": ["linkedin_company"],
+    "community_sources": ["reddit_business", "quora"],
+    "trend_sources": ["google_trends"],
+
+    "credentials_file": "serpapi_credentials.json",
+    "skip_if_cached": false,
+
+    "tool_overrides": {
+      "reddit_business": {
+        "force_reddit": true,
+        "max_results_per_keyword": 20
+      },
+      "quora": {
+        "force_quora": true,
+        "max_results_per_keyword": 20
+      }
+    },
+
+    "normalize_config": {
+      "deduplicate_on": ["website"],
+      "lowercase_email": true,
+      "min_name_length": 2
+    },
+
+    "score_config": {
+      "score_enabled": true,
+      "scoring_rubric": {
+        "source": 40,
+        "intent_score": 40,
+        "review_count": 15,
+        "review_date": 5
+      },
+      "segment_thresholds": { "hot": 60, "warm": 35, "cold": 0 },
+      "sort_by_score_desc": true
+    },
+
+    "export_config": {
+      "formats": ["csv", "json"],
+      "generate_stats": true,
+      "stats_file": "lead_stats.json",
+      "include_segments_breakdown": true
+    }
+  }
+}

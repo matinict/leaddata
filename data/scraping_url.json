@@ -1,0 +1,88 @@
+{
+  "ai_news_sources": [
+    {
+      "name": "AI News",
+      "base_url": "https://www.artificialintelligence-news.com/",
+      "category_url": "https://www.artificialintelligence-news.com/news/",
+      "type": "news"
+    },
+    {
+      "name": "Hugging Face Blog",
+      "base_url": "https://huggingface.co/",
+      "category_url": "https://huggingface.co/blog",
+      "type": "technical_blog"
+    },
+    {
+      "name": "DeepLearning.AI (The Batch)",
+      "base_url": "https://www.deeplearning.ai/",
+      "category_url": "https://www.deeplearning.ai/the-batch/",
+      "type": "newsletter"
+    },
+    {
+      "name": "OpenAI Blog",
+      "base_url": "https://openai.com/",
+      "category_url": "https://openai.com/news/",
+      "type": "official"
+    },
+    {
+      "name": "Google DeepMind",
+      "base_url": "https://deepmind.google/",
+      "category_url": "https://deepmind.google/discover/blog/",
+      "type": "research"
+    },
+    {
+      "name": "Anthropic News",
+      "base_url": "https://www.anthropic.com/",
+      "category_url": "https://www.anthropic.com/news",
+      "type": "research_announcements"
+    },
+    {
+      "name": "LlamaIndex Blog",
+      "base_url": "https://www.llamaindex.ai/",
+      "category_url": "https://www.llamaindex.ai/blog",
+      "type": "technical_implementation"
+    },
+    {
+      "name": "LangChain Blog",
+      "base_url": "https://blog.langchain.dev/",
+      "category_url": "https://blog.langchain.dev/",
+      "type": "technical_implementation"
+    },
+    {
+      "name": "TechCrunch AI",
+      "base_url": "https://techcrunch.com/",
+      "category_url": "https://techcrunch.com/category/artificial-intelligence/",
+      "type": "news"
+    },
+    {
+      "name": "MIT News AI",
+      "base_url": "https://news.mit.edu/",
+      "category_url": "https://news.mit.edu/topic/artificial-intelligence2",
+      "type": "research"
+    },
+    {
+      "name": "The Rundown AI",
+      "base_url": "https://www.therundown.ai/",
+      "category_url": "https://www.therundown.ai/",
+      "type": "newsletter"
+    },
+    {
+      "name": "The Neuron",
+      "base_url": "https://www.theneurondaily.com/",
+      "category_url": "https://www.theneurondaily.com/",
+      "type": "newsletter"
+    },
+    {
+      "name": "Ars Technica AI",
+      "base_url": "https://arstechnica.com/",
+      "category_url": "https://arstechnica.com/tag/artificial-intelligence/",
+      "type": "technical"
+    },
+    {
+      "name": "Forbes AI",
+      "base_url": "https://www.forbes.com/",
+      "category_url": "https://www.forbes.com/ai/",
+      "type": "analysis"
+    }
+  ]
+}

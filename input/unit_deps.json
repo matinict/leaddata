@@ -1,0 +1,40 @@
+{
+  "Unit-Debate": {
+    "producer": "Unit-Data",
+    "files": [
+      "debate/propose.md",
+      "debate/oppose.md",
+      "debate/decide.md"
+    ]
+  },
+  "Unit-Animation": {
+    "producer": "Unit-Data",
+    "files": [
+      "animation/data.csv"
+    ]
+  },
+  "Unit-Definition": {
+    "producer": "Unit-Data",
+    "files": [
+      "definition/def_En.txt"
+    ]
+  },
+  "Unit-Comparison": {
+    "producer": "Unit-Data",
+    "files": [
+      "debate/propose.md"
+    ]
+  },
+  "Unit-Packaging": {
+    "producer": "Unit-Debate",
+    "files": [
+      "debate/decide.md"
+    ]
+  },
+  "Unit-Publisher": {
+    "producer": "Unit-Packaging",
+    "files": [
+      "package/final_video.mp4"
+    ]
+  }
+}

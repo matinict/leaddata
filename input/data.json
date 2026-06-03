@@ -1,0 +1,94 @@
+{
+  "topic": "Ai Dangerous?",
+  "llmconf": "input/llm_conf.json",
+  "tts_config_file": "input/tts_conf.json",
+  "audience_profiles_file": "input/audience_profiles.json",
+  "audience_profile": "US",
+  "start": null,
+  "end": null,
+  "granularity": "yearly",
+  "video_formats": ["Shorts"],
+  "use_label_mappings": true,
+  "fps": 4.9,
+  "video_fps": 30,
+  "fps_hd_offset": 1.37,
+  "audio_speed": 1.1,
+  "audio_speed_hd": 1.0,
+  "tts_engine": "edge-tts",
+  "audio_lang": "en",
+  "audio_tld": "com",
+
+  "channel": "PlayOwnAi",
+  "channel_lower": "playownai",
+
+
+  "Unit-Scout":      false,
+  "Unit-Data":       true,
+  "Unit-LeadData":   false,
+  "Unit-Prodcast":   true,
+  "Unit-Debate":     true,
+  "Unit-Classroom":  false,
+  "Unit-Definition": false,
+  "Unit-Animation":  false,
+  "Unit-Comparison": false,
+  "Unit-Packaging":  false,
+  "Unit-Publisher":  false,
+  "Unit-Advertise":  false,
+
+  "scout_config_file": "input/unit_scout_config.json",
+  "leaddata_config_file": "input/unit_leaddata_config.json",
+  "prodcast_config_file": "input/unit_prodcast_config.json",
+  "animation_config_file": "input/unit_animation_config.json",
+  "debate_config_file": "input/unit_debate_config.json",
+  "classroom_config_file": "input/unit_classroom_config.json",
+
+  "packaging_config": {
+    "generate_youtube_metadata": true,
+    "generate_thumbnail": true,
+    "yt_md_lang": 33,
+    "yt_cc_lang": 30,
+
+    "thumbnail_config": {
+      "generate_thumbnail": true,
+      "thumbnail_methods": ["dashscope", "openai", "local_diffusers", "placeholder"],
+      "dashscope_model": "wan2.6-t2i",
+      "dashscope_native_endpoint": "https://ws-ml5w5d25c5b4vqpd.ap-southeast-1.maas.aliyuncs.com/api/v1",
+      "width": 1280,
+      "height": 720
+      }
+
+    },
+
+  "publisher_config": {
+    "llm_embed": "ollama/nomic-embed-text:latest",
+    "yt_upload": true,
+    "yt_upload_config": {
+      "upload_youtube_video": true,
+      "upload_dry_run": false,
+      "upload_privacy": "private",
+      "upload_category_id": "27",
+      "upload_cc": true,
+      "upload_cc_lang":3,
+      "upload_md_lang":3,
+      "yt_pin_comment_gen": false,
+      "upload_notify_subscribers": false,
+      "upload_client_secrets_file": "3d_client_secret.json",
+      "upload_token_file": "3d_token.json"
+    },
+    "fb_upload": false,
+    "fb_upload_config": {
+      "upload_facebook_video": false,
+      "privacy_status": "SELF",
+      "credentials_file": "input/fb_credentials.json"
+    }
+  },
+
+  "advertise_config": {
+    "social_share_enabled": false,
+    "social_share_dry_run": false,
+    "social_platforms": ["LinkedIn", "Instagram", "Facebook"],
+    "schedule_post": false,
+    "schedule_datetime": "2026-03-22 18:00:00",
+    "schedule_timezone": "Asia/Dhaka"
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "_instructions": [
+    "Add these two entries to your existing data_schema.json:",
+    "",
+    "1. Add 'Unit-LeadData' boolean entry — INSERT after 'Unit-Data' (around line 200), before 'Unit-Debate'.",
+    "2. Add 'leaddata_config_file' string entry — INSERT at top-level (next to 'llmconf' or 'audience_profiles_file').",
+    "3. Add full 'leaddata_config' object — INSERT after 'scout_config' (around line 354), before '_section_animation'. Include a section divider line first.",
+    "",
+    "Three sections below — copy each into the right place."
+  ],
+
+  "________PART_1_unit_master_switch": "════════════════════════════════════════",
+
+  "Unit-LeadData": {
+    "type": "boolean",
+    "description": "Master switch for Unit-LeadData. Collects business leads from Google Maps (via SerpAPI) using the topic as keyword(s) — comma-separate for multiple keywords. Normalizes phone/email/URL, deduplicates, scores quality 0–100, segments hot/warm/cold, and exports CSV/JSON. When false, leaddata_config is ignored and the unit is skipped entirely.",
+    "default": false,
+    "example": true
+  },
+
+  "________PART_2_external_config_pointer": "════════════════════════════════════════",
+
+  "leaddata_config_file": {
+    "type": "string",
+    "description": "Path to external Unit-LeadData config JSON. Auto-loaded by config_loader (Rule 37) and injected as inputs['leaddata_config']. The referenced file's content IS the leaddata_config block — no outer wrapper needed (same pattern as clips3d.json).",
+    "example": "input/unit_leaddata_config.json"
+  },
+
+  "________PART_3_full_config_block": "════════════════════════════════════════",
+  "_section_leaddata": "════════════════════════════════════════",
+
+  "leaddata_config": {
+    "type": "object",
+    "description": "Lead data collection pipeline settings. Only read when Unit-LeadData=true. Topic field provides the search keywords (comma-separated for multiple). Pipeline: collect → normalize → score → export.",
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "description": "Inner enable flag. When false, the unit returns 'disabled' even if Unit-LeadData=true. Useful for keeping the config block intact while temporarily disabling.",
+        "default": true,
+        "example": true
+      },
+      "sources": {
+        "type": "array",
+        "description": "Lead data sources to query. 'maps' = Google Maps via SerpAPI (primary). 'csv' = local CSV at input/leads.csv (fallback for testing).",
+        "items": {
+          "type": "string",
+          "enum": ["maps", "csv"]
+        },
+        "default": ["maps"],
+        "example": ["maps"]
+      },
+      "collect_config": {
+        "type": "object",
+        "description": "Lead collection settings. Controls how raw leads are fetched from external sources.",
+        "properties": {
+          "credentials_file": {
+            "type": "string",
+            "description": "Filename of SerpAPI credentials JSON. Resolved to .runtime/secrets/{filename}. File content: { \"api_key\": \"...\" }. Never commit.",
+            "default": "serpapi_credentials.json",
+            "example": "serpapi_credentials.json"
+          },
+          "api_endpoint": {
+            "type": "string",
+            "description": "SerpAPI search endpoint. Override only if using a regional/proxy mirror.",
+            "default": "https://serpapi.com/search.json",
+            "example": "https://serpapi.com/search.json"
+          },
+          "engine": {
+            "type": "string",
+            "description": "SerpAPI engine. 'google_maps' returns local_results with phone/address/website/coordinates.",
+            "enum": ["google_maps"],
+            "default": "google_maps",
+            "example": "google_maps"
+          },
+          "search_type": {
+            "type": "string",
+            "description": "Maps search subtype. 'search' = standard place search.",
+            "enum": ["search"],
+            "default": "search",
+            "example": "search"
+          },
+          "request_timeout": {
+            "type": "integer",
+            "description": "HTTP request timeout in seconds for each SerpAPI call.",
+            "minimum": 5,
+            "maximum": 120,
+            "default": 30,
+            "example": 30
+          },
+          "max_results_per_keyword": {
+            "type": "integer",
+            "description": "Maximum number of leads to extract per keyword. SerpAPI returns up to 20 local_results per call.",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 20,
+            "example": 20
+          },
+          "skip_if_cached": {
+            "type": "boolean",
+            "description": "When true and raw/leads_raw.csv already exists in the workspace, skip the collect step and reuse the cached file. Set false to force a fresh fetch.",
+            "default": true,
+            "example": true
+          }
+        }
+      },
+      "normalize_config": {
+        "type": "object",
+        "description": "Normalization and deduplication settings. Standardizes phone/email/URL formatting and removes duplicate leads.",
+        "properties": {
+          "deduplicate_on": {
+            "type": "array",
+            "description": "Field(s) used to detect duplicate leads via hash key. Most reliable: ['phone']. Stricter: ['phone', 'email'].",
+            "items": {
+              "type": "string",
+              "enum": ["phone", "email", "name", "website"]
+            },
+            "default": ["phone"],
+            "example": ["phone"]
+          },
+          "phone_country_default": {
+            "type": "string",
+            "description": "Country prefix to prepend to phones missing a '+'. Empty string = prepend '+' only. Format: '+971' for UAE, '+880' for BD, etc.",
+            "default": "",
+            "example": "+971"
+          },
+          "lowercase_email": {
+            "type": "boolean",
+            "description": "Force email addresses to lowercase before storing. Disable only if you need raw casing preserved.",
+            "default": true,
+            "example": true
+          },
+          "force_https": {
+            "type": "boolean",
+            "description": "Prepend 'https://' to website URLs missing a scheme. When false, prepends 'http://' instead.",
+            "default": true,
+            "example": true
+          },
+          "strip_unicode": {
+            "type": "boolean",
+            "description": "Apply NFD unicode normalization to text fields (name, address, location, category) for consistent searchability.",
+            "default": true,
+            "example": true
+          },
+          "min_name_length": {
+            "type": "integer",
+            "description": "Reject leads whose normalized name is shorter than this many characters. Filters out junk results.",
+            "minimum": 0,
+            "maximum": 50,
+            "default": 2,
+            "example": 2
+          }
+        }
+      },
+      "score_config": {
+        "type": "object",
+        "description": "Quality scoring and segmentation settings. Each lead gets a 0–100 score based on data completeness, then bucketed into hot/warm/cold.",
+        "properties": {
+          "score_enabled": {
+            "type": "boolean",
+            "description": "When false, all leads receive score=0 and segment='cold'. Useful for skipping scoring on already-scored datasets.",
+            "default": true,
+            "example": true
+          },
+          "scoring_rubric": {
+            "type": "object",
+            "description": "Point values awarded for each present field. Sum is capped at 100.",
+            "properties": {
+              "has_phone": {
+                "type": "integer",
+                "description": "Points awarded when phone is present.",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 20
+              },
+              "has_email": {
+                "type": "integer",
+                "description": "Points awarded when email is present.",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 20
+              },
+              "has_website": {
+                "type": "integer",
+                "description": "Points awarded when website is present.",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 20
+              },
+              "has_address": {
+                "type": "integer",
+                "description": "Points awarded when address is present (proxy for premium/verified location).",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 20
+              },
+              "active_business": {
+                "type": "integer",
+                "description": "Points awarded when last_verified timestamp exists (active record).",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 20
+              }
+            },
+            "example": {
+              "has_phone": 20,
+              "has_email": 20,
+              "has_website": 20,
+              "has_address": 20,
+              "active_business": 20
+            }
+          },
+          "segment_thresholds": {
+            "type": "object",
+            "description": "Score boundaries for each segment. score >= hot → 'hot'; score >= warm → 'warm'; otherwise → 'cold'.",
+            "properties": {
+              "hot": {
+                "type": "integer",
+                "description": "Minimum score for hot segment (ready to contact).",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 70
+              },
+              "warm": {
+                "type": "integer",
+                "description": "Minimum score for warm segment (nurture).",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 40
+              },
+              "cold": {
+                "type": "integer",
+                "description": "Minimum score for cold segment. Always 0.",
+                "minimum": 0,
+                "maximum": 100,
+                "default": 0
+              }
+            },
+            "example": {
+              "hot": 70,
+              "warm": 40,
+              "cold": 0
+            }
+          },
+          "sort_by_score_desc": {
+            "type": "boolean",
+            "description": "Sort scored CSV/JSON output by quality_score descending (highest first). Disable to preserve collection order.",
+            "default": true,
+            "example": true
+          }
+        }
+      },
+      "export_config": {
+        "type": "object",
+        "description": "Output formatting and statistics settings.",
+        "properties": {
+          "formats": {
+            "type": "array",
+            "description": "Final export formats. CSV is always written; 'json' adds a parallel JSON file. Reserved: 'jsonl', 'parquet'.",
+            "items": {
+              "type": "string",
+              "enum": ["csv", "json"]
+            },
+            "default": ["csv", "json"],
+            "example": ["csv", "json"]
+          },
+          "generate_stats": {
+            "type": "boolean",
+            "description": "Generate insights/lead_stats.json with totals, fill rates, and segment breakdown. Disable to skip the analytics step.",
+            "default": true,
+            "example": true
+          },
+          "stats_file": {
+            "type": "string",
+            "description": "Filename for the stats JSON written to insights/. Override only if multiple runs share an insights directory.",
+            "default": "lead_stats.json",
+            "example": "lead_stats.json"
+          },
+          "include_segments_breakdown": {
+            "type": "boolean",
+            "description": "When true, add a per-segment count map ({hot:N, warm:N, cold:N}) to the stats file.",
+            "default": true,
+            "example": true
+          }
+        }
+      }
+    }
+  }
+}

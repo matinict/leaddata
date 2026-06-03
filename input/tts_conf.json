@@ -1,0 +1,158 @@
+{
+  "tts_config": {
+    "default_tier": "narration",
+    "providers": {
+      "edge": {
+        "module": "cf2.core.tts.providers.edge",
+        "timeout_sec": 30
+      },
+      "gtts": {
+        "module": "cf2.core.tts.providers.gtts",
+        "timeout_sec": 20
+      },
+      "piper_local": {
+        "module": "cf2.core.tts.providers.piper",
+        "model_dir": "models/piper",
+        "timeout_sec": 60
+      },
+      "elevenlabs": {
+        "module": "cf2.core.tts.providers.elevenlabs",
+        "endpoint": "https://api.elevenlabs.io",
+        "timeout_sec": 30,
+        "api_key_env": "ELEVENLABS_API_KEY"
+      },
+      "openai_tts": {
+        "module": "cf2.core.tts.providers.openai",
+        "timeout_sec": 30,
+        "api_key_env": "OPENAI_API_KEY"
+      }
+    },
+    "tiers": {
+      "narration": {
+        "providers": ["edge", "piper_local", "gtts"],
+        "voices": {
+          "default": "en-US-AndrewNeural"
+        },
+        "fallback_voices": {
+          "edge_to_gtts": { "*": "en" },
+          "edge_to_piper_local": { "*": "en_US-lessac-medium" }
+        },
+        "speed": 1.0
+      },
+
+      "debate": {
+        "providers": ["edge", "piper_local", "gtts"],
+        "voices": {
+          "propose": "en-US-RogerNeural",
+          "oppose":  "en-US-AriaNeural",
+          "judge_m": "en-CA-LiamNeural",
+          "judge_f": "en-CA-ClaraNeural",
+          "decide":  "en-US-ChristopherNeural"
+        },
+        "fallback_voices": {
+          "edge_to_gtts": { "*": "en" },
+          "edge_to_piper_local": {
+            "propose": "en_US-joe-medium",
+            "oppose":  "en_US-amy-medium",
+            "judge_m": "en_GB-scott-medium",
+            "judge_f": "en_US-amy-medium",
+            "decide":  "en_GB-scott-medium"
+          }
+        },
+        "speed": 1.0,
+        "speech_rate": "+25%"
+      },
+
+      "podcast": {
+        "providers": ["edge", "elevenlabs", "piper_local", "gtts"],
+        "voices": {
+          "host":  "en-US-AndrewNeural",
+          "guest": "en-US-JennyNeural"
+        },
+        "fallback_voices": {
+          "edge_to_gtts": { "*": "en" },
+          "edge_to_piper_local": {
+            "host":  "en_US-lessac-medium",
+            "guest": "en_US-amy-medium"
+          }
+        },
+        "speed": 1.0
+      },
+
+      "kids_classroom": {
+        "providers": ["edge", "piper_local", "gtts"],
+        "voices": {
+          "T1": "en-US-AndrewNeural",
+          "T2": "en-US-JennyNeural",
+          "S1": "en-US-AnaNeural",
+          "S2": "en-US-AndrewNeural",
+          "S3": "en-US-EmmaNeural",
+          "S4": "en-GB-RyanNeural",
+          "S5": "en-US-AnaNeural",
+          "S6": "en-US-BrianNeural",
+          "S7": "en-US-AvaNeural",
+          "S8": "en-US-AndrewNeural"
+        },
+        "fallback_voices": {
+          "edge_to_gtts": { "*": "en" },
+          "edge_to_piper_local": {
+            "T1": "en_US-lessac-medium",
+            "T2": "en_US-amy-medium",
+            "S1": "en_US-amy-medium",
+            "S2": "en_US-lessac-medium",
+            "S3": "en_US-amy-medium",
+            "S4": "en_US-lessac-medium",
+            "S5": "en_US-amy-medium",
+            "S6": "en_US-lessac-medium",
+            "S7": "en_US-amy-medium",
+            "S8": "en_US-lessac-medium"
+          }
+        },
+        "speed": 1.05
+      },
+
+      "comparison": {
+        "providers": ["edge", "piper_local", "gtts"],
+        "voices": {
+          "default": "en-US-AriaNeural"
+        },
+        "fallback_voices": {
+          "edge_to_gtts": { "*": "en" },
+          "edge_to_piper_local": { "*": "en_US-amy-medium" }
+        },
+        "speed": 1.0
+      },
+
+      "premium": {
+        "providers": ["elevenlabs", "openai_tts", "edge"],
+        "voices": {
+          "default": "21m00Tcm4TlvDq8ikWAM"
+        },
+        "speed": 1.0
+      }
+    },
+    "unit_tier_mapping": {
+      "Unit-Classroom":  "kids_classroom",
+      "Unit-Prodcast":   "podcast",
+      "Unit-Debate":     "debate",
+      "Unit-Definition": "narration",
+      "Unit-Animation":  "narration",
+      "Unit-Comparison": "comparison",
+      "Unit-Packaging":  "narration"
+    },
+    "retry": {
+      "max_attempts": 3,
+      "backoff_seconds": [1, 2, 4]
+    },
+    "circuit_breaker": {
+      "failure_threshold": 3,
+      "cooldown_seconds": 300
+    },
+    "silent_fallback": {
+      "enabled": true,
+      "words_per_second": 2.5,
+      "min_duration": 1.0,
+      "max_duration": 6.0
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "_comment": "Scoreboard config for 360Debate debate videos. Loaded via debate_3d_score_file in data3d.json. All knobs live here — never hardcoded in tools.",
+  "_schema_version": "1.0",
+
+  "enabled":       true,
+  "hd_only":       true,
+  "llm_enabled":   true,
+
+  "duration":      8.0,
+  "max_args":      3,
+
+  "title":         "FINAL SCOREBOARD",
+  "subtitle":      "@360Debate Judge Board",
+
+  "voice_key":     "decide",
+  "narration":     "And now, the final scoreboard.",
+
+  "theme": {
+    "_comment":    "Color palette — RGB triplets 0-255.",
+    "bg_top":      [8, 12, 24],
+    "bg_bottom":   [20, 28, 48],
+    "gold":        [255, 205, 64],
+    "pro_color":   [86, 204, 242],
+    "con_color":   [255, 99, 132],
+    "draw_color":  [200, 200, 210],
+    "white":       [240, 240, 245],
+    "grey":        [120, 130, 150],
+    "panel":       [18, 22, 36]
+  },
+
+  "score_range": {
+    "_comment":         "Integer clamp for every row. Used by both LLM and heuristic.",
+    "min":              8,
+    "max":              20,
+    "default_opening":  15,
+    "default_baseline": 12
+  },
+
+  "layout": {
+    "_comment":         "HD canvas layout constants (1920x1080).",
+    "title_y":          80,
+    "subtitle_y":       180,
+    "header_y":         260,
+    "rows_y_start":     340,
+    "row_height":       110,
+    "totals_y_offset":  300,
+    "winner_y_offset":  150,
+    "side_margin":      80,
+    "row_inner_margin": 140
+  },
+
+  "phases": {
+    "_comment":       "Animation phase boundaries as fractions of total duration (0.0-1.0).",
+    "title_in":       [0.00, 0.25],
+    "rows_countup":   [0.25, 0.75],
+    "totals_reveal":  [0.75, 0.90],
+    "winner_drop":    [0.90, 1.00]
+  },
+
+  "fonts": {
+    "_comment":   "Font sizes in pixels at HD resolution. Scales proportionally for 4K.",
+    "title":      92,
+    "subtitle":   46,
+    "header":     54,
+    "row":        38,
+    "score":      58,
+    "totals":     60,
+    "winner":     80
+  },
+
+  "output": {
+    "_comment":         "Intermediate overlay filename. No language suffix — this is not a final deliverable.",
+    "filename_pattern": "scoreboard_{fmt}.mp4",
+    "format":           "mp4",
+    "codec":            "libx264",
+    "crf":              18,
+    "preset":           "medium",
+    "pix_fmt":          "yuv420p"
+  }
+}

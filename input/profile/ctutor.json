@@ -1,0 +1,158 @@
+{
+  "topic": "Python Classe & Objects",
+  "focus": "speaker+screen+topic",
+  "_profile": "ctutor",
+  "channel": "PlayOwnAi",
+  "channel_lower": "PlayOwnAi",
+  "tts_engine": "edge-tts",
+  "llmconf": "input/llm_conf.json",
+  "tts_config_file": "input/tts_conf.json",
+  "workspace_config_file": "input/workspace.json",
+  "classroom_config_file": "input/unit_classroom_config.json",
+  "classroom_clips_config": "input/clips/croom.json",
+  "Unit-Data": false,
+  "Unit-Prodcast": false,
+  "Unit-Scout": false,
+  "Unit-LeadData": false,
+  "Unit-Debate": false,
+  "Unit-Classroom": true,
+  "Unit-Definition": false,
+  "Unit-Animation": false,
+  "Unit-Comparison": false,
+  "Unit-Packaging": false,
+  "Unit-Publisher": false,
+  "Unit-Advertise": false,
+  "classroom_enabled": true,
+  "classroom_video_enabled": true,
+  "classroom_mode": "single",
+  "description": "CTutor -- Single Teacher with Hologram Tutorial Screen",
+  "classroom_teacher1_name": "Matin",
+  "classroom_teacher1_gender": "male",
+  "classroom_config": {
+    "classroom_enabled": true,
+    "video_formats": [
+      "Shorts"
+    ],
+    "audio_speed": 1.05,
+    "pause_ms": 350,
+    "video_fps": 30,
+    "watermark_enabled": true,
+    "watermark_text": "@PlayOwnAi",
+    "watermark_opacity": 60,
+    "fallback_agent": "ctutor_script_writer",
+    "mini_max_chars": 2400,
+    "mini_outro": "That is a taste of today's tutorial. Watch the full video for more!",
+    "data_llm_enabled": true,
+    "hologram": {
+      "enabled": true,
+      "type": 2,
+      "mode": "panel",
+      "position": "center_right",
+      "position_shorts": "center_bottom",
+      "scale_pct": 0.52,
+      "zoom": 1.75,
+      "clip_speed": 1.0,
+      "animation": {
+        "entry": "fade_in",
+        "entry_duration": 0.5,
+        "slide_direction": "up",
+        "exit": "fade_out",
+        "exit_duration": 0.4
+      },
+      "sources": [
+        {
+          "id": "full_tutorial",
+          "type": "local",
+          "path": "/home/matin/Desktop/2_Classes_Objects.mp4"
+        }
+      ],
+      "ui": {
+        "show_progress_bar": true,
+        "show_rec_indicator": true,
+        "show_topic_badge": true,
+        "show_download_arrow": true,
+        "progress_bar_color": "0x00e5ff",
+        "progress_bar_height": 6,
+        "panel_border_color": "0x00e5ff",
+        "panel_border_width": 4,
+        "panel_corner_radius": 20,
+        "panel_glow_intensity": 0.65,
+        "rec_blink_interval": 1.0
+      },
+      "teacher_avatar": {
+        "enabled": true,
+        "position": "left",
+        "size": 100,
+        "border_color": "0x00e5ff",
+        "border_width": 3,
+        "glow_enabled": true,
+        "glow_color": "0x00e5ff",
+        "glow_radius": 15,
+        "show_name": true,
+        "name_color": "0x00e5ff",
+        "name_font_size": 16
+      }
+    },
+    "audio": {
+      "volume": 3.0,
+      "normalize": false,
+      "normalize_lufs": -16,
+      "bitrate": "192k",
+      "sample_rate": 44100,
+      "channels": 2
+    },
+    "bubble": {
+      "engine": "pillow",
+      "opacity": 130,
+      "animate": true,
+      "animation_style": "slide_in",
+      "animation_duration": 0.4
+    },
+    "bgm_enabled": false,
+    "bgm_volume": 0.15,
+    "speaker_label_overlay": true,
+    "generate_subtitles": true,
+    "generate_cc": true,
+    "skip_if_cached": true,
+    "output_naming": "{channel}_{slug}_CTutor_{format}_{lang}.mp4",
+    "target_duration": {
+      "Shorts": {
+        "min_sec": 60,
+        "max_sec": 180
+      },
+      "HD": {
+        "min_sec": 180,
+        "max_sec": 650
+      }
+    },
+    "clip_mapping": {
+      "hook": "p0",
+      "explain": "c0",
+      "interaction": "p1",
+      "example": "p2",
+      "reinforcement": "p3",
+      "fun_fact": "c3",
+      "recap_quiz": "sum",
+      "end": "win"
+    },
+    "roles": {
+      "teachers": {
+        "T1": {
+          "name": "Matin",
+          "role": "instructor",
+          "gender": "M",
+          "voice": "en-US-AndrewNeural",
+          "speech": "Clear step-by-step tutorial style",
+          "label_color": "#4FC3F7",
+          "personality": "Instructor"
+        }
+      }
+    },
+    "script_prompt": "Generate a brand new tutorial script for a single AI teacher.\n\nInputs:\n- topic: {topic}\n- focus: {focus}\n\nStructure the script using EXACTLY these section markers:\n\n[T1] Matin: Lesson Goal --\nOne sentence stating what the viewer will learn.\n\n[T1] Matin: Today you will learn --\n3-4 bullet points listing specific skills.\n\n[T1] Matin: Before we start, think --\n2-3 questions to spark curiosity.\n\n[PHASE:hook]\n2-3 lines. Grab attention with a surprising fact.\n\n[PHASE:explain]\n4-5 lines. Explain the core idea clearly.\nInsert [HOLO:loop_demo] here to show the demonstration on the hologram screen.\n\n[PHASE:interaction]\n3-4 lines. Anticipate viewer questions, answer them.\n\n[PHASE:example]\n3-4 lines. Walk through a real example step by step.\nInsert [HOLO:output_demo] here to show the result on the hologram screen.\n\n[PHASE:reinforcement]\n3-4 lines. Summarize the key takeaway.\n\n[PHASE:fun_fact]\n2-3 lines. A fun related fact.\n\n[PHASE:recap_quiz]\n3-4 lines. Quick quiz to test understanding.\n\n[QUIZ]\n1. Question? (Answer)\n2. Question? (Answer)\n3. Question? (Answer)\n\n[KEY POINTS]\n- Point 1\n- Point 2\n- Point 3\n- Point 4\n\n[T1] Matin:\nOne encouraging closing sentence.\n\nRules:\n- ONLY one speaker: [T1] Matin:\n- Every dialogue line MUST start with [T1] Matin:\n- NEVER use T2, S1 or any other tag. If you think you need T2, use [T1] Matin: instead.\n- Max 12 words per line\n- Grade 3-5 vocabulary\n- Use [HOLO:clip_id] to trigger hologram screen overlay during a phase\n- Tutorial flow: explain -> demo -> practice\n- Clear narration optimized for text-to-speech\n- Use simple punctuation only: periods, commas, question marks\n- No em-dashes, no smart quotes, no special symbols, no emoji\n- Spell out numbers: three not 3\n\nOUTPUT ONLY THE SCRIPT. No explanations. No markdown code fences."
+  },
+  "hologram": {
+    "enabled": true,
+    "type": 2,
+    "mode": "panel"
+  }
+}

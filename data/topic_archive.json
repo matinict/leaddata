@@ -1,0 +1,157 @@
+{
+  "archive": [
+    {
+      "title": "Should AI Have Rights? The Debate Has Begun",
+      "niche": "AI",
+      "platforms": [
+        "YouTube"
+      ],
+      "virality_score": 87,
+      "debate_score": 65,
+      "format_scores": {
+        "debate": 65,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 91,
+        "growth_speed": 80,
+        "emotional": 95,
+        "search_momentum": 83
+      },
+      "status": "done",
+      "discovered_at": "2026-03-27T18:42:10.764169+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "started_at": "2026-03-27T20:57:44.917210+00:00",
+      "completed_at": "2026-03-27T20:58:03.322950+00:00"
+    },
+    {
+      "title": "Is AI Actually Intelligent or Just a Very Good Parrot?",
+      "niche": "AI",
+      "platforms": [
+        "YouTube"
+      ],
+      "virality_score": 88,
+      "debate_score": 100,
+      "format_scores": {
+        "debate": 100,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Curiosity / Surprise",
+      "raw_signals": {
+        "engagement": 92,
+        "growth_speed": 88,
+        "emotional": 85,
+        "search_momentum": 90
+      },
+      "status": "done",
+      "discovered_at": "2026-03-27T18:42:10.764166+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "started_at": "2026-03-27T20:38:09.563066+00:00",
+      "completed_at": "2026-03-27T20:38:44.187474+00:00"
+    },
+    {
+      "title": "Remote Work is Dead: Who Killed It?",
+      "niche": "Future of Work",
+      "platforms": [
+        "LinkedIn"
+      ],
+      "virality_score": 89,
+      "debate_score": 61,
+      "format_scores": {
+        "debate": 61,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 93,
+        "growth_speed": 86,
+        "emotional": 91,
+        "search_momentum": 88
+      },
+      "status": "done",
+      "discovered_at": "2026-03-27T18:42:10.764162+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "started_at": "2026-03-27T20:09:18.809737+00:00",
+      "completed_at": "2026-03-27T20:09:31.235219+00:00"
+    },
+    {
+      "title": "Will AI Replace Software Engineers by 2027?",
+      "niche": "AI",
+      "platforms": [
+        "LinkedIn",
+        "YouTube"
+      ],
+      "virality_score": 92,
+      "debate_score": 90,
+      "format_scores": {
+        "debate": 90,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 95,
+        "growth_speed": 91,
+        "emotional": 90,
+        "search_momentum": 94
+      },
+      "status": "done",
+      "discovered_at": "2026-03-27T18:42:10.764159+00:00",
+      "selected_at": null,
+      "used_at": null,
+      "performance": {},
+      "started_at": "2026-03-27T20:01:40.064773+00:00",
+      "completed_at": "2026-03-27T20:01:50.453365+00:00"
+    },
+    {
+      "title": "Will 50% of White-Collar Jobs Vanish by 2030?",
+      "niche": "Future of Work",
+      "platforms": [
+        "YouTube",
+        "LinkedIn"
+      ],
+      "virality_score": 93,
+      "debate_score": 64,
+      "format_scores": {
+        "debate": 64,
+        "bar_chart": 30,
+        "definition": 30,
+        "shorts": 30
+      },
+      "best_format": "debate",
+      "emotional_hook": "Fear / Controversy",
+      "raw_signals": {
+        "engagement": 96,
+        "growth_speed": 90,
+        "emotional": 94,
+        "search_momentum": 92
+      },
+      "status": "done",
+      "discovered_at": "2026-03-27T18:42:10.764125+00:00",
+      "selected_at": "2026-03-27T18:42:10.764191+00:00",
+      "used_at": null,
+      "performance": {},
+      "started_at": "2026-03-27T19:07:06.667347+00:00"
+    }
+  ],
+  "_total": 5,
+  "_updated_at": "2026-03-28T06:34:13.517576+00:00"
+}

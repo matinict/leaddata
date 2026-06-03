@@ -1,0 +1,105 @@
+{
+  "_comment": "EU/Pan-European audience sources for 2026. Focuses on institutional policy, financial cross-border data, and tech sovereignty hubs compliant with the Digital Markets Act (DMA).",
+
+  "politics_and_policy_sources": [
+    {
+      "name": "POLITICO Europe",
+      "base_url": "https://www.politico.eu/",
+      "category_url": "https://www.politico.eu/section/policy/",
+      "type": "policy analysis leader"
+    },
+    {
+      "name": "Euractiv",
+      "base_url": "https://www.euractiv.com/",
+      "category_url": "https://www.euractiv.com/sections/politics/",
+      "type": "pan-European network"
+    },
+    {
+      "name": "EU Observer",
+      "base_url": "https://euobserver.com/",
+      "category_url": "https://euobserver.com/rule-of-law",
+      "type": "independent investigative"
+    },
+    {
+      "name": "Euronews",
+      "base_url": "https://www.euronews.com/",
+      "category_url": "https://www.euronews.com/news/europe",
+      "type": "multilingual broadcast"
+    }
+  ],
+
+  "finance_and_economy_sources": [
+    {
+      "name": "Financial Times (Europe)",
+      "base_url": "https://www.ft.com/",
+      "category_url": "https://www.ft.com/world/europe/economy",
+      "type": "institutional authority"
+    },
+    {
+      "name": "The Economist (Europe)",
+      "base_url": "https://www.economist.com/",
+      "category_url": "https://www.economist.com/europe",
+      "type": "global analysis"
+    },
+    {
+      "name": "The European",
+      "base_url": "https://the-european.eu/",
+      "category_url": "https://the-european.eu/category/finance/",
+      "type": "business magazine"
+    },
+    {
+      "name": "Les Echos (France/EU Focus)",
+      "base_url": "https://www.lesechos.fr/",
+      "category_url": "https://www.lesechos.fr/monde/europe",
+      "type": "leading daily (French)"
+    }
+  ],
+
+  "tech_and_innovation_sources": [
+    {
+      "name": "Sifted",
+      "base_url": "https://sifted.eu/",
+      "category_url": "https://sifted.eu/sectors/ai",
+      "type": "startup/VC ecosystem"
+    },
+    {
+      "name": "The Next Web (TNW)",
+      "base_url": "https://thenextweb.com/",
+      "category_url": "https://thenextweb.com/category/tech",
+      "type": "consumer tech"
+    },
+    {
+      "name": "European Innovation Council (EIC)",
+      "base_url": "https://eic.ec.europa.eu/",
+      "category_url": "https://eic.ec.europa.eu/news_en",
+      "type": "deep tech/policy"
+    },
+    {
+      "name": "AlphaGamma",
+      "base_url": "https://www.alphagamma.eu/",
+      "category_url": "https://www.alphagamma.eu/entrepreneurship/",
+      "type": "young professional/startup"
+    }
+  ],
+
+  "official_institutional_data": [
+    {
+      "name": "European Commission Newsroom",
+      "base_url": "https://ec.europa.eu/",
+      "category_url": "https://ec.europa.eu/commission/presscorner/home/en",
+      "type": "official press wire"
+    },
+    {
+      "name": "European Parliament Think Tank",
+      "base_url": "https://www.europarl.europa.eu/thinktank/en/home",
+      "category_url": "https://www.europarl.europa.eu/thinktank/en/upcoming-events",
+      "type": "legislative research"
+    },
+    {
+      "name": "Eurostat",
+      "base_url": "https://ec.europa.eu/eurostat/",
+      "category_url": "https://ec.europa.eu/eurostat/news/whats-new",
+      "type": "statistical data"
+    }
+  ]
+}

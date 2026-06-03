@@ -1,0 +1,396 @@
+{
+  "_comment": "CN audience sources for 2026. Includes the primary state-authorized portals, financial leaders, and the 'Social Search' platforms that define current Chinese consumer behavior.",
+
+  "politics_news_sources": [
+    {
+      "name": "Xinhua News Agency",
+      "base_url": "http://www.xinhuanet.com/",
+      "category_url": "http://www.xinhuanet.com/politics/",
+      "type": "official state media"
+    },
+    {
+      "name": "People's Daily (Renmin Ribao)",
+      "base_url": "http://politics.people.com.cn/",
+      "category_url": "http://politics.people.com.cn/GB/1024/index.html",
+      "type": "CCP official outlet"
+    },
+    {
+      "name": "Sina News",
+      "base_url": "https://news.sina.com.cn/",
+      "category_url": "https://news.sina.com.cn/china/",
+      "type": "major portal"
+    },
+    {
+      "name": "The Paper (Pengpai)",
+      "base_url": "https://www.thepaper.cn/",
+      "category_url": "https://www.thepaper.cn/list_25462",
+      "type": "digital-first news"
+    }
+  ],
+
+  "finance_news_sources": [
+    {
+      "name": "Caixin Global",
+      "base_url": "https://www.caixinglobal.com/",
+      "category_url": "https://www.caixinglobal.com/economy/",
+      "type": "premium financial"
+    },
+    {
+      "name": "East Money (Dongfang Caifu)",
+      "base_url": "https://www.eastmoney.com/",
+      "category_url": "https://finance.eastmoney.com/a/cyyjj.html",
+      "type": "market leader"
+    },
+    {
+      "name": "Yicai (Global)",
+      "base_url": "https://www.yicaiglobal.com/",
+      "category_url": "https://www.yicaiglobal.com/news",
+      "type": "business news"
+    },
+    {
+      "name": "21st Century Business Herald",
+      "base_url": "https://www.21jingji.com/",
+      "category_url": "https://www.21jingji.com/channel/politics/",
+      "type": "economic analysis"
+    }
+  ],
+
+  "social_and_discovery_sources": [
+    {
+      "name": "Xiaohongshu (Rednote)",
+      "base_url": "https://www.xiaohongshu.com/",
+      "category_url": "https://www.xiaohongshu.com/explore",
+      "type": "lifestyle/discovery search"
+    },
+    {
+      "name": "Zhihu",
+      "base_url": "https://www.zhihu.com/",
+      "category_url": "https://www.zhihu.com/hot",
+      "type": "knowledge-sharing/Q&A"
+    },
+    {
+      "name": "Weibo Hot Search",
+      "base_url": "https://s.weibo.com/",
+      "category_url": "https://s.weibo.com/top/summary",
+      "type": "real-time trends"
+    }
+  ],
+
+  "tech_and_innovation_sources": [
+    {
+      "name": "36Kr",
+      "base_url": "https://36kr.com/",
+      "category_url": "https://36kr.com/information/technology/",
+      "type": "tech/startup news"
+    },
+    {
+      "name": "IT Home (IT Zhijia)",
+      "base_url": "https://www.ithome.com/",
+      "category_url": "https://www.ithome.com/category/1.html",
+      "type": "consumer tech"
+    },
+    {
+      "name": "DeepSeek Tech Blog",
+      "base_url": "https://blog.deepseek.com/",
+      "category_url": "https://blog.deepseek.com/",
+      "type": "AI specialized"
+    },
+    {
+      "name": "CSDN",
+      "base_url": "https://www.csdn.net/",
+      "category_url": "https://www.csdn.net/nav/ai",
+      "type": "developer community"
+    }
+  ],
+
+  "general_portals": [
+    {
+      "name": "NetEase News (163.com)",
+      "base_url": "https://news.163.com/",
+      "category_url": "https://news.163.com/domestic/",
+      "type": "mass portal"
+    },
+    {
+      "name": "Tencent News (QQ)",
+      "base_url": "https://news.qq.com/",
+      "category_url": "https://news.qq.com/ch/gn/",
+      "type": "mass portal"
+    }
+  ],
+  "china_tech_discovery_sources": [
+    {
+      "name": "TechNode",
+      "base_url": "https://technode.com/",
+      "category_url": "https://technode.com/tag/innovation/",
+      "type": "discovery"
+    },
+    {
+      "name": "KrASIA",
+      "base_url": "https://kr-asia.com/",
+      "category_url": "https://kr-asia.com/category/china",
+      "type": "discovery"
+    },
+    {
+      "name": "Pandaily",
+      "base_url": "https://pandaily.com/",
+      "category_url": "https://pandaily.com/category/technology/",
+      "type": "news"
+    },
+    {
+      "name": "Xinhua Sci-Tech",
+      "base_url": "http://www.xinhuanet.com/english/",
+      "category_url": "http://www.xinhuanet.com/english/list/china-science.htm",
+      "type": "official_announcements"
+    }
+  ],
+
+  "china_innovation_analysis_sources": [
+    {
+      "name": "SCMP - Inside China Tech",
+      "base_url": "https://www.scmp.com/",
+      "category_url": "https://www.scmp.com/tech/big-tech",
+      "type": "analysis"
+    },
+    {
+      "name": "Caixin Global Tech",
+      "base_url": "https://www.caixinglobal.com/",
+      "category_url": "https://www.caixinglobal.com/technology/",
+      "type": "business_intelligence"
+    },
+    {
+      "name": "Sixth Tone",
+      "base_url": "https://www.sixthtone.com/",
+      "category_url": "https://www.sixthtone.com/topics/1000007/tech",
+      "type": "social_innovation"
+    }
+  ],
+
+  "china_tech_conflict_news_sources": [
+    {
+      "name": "The Wire China",
+      "base_url": "https://www.thewirechina.com/",
+      "category_url": "https://www.thewirechina.com/topic/technology/",
+      "type": "geopolitical_conflict"
+    },
+    {
+      "name": "Caixin - Trade & Sanctions",
+      "base_url": "https://www.caixinglobal.com/",
+      "category_url": "https://www.caixinglobal.com/us-china-trade-war/",
+      "type": "regulatory_fighting"
+    },
+    {
+      "name": "DigiChina (Stanford/New America)",
+      "base_url": "https://digichina.stanford.edu/",
+      "category_url": "https://digichina.stanford.edu/news-analysis/",
+      "type": "policy_struggle"
+    }
+  ],
+  "china_tech_and_innovation_discovery_sources": [
+
+    {
+      "name": "South China Morning Post - Tech",
+      "base_url": "https://www.scmp.com/",
+      "category_url": "https://www.scmp.com/tech",
+      "type": "tech_news"
+    },
+    {
+      "name": "TechNode",
+      "base_url": "https://technode.com/",
+      "category_url": "https://technode.com/",
+      "type": "china_tech"
+    },
+    {
+      "name": "Pandaily",
+      "base_url": "https://pandaily.com/",
+      "category_url": "https://pandaily.com/",
+      "type": "startup_innovation"
+    },
+    {
+      "name": "Caixin Global - Tech & Business",
+      "base_url": "https://www.caixinglobal.com/",
+      "category_url": "https://www.caixinglobal.com/tech/",
+      "type": "investigative"
+    },
+    {
+      "name": "Nikkei Asia - Technology",
+      "base_url": "https://asia.nikkei.com/",
+      "category_url": "https://asia.nikkei.com/Business/Technology",
+      "type": "tech_news"
+    },
+    {
+      "name": "Reuters - Technology",
+      "base_url": "https://www.reuters.com/",
+      "category_url": "https://www.reuters.com/technology/",
+      "type": "tech_news"
+    },
+    {
+      "name": "Bloomberg Technology",
+      "base_url": "https://www.bloomberg.com/",
+      "category_url": "https://www.bloomberg.com/technology",
+      "type": "tech_news"
+    },
+    {
+      "name": "The Wire China",
+      "base_url": "https://www.thewirechina.com/",
+      "category_url": "https://www.thewirechina.com/",
+      "type": "deep_dive"
+    },
+    {
+      "name": "Rest of World",
+      "base_url": "https://restofworld.org/",
+      "category_url": "https://restofworld.org/region/china/",
+      "type": "global_tech"
+    },
+    {
+      "name": "KrASIA",
+      "base_url": "https://kr-asia.com/",
+      "category_url": "https://kr-asia.com/",
+      "type": "startup_innovation"
+    },
+
+    {
+      "name": "36Kr English",
+      "base_url": "https://eu.36kr.com/",
+      "category_url": "https://eu.36kr.com/",
+      "type": "startup_innovation"
+    },
+    {
+      "name": "MIT Technology Review",
+      "base_url": "https://www.technologyreview.com/",
+      "category_url": "https://www.technologyreview.com/topic/artificial-intelligence/",
+      "type": "innovation"
+    },
+    {
+      "name": "Financial Times - China Tech",
+      "base_url": "https://www.ft.com/",
+      "category_url": "https://www.ft.com/technology",
+      "type": "investigative"
+    },
+    {
+      "name": "The Economist - Science & Tech",
+      "base_url": "https://www.economist.com/",
+      "category_url": "https://www.economist.com/science-and-technology/",
+      "type": "analysis"
+    },
+    {
+      "name": "Abacus News",
+      "base_url": "https://www.scmp.com/abacus/",
+      "category_url": "https://www.scmp.com/abacus/",
+      "type": "tech_news"
+    },
+
+    {
+      "name": "Yicai Global",
+      "base_url": "https://www.yicaiglobal.com/",
+      "category_url": "https://www.yicaiglobal.com/",
+      "type": "business_tech"
+    },
+    {
+      "name": "Sixth Tone",
+      "base_url": "https://www.sixthtone.com/",
+      "category_url": "https://www.sixthtone.com/topics/technology/",
+      "type": "society_tech"
+    },
+    {
+      "name": "China Daily - Tech",
+      "base_url": "https://www.chinadaily.com.cn/",
+      "category_url": "https://www.chinadaily.com.cn/business/tech",
+      "type": "official"
+    },
+    {
+      "name": "CGTN - Tech",
+      "base_url": "https://news.cgtn.com/",
+      "category_url": "https://news.cgtn.com/news/tech/",
+      "type": "official"
+    },
+
+    {
+      "name": "Global Times - Tech",
+      "base_url": "https://www.globaltimes.cn/",
+      "category_url": "https://www.globaltimes.cn/page/category/tech/",
+      "type": "official"
+    },
+    {
+      "name": "The Information - China",
+      "base_url": "https://www.theinformation.com/",
+      "category_url": "https://www.theinformation.com/topics/china",
+      "type": "deep_dive"
+    },
+    {
+      "name": "Protocol (Archive)",
+      "base_url": "https://www.protocol.com/",
+      "category_url": "https://www.protocol.com/china",
+      "type": "tech_news"
+    },
+    {
+      "name": "Quartz - China",
+      "base_url": "https://qz.com/",
+      "category_url": "https://qz.com/china",
+      "type": "tech_news"
+    },
+    {
+      "name": "TechNode",
+      "base_url": "https://technode.com/",
+      "category_url": "https://technode.com/news-archives/",
+      "type": "news"
+    },
+    {
+      "name": "Pandaily",
+      "base_url": "https://pandaily.com/",
+      "category_url": "https://pandaily.com/category/news-hi",
+      "type": "news"
+    },
+    {
+      "name": "36Kr Global",
+      "base_url": "https://eu.36kr.com/en",
+      "category_url": "https://eu.36kr.com/en",
+      "type": "news"
+    },
+    {
+      "name": "China Daily Technology",
+      "base_url": "https://www.chinadaily.com.cn/",
+      "category_url": "https://www.chinadaily.com.cn/business/tech",
+      "type": "news"
+    },
+    {
+      "name": "Leiphone",
+      "base_url": "https://www.leiphone.com/",
+      "category_url": "https://www.leiphone.com/",
+      "type": "news"
+    },
+    {
+      "name": "Huxiu",
+      "base_url": "https://www.huxiu.com/",
+      "category_url": "https://www.huxiu.com/channel/105.html",
+      "type": "news"
+    },
+    {
+      "name": "ITHome AI",
+      "base_url": "https://www.ithome.com/",
+      "category_url": "https://www.ithome.com/ai",
+      "type": "news"
+    },
+    {
+      "name": "Jiqizhixin",
+      "base_url": "https://www.jiqizhixin.com/",
+      "category_url": "https://www.jiqizhixin.com/dailies",
+      "type": "news"
+    },
+    {
+      "name": "Ministry of Science and Technology of China",
+      "base_url": "https://www.most.gov.cn/",
+      "category_url": "https://www.most.gov.cn/xwzx/",
+      "type": "news"
+    },
+    {
+      "name": "Chinese Academy of Sciences",
+      "base_url": "https://english.cas.cn/",
+      "category_url": "https://english.cas.cn/newsroom/cas_media/index_29.shtml",
+      "type": "news"
+    }
+
+  ]
+
+
+
+}

@@ -1,0 +1,1186 @@
+scout_trending_topics:
+  description: >
+    Discover and rank viral trending topics across {platforms} for the @{channel} channel.
+
+    ⚠️  CRITICAL: You MUST call the Social Trend Scout Tool NOW with these EXACT parameters:
+      platforms: {platforms}
+      niches: {niches}
+      min_virality_score: {min_virality_score}
+      output_queue_size: {output_queue_size}
+      auto_consume: {auto_consume}
+      use_web_search: {use_web_search}
+      queue_path: "{scout_queue_path}"
+      force_refresh: {force_refresh}
+      force_scraping: {force_scraping}
+      scraping_url_file: {scraping_url_file}
+
+
+    The tool updates {scout_queue_path} (queue list) and returns the top topic.
+
+    Once the tool returns ANY output, use it IMMEDIATELY as your Final Answer.
+    Do NOT add commentary. Do NOT call the tool again.
+    Do NOT return SKIP.
+
+  expected_output: >
+    Tool output starting with "✅ Social Trend Scout Complete" OR "⏭️  Smart Skip".
+    Return the exact tool output as your Final Answer.
+
+  agent: scout_trend_agent
+
+data_research:
+  description: >
+    Research and compile time-series data for {topic} from {start} to {end}.
+    The data should be organized with {granularity} granularity.
+    CRITICAL FORMAT REQUIREMENTS:
+    Create data in MULTI-COLUMN format tracking multiple items/frameworks/tools over time.
+    Example structure for "AI Agent Framework Popularity":
+    Year,LangChain,CrewAI,AutoGPT,BabyAGI,SemanticKernel,n8n,Make,Zapier,Haystack,MetaGPT
+    2015,0,0,0,0,0,5,8,20,0,0
+    2016,0,0,0,0,0,8,12,25,0,0
+    2017,2,0,0,0,0,12,18,30,0,0
+    ...
+
+    Structure requirements:
+    - First column: Time period (Year, Month, Date based on {granularity})
+    - Subsequent columns: Different items/frameworks/tools being tracked
+    - Values: Popularity scores, adoption rates, or relevant metrics (0-100 scale)
+    - Include 5-10 different items to compare
+
+    The data must be formatted as a list of dictionaries where each dictionary represents one row.
+    Example: [{"Year": 2015, "LangChain": 0, "CrewAI": 0, ...}, {"Year": 2016, ...}]
+  expected_output: >
+    A Python list of dictionaries in multi-column format, ready for CSV export.
+    Each dictionary must have the time period as first key, followed by 5-10 items being tracked.
+    Values should be numeric (0-100 scale for popularity/adoption).
+  agent: data_researcher
+
+data_generate_csv:
+  description: >
+    Generate a CSV file from the researched data with strict filename and format rules:
+    FILENAME RULES:
+    - Filename must be: First 3 words of "{topic}" with no spaces
+    - Example: "AI Agent Framework Popularity" → "AIAgentFramework.csv"
+    - Location: {output_dir}/{filename}.csv
+    FORMAT RULES:
+    - Multi-column format with time period in first column
+    - 5-10 items/frameworks/tools in subsequent columns
+    - Example format:
+      Year,LangChain,CrewAI,AutoGPT,BabyAGI,SemanticKernel,n8n,Make,Zapier,Haystack,MetaGPT
+      2015,0,0,0,0,0,5,8,20,0,0
+      2016,0,0,0,0,0,8,12,25,0,0
+      ...
+
+    Use the CSV Writer Tool to create the file with proper structure:
+    - First column: Year/Month/Date (based on granularity)
+    - Remaining columns: Different items being tracked
+    - All values numeric (0-100 scale)
+    - Include headers for all columns
+    - Ensure data is properly formatted
+    - Save to the output directory
+
+    The CSV must be ready for video generation processing with multi-line chart visualization.
+  expected_output: >
+    Confirmation message with the exact filepath where CSV was saved,
+    including number of rows and columns written, and sample of first/last rows.
+  agent: data_csv_generator
+  context:
+    - data_research
+
+data_define_topic:
+  description: >
+    Write a rich definition of "{topic}" for the @{channel} YouTube channel.
+    If definition_enabled is false, respond with just: SKIP
+    Write ONLY the definition text — no tool calls, no JSON, no code.
+    Your entire response becomes the definition file content.
+
+    Format your response exactly like this:
+
+    WHAT IS {topic}?
+    [3-4 sentences in plain English for a general YouTube audience]
+
+    WHY DOES IT MATTER?
+    [2-3 sentences on importance and who it impacts]
+
+    KEY TERMS
+    - Term 1: one-line definition
+    - Term 2: one-line definition
+    - Term 3: one-line definition
+    - Term 4: one-line definition
+
+    TIMELINE {start} TO {end}
+    [3-4 sentences on key milestones and evolution]
+
+    WHAT YOU WILL SEE IN THIS RACE
+    [2 sentences on players, trends, and what to watch for]
+
+    Keep the total definition under {definition_max_chars} characters.
+  expected_output: >
+    The full definition text as plain prose — no tool calls, no JSON.
+    Starting with "WHAT IS {topic}?" and ending with "WHAT YOU WILL SEE IN THIS RACE".
+    Must be under {definition_max_chars} characters total.
+  agent: data_definition_specialist
+  output_file: "{definition_dir}/def.md"   #
+
+definition_create_video:
+  description: >
+    Create a scrolling text video clip from the topic definition text for {topic}.
+    This task will automatically skip if definition_video is false in inputs.
+    CRITICAL — call the Definition Video Tool with EXACTLY these values:
+      topic: "{topic}"
+      filename: "{filename}"
+      output_dir: "{output_dir}"
+      video_formats: {video_formats}
+      definition_video: {definition_video}
+      what_is_only: true
+      secs_per_line: 3.5
+      channel: "{channel}"
+      watermark_enabled: {watermark_enabled}
+      watermark_text: "{watermark_text}"
+      watermark_opacity: {watermark_opacity}
+      tts_engine: "{tts_engine}"
+
+    NOTE: filename must be "{filename}" (e.g. "LLMAlignmentRLHF") — NOT "definition_video_LLMAlignmentRLHF".
+    The tool reads {output_dir}/{filename}.txt automatically.
+    Output: definition_video_[format].mp4 saved to {output_dir}.
+  expected_output: >
+    List of definition video files created, OR skip message if disabled.
+    Example: "definition_video_Shorts.mp4 (2.3 MB)"
+  agent: definition_video_producer
+
+animation_create_video:
+  description: >
+    Generate visualization videos from the CSV file for {topic}.
+    Animation styles: {animation_styles}
+    Video formats: {video_formats}
+    FPS: {fps}
+    Use the Video Generation Tool to:
+    - Read CSV from {output_dir}/{filename}.csv
+    - Create videos for ALL styles in {animation_styles}
+    - Save to {output_dir}/ with naming pattern: {filename}[style][format].mp4
+    - All video files go to topic subdirectory, CSV stays flat
+    Title format requirement (STRICT):
+    - Line 1: Pure topic name only ("Programming Language")
+    - Line 2: Visualization type + year ("Race - 2019")
+
+    For bar race videos, apply label trimming using data/label_mappings.json
+    (e.g., "JavaScript" → "JS", "Microsoft" → "MS")
+  expected_output: >
+    Confirmation of successful video creation with exact file paths for all generated videos.
+    Example: "{output_dir}/ProgrammingLanguage_bar_Shorts.mp4"
+  agent: animation_video_producer
+  context:
+    - data_research
+    - data_generate_csv
+
+animation_create_bar_race_video:
+  description: >
+    Generate AMAZING bar race animation videos from the CSV file for {topic}.
+    Animation: Professional bar chart race with smooth interpolation
+    Video formats: {video_formats}
+    FPS (seconds per period): {fps}
+    Use the Bar Race Video Generator Tool to:
+    - Read CSV from {output_dir}/{filename}.csv
+    - Create professional bar race videos
+    - Save to {output_dir}/
+    - Smooth interpolation, dynamic bar reordering, professional color scheme
+    - Output files: bar_race_[format].mp4 in {output_dir}/
+
+    CRITICAL — call the Bar Race Video Tool with EXACTLY these values:
+      csv_filepath: "{output_dir}/{filename}.csv"
+      output_dir: "{output_dir}"
+      title: "{topic} Race"
+      video_formats: {video_formats}
+      seconds_per_period: {fps}
+      fps_hd_offset: {fps_hd_offset}
+      use_label_mappings: {use_label_mappings}
+      watermark_enabled: {watermark_enabled}
+      watermark_text: "{watermark_text}"
+      watermark_opacity: {watermark_opacity}
+
+    DO NOT change these values. Pass them exactly as shown.
+  expected_output: >
+    Confirmation of successful bar race video creation with exact file paths.
+    Example: "{output_dir}/bar_race_Shorts.mp4, {output_dir}/bar_race_HD.mp4"
+  agent: animation_bar_race_producer
+  context:
+    - data_research
+    - data_generate_csv
+
+animation_create_intro_clip:
+  description: >
+    Generate branded intro screen video clip(s) for bar race videos.
+    This task will automatically skip if intro_enabled is false in inputs.
+    When enabled, creates intro MP4 clips for each format in {video_formats}.
+    CRITICAL — call the Intro Clip Tool with EXACTLY these values:
+      topic: "{topic}"
+      start_year: {start}
+      end_year: {end}
+      output_dir: "{output_dir}"
+      video_formats: {video_formats}
+      intro_enabled: {intro_enabled}
+      intro_duration: {intro_duration}
+      intro_context: "{intro_context}"
+      intro_slug: "biggest debates"
+      channel: "{channel}"
+      watermark_enabled: {watermark_enabled}
+      watermark_text: "{watermark_text}"
+
+    Output files: {output_dir}/intro_[format].mp4
+    Example: {output_dir}/intro_Shorts.mp4, {output_dir}/intro_HD.mp4
+  expected_output: >
+    List of intro clip files created, OR skip message if disabled.
+    Example: "🎬 Intro clips created:\n   • intro_Shorts.mp4 (1024 KB)\n   • intro_HD.mp4 (2048 KB)"
+  agent: animation_intro_producer
+
+animation_add_bar_race_audio:
+  description: >
+    Generate professional audio narration files for bar race videos.
+    This task will automatically skip if bar_race_audio_enabled is false in inputs.
+    When enabled, creates audio files for all bar_race_*.mp4 videos based on {topic}.
+    CRITICAL — call the Bar Race Audio Tool with EXACTLY these values:
+      topic: "{topic}"
+      filename: "{filename}"
+      output_dir: "{output_dir}"
+      video_formats: {video_formats}
+      bar_race_audio_enabled: {bar_race_audio_enabled}
+      audio_speed: {audio_speed}
+      audio_speed_hd: {audio_speed_hd}
+      channel: "{channel}"
+
+    The tool reads the CSV from {output_dir}/{filename}.csv automatically.
+    DO NOT substitute topic for filename. filename must be the slug: "{filename}" (e.g. "LLMPopularity").
+    - Audio files saved to: {output_dir}/bar_race_[format]_audio.mp3
+    - Narration text: {output_dir}/bar_race_cc_en.txt
+  expected_output: >
+    List of bar race audio files created, OR skip message if disabled.
+    Example: "🎵 Bar race audio files created:\n   • bar_race_Shorts_audio.mp3\n   • bar_race_HD_audio.mp3"
+    Narration file: "bar_race_cc_en.txt"
+  agent: animation_bar_race_audio_engineer
+  context:
+    - animation_create_bar_race_video
+
+animation_add_audio:
+  description: >
+    Generate professional audio narration files.
+    This task will automatically skip if audio is disabled in inputs.
+    When enabled, creates audio files for all generated videos based on {topic}.
+    - Audio files saved to: {output_dir}/[style]_[format]_audio.mp3
+    - Narration text file: {output_dir}/{filename}_cc_en.txt
+  expected_output: >
+    List of audio files created, OR skip message if disabled.
+    Example: "🎵 Audio narration files created:\n   • ProgrammingLanguage_bar_Shorts_audio.mp3"
+    Narration file: "ProgrammingLanguage_cc_en.txt"
+  agent: animation_audio_engineer
+  context:
+    - animation_create_video
+    - data_generate_csv
+
+animation_merge_audio_video:
+  description: >
+    Merge existing MP4 video files with corresponding MP3 audio files.
+    This task will automatically skip if merge_audio_video is disabled in inputs.
+    When enabled, searches in {output_dir}/ for pairs like:
+    - {filename}[style][format].mp4
+    - {filename}[style][format]audio.mp3
+    And creates: {filename}[style]_[format]_with_audio.mp4
+    All files remain in topic subdirectory.
+  expected_output: >
+    Confirmation of successful merges, OR skip message if disabled.
+    Example: "📹 Audio-video merging completed (1 successful).\n✅ Merged: ProgrammingLanguage_bar_Shorts_with_audio.mp4"
+  agent: animation_merge_specialist
+  context:
+    - animation_add_audio
+
+animation_bar_merge:
+  description: >
+    Concatenate intro + bar race + definition video segments WITH AUDIO into a single final MP4 per format.
+    This task will automatically skip if bar_merge_enabled is false in inputs.
+    Pipeline per format (where [format] is each entry in {video_formats}):
+
+      intro_[format]_with_audio.mp4
+        +
+      bar_race_[format]_with_audio.mp4
+        +
+      definition_video_[format]_with_audio.mp4
+          → ffmpeg concat (with -avoid_negative_ts make_zero for perfect sync)
+          → Merged_[format].mp4
+
+    Also merges CC text files:
+      intro_[format]_cc_en.txt
+        +
+      bar_race_[format]_cc_en.txt
+        +
+      definition_video_[format]_cc_en.txt
+          → Merged_[format]_cc_en.txt
+
+    CRITICAL — call the Bar Merge Tool with EXACTLY these values:
+      output_dir: "{output_dir}"
+      video_formats: {video_formats}
+      bar_merge_enabled: {bar_merge_enabled}
+      channel: "{channel}"
+      topic: "{topic}"
+
+    Output files per format:
+      • Merged_[format].mp4          (final video with perfect audio sync)
+      • Merged_[format]_cc_en.txt    (merged closed captions text)
+
+    Example for Shorts format:
+      {output_dir}/Merged_Shorts.mp4
+      {output_dir}/Merged_Shorts_cc_en.txt
+
+    Example for HD format:
+      {output_dir}/Merged_HD.mp4
+      {output_dir}/Merged_HD_cc_en.txt
+  expected_output: >
+    A message starting with "✅ SUCCESS" listing the final files created.
+    Once you receive output from the tool containing "completed" or "skipped", return it as your Final Answer immediately.
+    Do NOT call the tool again.
+  agent: animation_bar_merge_specialist
+
+packaging_generate_narration:
+  description: >
+    Generate CC narration text file and translate it to {yt_cc_lang} languages for {topic}.
+    Saves: {output_dir}/cc_en.txt and {output_dir}/YT/{video_style}/[fmt]/CC/*.txt
+    Call the YouTube Narration Generator tool with EXACTLY these values:
+      topic: "{topic}"
+      filename: "{filename}"
+      output_dir: "{output_dir}"
+      start_year: {start}
+      end_year: {end}
+      channel: "{channel}"
+      video_formats: {video_formats}
+      video_style: {video_style}
+      yt_cc_lang: {yt_cc_lang}
+      animation_video_formats: []
+    CRITICAL: Call the tool ONCE only. The moment the tool returns ANY output,
+    use it immediately as your Final Answer. Do NOT retry, do NOT call the
+    tool a second time regardless of what the output says.
+  expected_output: >
+    Confirmation that narration text was saved and CC translations completed.
+    Return the exact tool output as your final answer.
+  agent: packaging_yt_narration_specialist
+
+packaging_generate_yt_metadata:
+  description: >
+    Generate YouTube title, description, tags, chapters and translate metadata
+    to {yt_metadata_lang} languages for {topic}.
+    Saves: {output_dir}/YT/{video_style}/[fmt]/MD/en.json + translations.
+    Call the YouTube Metadata Generator tool with EXACTLY these values:
+      topic: "{topic}"
+      filename: "{filename}"
+      output_dir: "{output_dir}"
+      start_year: {start}
+      end_year: {end}
+      channel: "{channel}"
+      channel_lower: "{channel_lower}"
+      website: "{website}"
+      video_formats: {video_formats}
+      video_style: {video_style}
+      fps: {fps}
+      fps_hd_offset: {fps_hd_offset}
+      n_periods: 0
+      csv_path: "{output_dir}/{filename}.csv"
+      yt_metadata_lang: {yt_metadata_lang}
+      animation_video_formats: []
+    CRITICAL: Call the tool ONCE only. The moment the tool returns ANY output,
+    use it immediately as your Final Answer. Do NOT retry, do NOT call the
+    tool a second time regardless of what the output says.
+  expected_output: >
+    Confirmation that YouTube metadata files were saved per format.
+    Return the exact tool output as your final answer.
+  agent: packaging_yt_metadata_specialist
+
+packaging_generate_thumbnail:
+  description: >
+    Generate PNG and JPG thumbnail images (1920x1080 HD / 1080x1920 Shorts) for {topic}.
+    Saves: {output_dir}/YT/{video_style}/[fmt]/Th/{filename}.png and .jpg
+    Call the YouTube Thumbnail Generator tool with EXACTLY these values:
+      topic: "{topic}"
+      filename: "{filename}"
+      output_dir: "{output_dir}"
+      start_year: {start}
+      end_year: {end}
+      channel: "{channel}"
+      video_formats: {video_formats}
+      video_style: {video_style}
+      csv_path: "{output_dir}/{filename}.csv"
+      animation_video_formats: []
+    CRITICAL: Call the tool ONCE only. The moment the tool returns ANY output,
+    use it immediately as your Final Answer. Do NOT retry, do NOT call the
+    tool a second time regardless of what the output says.
+  expected_output: >
+    Confirmation that PNG and JPG thumbnails were saved per format.
+    Return the exact tool output as your final answer.
+  agent: packaging_yt_thumbnail_specialist
+
+# ─────────────────────────────────────────────────────────────
+# Unit: Publisher
+# ─────────────────────────────────────────────────────────────
+publisher_upload_to_youtube:
+  description: >
+    Upload final merged videos and/or CC subtitle files to YouTube for {topic}.
+
+    ⚠️ IMPORTANT — DO NOT decide to skip based on upload_youtube_video alone.
+    You MUST always call the YouTube Upload Tool. The tool itself handles all skip logic:
+      - If upload_youtube_video=false AND upload_cc=false → tool returns skip message
+      - If upload_youtube_video=false AND upload_cc=true  → CC/MD-only mode: updates CC
+        and metadata localizations on the existing YouTube video (topic IS the video ID)
+      - If upload_youtube_video=true                      → full video + CC upload
+
+    CRITICAL — call the YouTube Upload Tool with EXACTLY these values:
+      topic: "{topic}"
+      output_dir: "{output_dir}"
+      video_formats: {video_formats}
+      upload_youtube_video: {upload_youtube_video}
+      channel: "{channel}"
+      privacy_status: "{upload_privacy}"
+      category_id: "{upload_category_id}"
+      upload_cc: {upload_cc}
+      upload_cc_lang: "{upload_cc_lang}"
+      upload_md_lang: "{upload_md_lang}"
+      notify_subscribers: {upload_notify_subscribers}
+      client_secrets_file: "{upload_client_secrets_file}"
+      token_file: "{upload_token_file}"
+
+    The tool will (per format in video_formats):
+      1. If upload_youtube_video=true: locate and upload {channel}_{topic_slug}_[fmt].mp4
+      2. If upload_youtube_video=false and upload_cc=true: use topic as YouTube video ID directly
+      3. Upload CC files from {output_dir}/YT/debate/[fmt]/CC/ (or YT/[fmt]/CC/ fallback)
+      4. Upload MD localizations from {output_dir}/YT/debate/[fmt]/MD/ (up to upload_md_lang limit)
+      5. Save upload log to {output_dir}/YT/debate/[fmt]/upload_log.json
+
+    ⚠️ CRITICAL WORKFLOW — FOLLOW EXACTLY:
+
+    STEP 1: Call the YouTube Upload Tool NOW with the parameters above.
+
+    STEP 2: WAIT for the tool to complete (may take 30-120 seconds).
+      - The tool will upload video, CC files, and metadata
+      - The tool will return a summary starting with "✅ YouTube Upload"
+
+    STEP 3: Return the tool's EXACT output as your Final Answer.
+      - DO NOT modify the output
+      - DO NOT add commentary
+      - DO NOT call the tool again
+      - DO NOT return the tool CALL — return the tool RESULT
+
+    ⚠️ FORBIDDEN:
+      - Returning {"name": "publisher_yt_upload", "arguments": {...}}
+      - Skipping the tool call
+      - Calling the tool multiple times
+
+    Smart skip: If an upload_log.json already contains a video_id for a format, that format is skipped.
+    Once you receive the tool output, return it immediately as your Final Answer.
+
+  expected_output: >
+    The EXACT output from the YouTube Upload Tool, e.g.:
+
+    ✅ YouTube Upload (1 format(s)):
+       • ✅ Shorts: https://youtu.be/bFVFCTSBLSQ (CC: 3 uploaded, 0 skipped | MD: 3 uploaded)
+
+    OR if CC/MD-only mode:
+    ✅ Shorts: https://youtu.be/xxxxx (CC: 2 uploaded, 1 skipped | MD: 3 uploaded)
+
+    OR if skipped:
+    🔇 YouTube upload skipped (upload_youtube_video=false, upload_cc=false).
+
+  agent: publisher_yt_upload_specialist
+  context:
+    - packaging_generate_thumbnail
+
+# ─────────────────────────────────────────────────────────────
+# Unit: Advertise
+# ─────────────────────────────────────────────────────────────
+
+advertise_share_to_social:
+  description: >
+    Post the uploaded YouTube video URL with thumbnail image to configured social media platforms for {topic}.
+    Uses Full HD thumbnails (1920x1080px) in both PNG and JPG formats.
+    Skips automatically if social_share_enabled is false.
+    Smart skip: if {output_dir}/YT/debate/[fmt]/share_log.json already exists with successful posts for that format, skips re-posting.
+
+    CRITICAL — call the Social Share Tool with EXACTLY these values:
+      topic: "{topic}"
+      filename: "{filename}"
+      output_dir: "{output_dir}"
+      social_share_enabled: {social_share_enabled}
+      social_platforms: {social_platforms}
+      video_formats: {video_formats}
+      channel: "{channel}"
+      website: "{website}"
+      image_path: "{output_dir}/{filename}.png"
+      start_year: {start}
+      end_year: {end}
+      video_url: ""
+      dry_run: {social_share_dry_run}
+      schedule_post: {schedule_post}
+      schedule_datetime: "{schedule_datetime}"
+      schedule_timezone: "{schedule_timezone}"
+
+    The tool will:
+      1. Read {output_dir}/YT/debate/[fmt]/upload_log.json to find the uploaded video URL
+      2. Attach thumbnail image (PNG or JPG) from {output_dir}/{filename}.[png|jpg]
+         - PNG: {output_dir}/{filename}.png (lossless, preferred)
+         - JPG: {output_dir}/{filename}.jpg (compressed, fallback)
+         Both are 1920x1080px (Full HD)
+      3. Post to each platform listed in social_platforms with image
+      4. Save results to {output_dir}/YT/debate/[fmt]/share_log.json and share_log.txt
+
+    Thumbnails: Full HD (1920x1080px) generated by generate_thumbnail task
+      - PNG: {output_dir}/{filename}.png
+      - JPG: {output_dir}/{filename}.jpg
+
+    Credentials are read from data/social_credentials.json.
+    If missing, the tool auto-creates a template file — fill it in and re-run.
+    Once you receive the tool output, return it immediately as your Final Answer.
+
+  expected_output: >
+    Share confirmation per platform with image attachment:
+      ✅ LinkedIn: Posted — post_id: urn:li:share:...
+      ✅ Facebook: Posted — post_id: 123456
+      ✅ X: Tweeted — tweet_id: 1234567890
+    OR skip message if social_share_enabled=false.
+  agent: advertise_social_share_specialist
+  dry_run: {social_share_dry_run}
+
+debate_create_video:
+  description: >
+    Create a bottom-to-top streaming debate video for {topic} using PRO/CON/Moderator markdown files.
+    This task will automatically skip if debate_video_enabled is false in inputs.
+    Input files used per format (resolved automatically by the tool):
+      Shorts / ShortsHD / Shorts4K → propose-m.md, oppose-m.md, decide-m.md
+      HD / 4K / landscape formats  → propose.md,   oppose.md,   decide.md
+    Fallback: if the format-specific file is missing, the tool falls back to the plain .md file.
+
+    CRITICAL — call the Debate Video Tool with EXACTLY these values:
+      topic: "{topic}"
+      filename: "{filename}"
+      output_dir: "{output_dir}"
+      video_formats: {video_formats}
+      debate_video_enabled: {debate_video_enabled}
+      secs_per_line: {debate_secs_per_line}
+      channel: "{channel}"
+      watermark_enabled: {watermark_enabled}
+      watermark_text: "{watermark_text}"
+      video_fps: {video_fps}
+      tts_engine: "{tts_engine}"
+      tts_voices: {tts_voices}
+      bg_opacity: {debate_bg_opacity}
+      debate_background_enabled: {debate_background_enabled}
+      debate_background_prompt: "{debate_background_prompt}"
+      image_gen_backend: "{image_gen_backend}"
+
+    Output files per format in {output_dir}/:
+      debate_video_[format].mp4              (silent video)
+      debate_video_[format]_audio.mp3        (TTS audio)
+      debate_video_[format]_with_audio.mp4   (final merged)
+      debate_video_[format]_cc_en.txt        (narration text)
+
+  expected_output: >
+    List of debate video files created per format, OR skip message if disabled.
+    Example: "✅ Shorts: debate_video_Shorts_with_audio.mp4 (4500 KB)  Duration: 120.0s"
+  agent: debate_video_producer
+
+
+debate_create_video_m:
+  description: >
+    Create a Shorts-only debate video for {topic} using the 180s mobile scripts
+    (propose-m.md, oppose-m.md, decide-m.md). The tool selects -m files automatically
+    for Shorts format. Skips if debate_video_enabled is false.
+
+    CRITICAL — call the Debate Video Tool with EXACTLY these values:
+      topic: "{topic}"
+      filename: "{filename}"
+      output_dir: "{output_dir}"
+      video_formats: ["Shorts"]
+      debate_video_enabled: {debate_video_enabled}
+      secs_per_line: {debate_secs_per_line}
+      channel: "{channel}"
+      watermark_enabled: {watermark_enabled}
+      watermark_text: "{watermark_text}"
+      video_fps: {video_fps}
+      tts_engine: "{tts_engine}"
+      tts_voices: {tts_voices}
+      bg_opacity: {debate_bg_opacity}
+      debate_background_enabled: {debate_background_enabled}
+      debate_background_prompt: "{debate_background_prompt}"
+      image_gen_backend: "{image_gen_backend}"
+
+    Output files in {output_dir}/:
+      debate_video_Shorts.mp4
+      debate_video_Shorts_audio.mp3
+      debate_video_Shorts_with_audio.mp4
+
+  expected_output: >
+    Shorts debate video created from -m scripts.
+    Example: "✅ Shorts: debate_video_Shorts_with_audio.mp4 (2100 KB)  Duration: 58.0s"
+  agent: debate_video_producer
+
+# ─────────────────────────────────────────────────────────────
+# MINI DEBATE TASKS  (-m.md)
+# Target audio duration: 1–1.30 min per section (≈ 120–180 words each)
+# Output files: propose-m.md / oppose-m.md / decide-m.md
+# ─────────────────────────────────────────────────────────────
+
+debate_propose_m:
+  description: >
+    You are proposing the motion: "{topic}".
+    Write SHORT, punchy arguments IN FAVOR for the @{channel} channel.
+    Format your response EXACTLY like this with blank lines between sections:
+
+    PROPOSITION: {topic}
+
+    OPENING STATEMENT
+
+    [1 sentence establishing your position clearly]
+
+    Argument 1: [Title]
+    [1 sentence with evidence and reasoning]
+
+    Argument 2: [Title]
+    [1 sentence with evidence and reasoning]
+
+    Argument 3: [Title]
+    [1 sentence with evidence and reasoning]
+
+    CONCLUSION
+
+    [1 sentence summarizing why the motion should be upheld]
+
+    Write ONLY the argument text — no tool calls, no JSON, no code.
+    RULES:
+    - 100–150 words total
+    - Under {debate_mini_max_chars}
+    - Keep sentences short and punchy
+    - Add blank line between each section
+  expected_output: >
+    Full proposition argument as plain text, starting with "PROPOSITION: {topic}".
+    Must be under {debate_mini_max_chars}. No tool calls or JSON.
+  agent: debate_debater_m
+  output_file: "{output_dir}/debate/propose-m.md"
+
+debate_oppose_m:
+  description: >
+    You are opposing the motion: "{topic}".
+    Write SHORT, punchy arguments AGAINST for the @{channel} channel.
+    Format your response EXACTLY like this with blank lines between sections:
+
+    OPPOSITION:  {topic} , Disagree!
+
+    OPENING STATEMENT
+    [1 sentence establishing your counter-position clearly]
+
+    Counter-Argument 1: [Title]
+    [1 sentence with evidence and reasoning]
+
+    Counter-Argument 2: [Title]
+    [1 sentence with evidence and reasoning]
+
+    Counter-Argument 3: [Title]
+    [1 sentence with evidence and reasoning]
+
+    CONCLUSION
+    [1 sentence summarizing why the motion should be rejected]
+
+    Write ONLY the argument text — no tool calls, no JSON, no code.
+    RULES:
+    - 80–130 words total
+    - Under {debate_mini_max_chars}
+    - Keep sentences short and punchy
+    - Add blank line between each section
+  expected_output: >
+    Full opposition argument as plain text, starting with "OPPOSITION: {topic}".
+    Must be under {debate_mini_max_chars}. No tool calls or JSON.
+  agent: debate_debater_m
+  context:
+    - debate_propose_m
+  output_file: "{output_dir}/debate/oppose-m.md"
+
+debate_decide_m:
+  description: >
+    You are compressing the HD verdict for mobile Shorts format.
+    Topic: "{topic}"
+
+    The HD judge has already decided the winner: {hd_winner} WINS.
+    Your job is NOT to re-judge — just write a punchy, Shorts-friendly
+    version that reflects THIS EXACT winner.
+
+    CRITICAL: DO NOT USE ## MARKDOWN. Use plain headers.
+
+    Copy this EXACT format with blank lines:
+
+    VERDICT: {topic}
+
+    SUMMARY
+
+    PROPOSITION: [1 sentence — PRO side's strongest claim]
+
+    OPPOSITION: [1 sentence — CON side's strongest claim]
+
+    ANALYSIS
+
+    [1 sentences comparing both sides. Do NOT declare winner yet.]
+
+
+    DECISION
+
+    {hd_winner} WINS.
+    [Then 1  decisive sentences using words like "crushes", "dismantles",
+     "outweighs", "lands the knockout".]
+
+    CRITICAL RULES:
+    - The DECISION line MUST be EXACTLY "{hd_winner} WINS." — do not change it
+    - If hd_winner is "UNKNOWN", fall back to picking a winner yourself
+      (never DRAW in Shorts)
+    - DO NOT write "## SUMMARY" or "## ANALYSIS" or "## DECISION"
+    - Write plain text: "SUMMARY", "ANALYSIS", "DECISION"
+    - Blank line AFTER VERDICT
+    - Blank line BEFORE and AFTER each section heading
+    - 40-100 words total
+    - Under {debate_mini_max_chars} characters
+
+  expected_output: >
+    Short verdict matching the HD winner exactly, compressed for mobile.
+
+  agent: debate_judge_m
+  context:
+    - debate_propose_m
+    - debate_oppose_m
+  output_file: "{output_dir}/debate/decide-m.md"
+
+# ─────────────────────────────────────────────────────────────
+# FULL-LENGTH DEBATE TASKS  (standard .md)
+# ─────────────────────────────────────────────────────────────
+debate_propose:
+  description: >
+    You are proposing the motion: "{topic}".
+    Write compelling, well-structured arguments IN FAVOR for the @{channel} channel.
+    Format your response EXACTLY like this with blank lines between sections:
+
+    PROPOSITION: {topic}
+
+    OPENING STATEMENT
+
+    [1-3 sentences establishing your position clearly]
+
+    Argument 1: [Title]
+    [1-4 sentences with evidence and reasoning]
+
+    Argument 2: [Title]
+    [1-4 sentences with evidence and reasoning]
+
+    Argument 3: [Title]
+    [1-3 sentences with evidence and reasoning]
+
+    CONCLUSION
+
+    [1-3 sentences summarizing why the motion should be upheld]
+
+    Keep total response under {debate_max_chars} characters.
+    Write ONLY the argument text — no tool calls, no JSON, no code.
+    IMPORTANT: Add a blank line between each section for readability.
+  expected_output: >
+    Full proposition argument as plain text, starting with "PROPOSITION: {topic}".
+    Must be under {debate_max_chars} characters. No tool calls or JSON.
+  agent: debate_debater
+  output_file: "{output_dir}/debate/propose.md"
+
+debate_oppose:
+  description: >
+    You are opposing the motion: "{topic}".
+    Write compelling, well-structured arguments AGAINST for the @{channel} channel.
+    Format your response EXACTLY like this with blank lines between sections:
+
+    OPPOSITION: {topic} , Disagree!
+
+    OPENING STATEMENT
+
+    [1-3 sentences establishing your counter-position clearly]
+
+    Counter-Argument 1: [Title]
+    [1-4 sentences with evidence and reasoning]
+
+    Counter-Argument 2: [Title]
+    [1-4 sentences with evidence and reasoning]
+
+    Counter-Argument 3: [Title]
+    [1-3 sentences with evidence and reasoning]
+
+    CONCLUSION
+
+    [1-3 sentences summarizing why the motion should be rejected]
+
+    Keep total response under {debate_max_chars} characters.
+    Write ONLY the argument text — no tool calls, no JSON, no code.
+    IMPORTANT: Add a blank line between each section for readability.
+  expected_output: >
+    Full opposition argument as plain text, starting with "OPPOSITION: {topic}".
+    Must be under {debate_max_chars} characters. No tool calls or JSON.
+  agent: debate_debater
+  context:
+    - debate_propose
+  output_file: "{output_dir}/debate/oppose.md"
+
+debate_decide:
+  description: >
+    You are the judging panel for the debate on: "{topic}".
+
+    CRITICAL: DO NOT USE ## MARKDOWN HEADERS. Use plain text headers.
+
+    Copy this EXACT structure (each line shown is separate):
+
+    VERDICT: {topic}
+
+    SUMMARY
+
+    PROPOSITION: [1-2 sentences summarizing PRO arguments]
+
+    OPPOSITION: [1-2 sentences summarizing CON arguments]
+
+    ANALYSIS
+
+    [1-3 sentences comparing both sides. Identify strongest/weakest claims. Do NOT declare winner.]
+
+    DECISION
+
+    PROPOSITION WINS.
+    [OR] OPPOSITION WINS.
+    [Then 2-3 sentences explaining which side landed the stronger blow, citing ONE specific argument that tipped it.]
+    JUDGING RULES (MANDATORY):
+    - A verdict of "DRAW" is ONLY allowed if both sides are mathematically equal on evidence AND logic AND real-world impact. This is extremely rare (<5% of debates).
+    - If one side had even ONE stronger data point, clearer framing, or more undeniable consequence, that side WINS.
+    - Force yourself to pick a winner. Ties are a failure of analysis, not a legitimate outcome.
+    - Lead with conflict language: "lands the harder blow", "exposes a critical flaw", "dismantles", "undermines", "outweighs".
+    - Avoid hedging words: "both have merit", "it depends", "balanced", "nuanced".
+    FORMAT RULES:
+    - PROPOSITION and OPPOSITION on SEPARATE lines under SUMMARY
+    - Blank line BEFORE each heading (SUMMARY, ANALYSIS, DECISION)
+    - Blank line AFTER each heading
+    - First DECISION sentence must be EXACTLY: "PROPOSITION WINS." or "OPPOSITION WINS." (DRAW only in true ties)
+    - Under {debate_max_chars} characters
+  expected_output: >
+    Verdict with proper spacing and exact format.
+  agent: debate_judge
+  context:
+    - debate_propose
+    - debate_oppose
+  output_file: "{output_dir}/debate/decide.md"
+# ─────────────────────────────────────────────────────────────
+# DEBATE DEFINITION TASK — compresses & saves all .md files
+# Replaces the post_process_from_disk() call that was in main.py
+# ─────────────────────────────────────────────────────────────
+debate_create_definition:
+  description: >
+    Compress and save all debate text files for {topic}.
+    This task runs only when debate_definition_enabled=true. If false, skip.
+
+    CRITICAL — NEVER call DataDefinition — it is forbidden for this task,Call ONLY the DebateDefinition tool with EXACTLY these values:
+      topic: "{topic}"
+      filename: "{filename}"
+      output_dir: "{output_dir}"
+      propose_text: ""
+      oppose_text: ""
+      decide_text: ""
+      debate_definition_enabled: {debate_definition_enabled}
+      channel: "{channel}"
+      debate_max_chars: {debate_max_chars}
+      lang_suffix: ""
+      use_label_mappings: {use_label_mappings}  # ✅ MUST BE INCLUDED
+      force_regenerate: false
+
+    ⚠️  CRITICAL: Call ONLY the DebateDefinition tool. NEVER call DataDefinition — it is forbidden for this task.
+
+    ⚠️  CRITICAL: Call ONLY the DebateDefinition tool. NEVER call DataDefinition — it is forbidden for this task.
+
+    ⚠️  CRITICAL: Call ONLY the DebateDefinition tool. NEVER call DataDefinition — it is forbidden for this task.
+
+    The tool reads propose.md / oppose.md / decide.md from {output_dir}
+    automatically when propose_text / oppose_text / decide_text are empty.
+    Smart skip: if all 6 files already exist and are non-empty, returns immediately.
+
+    Output files in {output_dir}/:
+      Full (HD)  : propose.md  oppose.md  decide.md
+      Mobile (-m): propose-m.md              oppose-m.md              decide-m.md
+
+
+  expected_output: >
+    Confirmation of all 6 debate files written with char counts,
+    OR smart-skip message if all files already exist,
+    OR error if source .md files are missing.
+    Example: "Debate files generated in 0.3s\n\nPROPOSE: 1820 -> 1650 chars..."
+  agent: debate_definition_specialist
+  context:
+    - debate_propose
+    - debate_oppose
+    - debate_decide
+
+# ✅ NEW: Debate Merge Task (ADDED - DO NOT REMOVE)
+debate_merge:
+  description: >
+    Concatenate intro + debate video segments WITH AUDIO into a single final MP4 per format.
+    This task will automatically skip if debate_merge_enabled is false in inputs.
+
+    CRITICAL — You MUST call the Debate Merge Tool with EXACTLY these values:
+      output_dir: "{output_dir}"
+      video_formats: {video_formats}
+      debate_merge_enabled: {debate_merge_enabled}
+      channel: "{channel}"
+      topic: "{topic}"
+      topic_slug: "{topic_slug}"
+      lang_suffix: ""
+
+    WARNING: Do NOT use output from previous tasks as your answer.
+    You MUST actually call the Debate Merge Tool right now.
+    Do NOT fabricate, assume, or reuse any prior output.
+    The tool produces a DIFFERENT file than debate_video — it creates the final
+    merged {channel}_{topic_slug}_[fmt].mp4 file.
+    Call the tool ONCE and return its exact output as your Final Answer immediately.
+    Any output containing "completed", "skipped", "SUCCESS", or "✅" means the tool
+    finished — return it immediately as your Final Answer without calling again.
+  expected_output: >
+    The raw output from the Debate Merge Tool, e.g.:
+    ✅ COMPLETE: 1/1 formats merged
+    ✅ HD: PlayOwnAi_Debate_Is_Python_King_Still_HD_En.mp4 (XX.X MB)
+  agent: debate_merge_specialist
+
+debate_generate_scores:
+  description: >
+    Read the three debate files for "{topic}" from {output_dir}/debate/:
+    propose.md, oppose.md, decide.md.
+
+    Assign integer scores between 8 and 20 to each row below, reflecting
+    who won that specific round (not overall). Use the final DECISION line
+    in decide.md ("PROPOSITION WINS.", "OPPOSITION WINS.", or "DRAW.") to
+    bias the totals so the declared winner has a higher total score.
+
+    Extract short titles from each "Argument N:" heading in propose.md and
+    each "Counter-Argument N:" heading in oppose.md. Keep each title under
+    42 characters.
+
+    Output ONLY a raw JSON object (no markdown fences, no prose) with this
+    exact shape:
+
+    {{
+      "opening": {{ "pro": INT, "con": INT, "pro_title": "General", "con_title": "General" }},
+      "args": [
+        {{ "pro": INT, "con": INT, "pro_title": "STRING", "con_title": "STRING" }}
+      ],
+      "totals": {{ "pro": INT_SUM_OF_PRO, "con": INT_SUM_OF_CON }},
+      "winner": "propose"
+    }}
+
+    Where:
+      - INT is any integer from 8 to 20.
+      - "winner" must be one of: "propose", "oppose", "draw".
+      - "totals" must equal the arithmetic sum of opening plus args scores.
+      - The winner's total must be strictly greater than the loser's total.
+        For a draw, totals must be equal.
+      - Only include rows that actually appear in the source files (usually
+        3 argument pairs for HD).
+
+  expected_output: >
+    A single JSON object, parseable with json.loads().
+
+  agent: debate_score_analyst
+  output_file: "{output_dir}/debate/scores.json"
+
+# ── Unit-Publisher ────────────────────────────────────────────────────────
+publisher_upload_to_facebook:
+  description: >
+    Upload final merged videos to the Facebook Page for {topic}.
+    Shorts → Facebook Reels. HD → Facebook Video.
+    Skips automatically if upload_facebook_video is false.
+
+    CRITICAL — call the Facebook Upload Tool with EXACTLY these values:
+      topic: "{topic}"
+      output_dir: "{output_dir}"
+      video_formats: {video_formats}
+      upload_facebook_video: {upload_facebook_video}
+      channel: "{channel}"
+      privacy_status: "{fb_privacy_status}"
+      credentials_file: "{fb_credentials_file}"
+
+    The tool will (per format in video_formats):
+      1. Locate {channel}_{topic_slug}_[fmt].mp4 in {output_dir}
+      2. Read metadata from {output_dir}/YT/debate/[fmt]/MD/en.json
+      3. Shorts → upload as Facebook Reel
+         HD     → upload as Facebook Video
+      4. Save fb_upload_log.json to {output_dir}/YT/debate/[fmt]/
+
+    Smart skip: If fb_upload_log.json already contains a video_id, that format is skipped.
+    Once you receive the tool output, return it immediately as your Final Answer.
+
+  expected_output: >
+    Upload confirmation per format with Facebook video URLs:
+      ✅ Shorts: https://www.facebook.com/video/abc123
+      ✅ HD: https://www.facebook.com/video/xyz456
+    OR skip/already-uploaded message.
+  agent: publisher_fb_upload_specialist
+
+# ── Unit-Prodcast Tasks ─────────────────────────────────────────────────
+prodcast_write_script:
+  description: >
+    Write a complete podcast script for the topic: "{topic}".
+    Format as Host/Guest dialogue optimized for Edge TTS via TTSService.
+
+    REQUIRED HEADER (first 4 lines, exactly):
+    # Podcast Script: {topic}
+    # Format: Host/Guest Dialogue
+    # Host: {prodcast_host_name} ({prodcast_voice_host})
+    # Guest: {prodcast_guest_name} ({prodcast_voice_guest})
+
+    Then a blank line, then a short intro line:
+    {prodcast_short_intro}
+
+    Then a blank line, then the dialogue. Each line must start with
+    either "Host:" or "Guest:" followed by one paragraph of speech.
+
+    EPISODE FOCUS:
+    {focus}
+
+    If Focus is provided above, make it the central thread of the entire conversation.
+    Build all examples, stories, and practical steps around this focus.
+    If Focus is empty, use a standard broad exploration of the topic.
+
+    Voice roles:
+      - Host ({prodcast_host_name}) → opens, asks questions, summarises, closes
+      - Guest ({prodcast_guest_name}) → expert who explains, gives examples, takes positions
+
+    Length: 20-26 exchanges total (roughly 1,400-1,700 words of dialogue).
+    Target audio length: approximately 10 minutes at normal speaking pace with breathing pauses.
+    Each exchange should be 65 to 85 words to maintain depth without rushing.
+
+    TTS articulation and emotional depth requirements:
+    - Write for Edge TTS (en-US-AriaNeural for Host, en-US-GuyNeural or en-US-AndrewNeural for Guest)
+    - Use punctuation-based pacing: ellipses... for breathing pauses, commas for micro-gaps
+    - Expand each answer with one concrete story, one practical step, and one reflective question
+    - Avoid summarizing too quickly, allow the Guest to elaborate for 3 to 4 sentences per turn
+    - Keep the Host questions open ended to invite longer responses
+    - Keep sentences short, 8 to 14 words, one idea per sentence
+    - For EVERY Company, Person, or important Noun, write it in phonetic spoken form using the pattern of "Scale 3-6-0 A.I."
+      * separate words with spaces
+      * separate numbers with hyphens
+      * separate acronym letters with periods
+      * examples: "OpenAI" becomes "Open A.I.", "iPhone15" becomes "iPhone 1-5", "NASA" becomes "N.A.S.A."
+    - Italicize key emotional terms using *word* for subtle inflection shift
+    - Avoid semicolons and rushed connectors, prefer period breaks
+    - Vary rhythm: pause before important terms, use trailing pauses for reflection
+
+    Dynamic variables (never hardcode):
+    - Use @{channel} for podcast name
+    - Use {prodcast_guest_name} for guest's full name, already in spoken form
+    - Use {guestCompany} for guest's company or product, already in "Scale 3-6-0 A.I." form
+    - Use {prodcast_host_name} and {prodcast_guest_name} for speaker labels
+
+    Example enhanced intro:
+    Host: Welcome back to @{channel}... everyone. Today, we're diving into a topic that touches every single one of us, *emotional intelligence* in relationships. I'm your host, {prodcast_host_name}... and I'm thrilled, truly thrilled, to have {prodcast_guest_name} with us today. {prodcast_guest_name} is a professional coach, AI entrepreneur... and the founder of {guestCompany}.
+
+    Orchestrator hints for prodcast_voice_generator.py:
+    - Set prodcast_pause_between_lines_ms to 600-800 for natural breathing room
+    - Keep audio_speed at 0.95 for warmer articulation
+    - Use rate_pct 0 to preserve emotional nuance
+
+    Tone: conversational, warm, emotionally present, no stage directions,
+    no markdown bullets, no headings inside dialogue body,
+    no parenthetical cues like (laughs) or [pause].
+
+  expected_output: >
+    A markdown file with the 4-line header, intro line, followed by alternating
+    Host:/Guest: lines, one paragraph each, written with punctuation-based
+    breathing pauses and with every Company, Person, or Noun rendered in
+    "Scale 3-6-0 A.I." phonetic form for Edge TTS.
+
+# ── Unit-Classroom Tasks ─────────────────────────────────────────────────
+create_classroom_script:
+  description: >
+    Write a full classroom dialogue for topic: {topic}.
+    Roles: [T1] Teacher1 (male lead), [T2] Teacher2 (female simplifier),
+    [S1-F] Curious, [S2-M] Smart, [S3-F] Confused, [S4-M] Creative,
+    [S5-F] Funny, [S6-M] Doubter, [S7-F] Quiet, [S8-M] Beginner.
+
+    REQUIRED STRUCTURE in this exact order:
+
+    [T1] Teacher1: Lesson Goal —
+    One sentence stating what kids will learn.
+
+    [T2] Teacher2: Today you will learn —
+    3-4 bullet points in kid-friendly language listing specific skills or knowledge.
+
+    [T1] Teacher1: Before we start, think —
+    2-3 short questions to spark curiosity before the lesson begins.
+
+    [PHASE:hook]
+    [PHASE:explain]
+    [PHASE:interaction]
+    [PHASE:example]
+    [PHASE:reinforcement]
+    [PHASE:fun_fact]
+    [PHASE:recap_quiz]
+
+    [QUIZ]
+    3 numbered questions with answers in (parentheses).
+
+    [KEY POINTS]
+    3-4 bullet takeaways.
+
+    [T2] Teacher2:
+    One warm closing sentence from a teacher to leave kids feeling good.
+
+    Rules: max 12 words per line, grade 3-5 vocabulary, every student speaks
+    at least once, 3-5 students active per phase.
+  expected_output: >
+    Full script saved to {classroom_dir}/script.md with all sections in order:
+    LESSON GOAL, LEARNING OBJECTIVES, PRE-THINK, 7 PHASES, QUIZ, KEY POINTS,
+    EMOTIONAL CLOSURE.
+  agent: classroom_script_writer
+  output_file: "{classroom_dir}/script.md"
+ 
+# ── Unit-LeadData Tasks ─────────────────────────────────────────────────
+unit_leaddata:
+  description: >
+    Execute the dynamic, multi-source Unit-LeadData pipeline for topic: {topic}.
+  expected_output: >
+    Completion status string. Output files in leaddata/ directory.
+  agent: leaddata_specialist
+  config:
+    leaddata_config:
+      enabled: true
+
+      # ── NEW CATEGORIZED SOURCES ────────────────────────────────
+      location_sources: ["google_maps", "maps_reviewers"]
+      directory_sources: []
+      community_sources: ["reddit_travel"]
+      trend_sources: []
+
+      # ── SHARED CONFIGURATION ──────────────────────────────────
+      credentials_file: "serpapi.json"
+      skip_if_cached: false # Set to false for testing
+
+      # Global Geo-Context
+      geo_config:
+        phone_country_prefix: ""
+        phone_country_default: ""
+        hl: ""
+
+      # Tool-specific overrides (passes kwargs directly to the tools)
+      tool_overrides:
+        google_maps:
+          require_phone: true
+          require_website: false
+          max_results_per_keyword: 20
+        reddit_travel:
+          subreddits: ["travel", "solotravel", "allinclusive"]
+          min_karma: 50
+          post_recency_days: 30
+
+      # ── STANDARD PROCESSING PIPELINE ──────────────────────────
+      normalize_config:
+        deduplicate_on: ["name"]
+        phone_country_default: "" # Auto-detected if left blank
+        lowercase_email: true
+      score_config:
+        score_enabled: true
+        segment_thresholds: { "hot": 60, "warm": 35, "cold": 0 }
+      enrich_enabled: false
+      export_config:
+        formats: ["csv", "json"]
+        generate_stats: true

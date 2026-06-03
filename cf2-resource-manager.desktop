@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=CF2 Resource Manager
+Comment=Kill media players, nice other apps, protect IDEs
+Exec=bash /home/claude/cf2_resource_manager_auto.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
